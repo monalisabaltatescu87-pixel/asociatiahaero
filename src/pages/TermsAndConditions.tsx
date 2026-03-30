@@ -1,5 +1,6 @@
 import SEO from '../components/SEO';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TermsAndConditions: React.FC = () => {
   return (
@@ -41,7 +42,7 @@ const TermsAndConditions: React.FC = () => {
             <div>
               <h3 className="text-xl font-bold text-haero-dark mb-3">3. Protecția datelor personale</h3>
               <p className="text-haero-gray-500">
-                Datele personale sunt prelucrate în conformitate cu legislația aplicabilă privind protecția datelor și cu <a href="#/politica-confidentialitate" className="text-haero-yellow-600 hover:underline">Politica de Confidențialitate</a> disponibilă pe site.
+                Datele personale sunt prelucrate în conformitate cu legislația aplicabilă privind protecția datelor și cu <Link to="/politica-confidentialitate" className="text-haero-yellow-600 hover:underline">Politica de Confidențialitate</Link> disponibilă pe site.
               </p>
             </div>
 
