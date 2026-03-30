@@ -2,16 +2,17 @@ import React from 'react';
 
 const GetInvolved: React.FC = () => {
   return (
-    <section id="implica-te" className="py-20 bg-gradient-to-br from-haero-red/5 via-haero-yellow/5 to-haero-blue/5">
+    <section id="comunitate" className="py-20 bg-gradient-to-br from-haero-red/5 via-haero-yellow/5 to-haero-blue/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
-            Implică-te
+            Comunitate
           </h2>
           <div className="w-20 h-1 bg-haero-yellow mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            Fiecare contribuție contează. Iată cum poți face diferența în viața
-            pacienților cu HAE.
+            În această călătorie, responsabilitatea poate fi egal împărțită între toți
+            cei care doresc să se implice. Fie că ești pacient sau cunoști pe cineva
+            diagnosticat cu această boală rară, povestea ta merită să fie ascultată.
           </p>
         </div>
 
@@ -19,19 +20,20 @@ const GetInvolved: React.FC = () => {
           <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow text-center">
             <div className="w-20 h-20 bg-haero-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-haero-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-haero-dark mb-3">Voluntariat</h3>
+            <h3 className="text-xl font-bold text-haero-dark mb-3">Grupul de Facebook</h3>
             <p className="text-gray-600 mb-6">
-              Devino voluntar și ajută-ne să organizăm evenimente, campanii de
-              conștientizare și activități de suport.
+              Am creat un grup de Facebook în care pacienții și aparținătorii pot comunica
+              deschis, pot pune întrebări și pot primi răspunsuri de la persoane care au
+              parte de experiențe asemănătoare.
             </p>
             <a
               href="#contact"
               className="inline-block bg-haero-yellow text-haero-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition-colors"
             >
-              Devino Voluntar
+              Alătură-te
             </a>
           </div>
 
@@ -43,14 +45,15 @@ const GetInvolved: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold text-haero-dark mb-3">Distribuie</h3>
             <p className="text-gray-600 mb-6">
-              Ajută-ne să răspândim mesajul. Distribuie informații despre HAE
-              în comunitatea ta.
+              Ajută-ne să facem cunoscută această boală rară. Dacă crezi că te identifici
+              cu simptomele specifice AEE sau ești medic și ai nevoie de informații,
+              te invităm să ne contactezi.
             </p>
             <a
               href="#contact"
               className="inline-block bg-haero-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
             >
-              Află Mai Multe
+              Contactează-ne
             </a>
           </div>
         </div>

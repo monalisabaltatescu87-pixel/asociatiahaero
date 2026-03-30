@@ -6,9 +6,9 @@ const Navbar: React.FC = () => {
 
   const links = [
     { href: '#despre', label: 'Despre Noi' },
-    { href: '#hae', label: 'Ce este HAE?' },
+    { href: '#hae', label: 'Ce este AEE?' },
     { href: '#misiune', label: 'Misiunea Noastră' },
-    { href: '#implica-te', label: 'Implică-te' },
+    { href: '#comunitate', label: 'Comunitate' },
     { href: '#contact', label: 'Contact' },
   ];
 

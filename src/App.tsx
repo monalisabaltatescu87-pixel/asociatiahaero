@@ -5,7 +5,6 @@ import About from './components/About';
 import WhatIsHAE from './components/WhatIsHAE';
 import Mission from './components/Mission';
 import GetInvolved from './components/GetInvolved';
-
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
