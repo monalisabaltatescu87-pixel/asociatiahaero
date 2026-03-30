@@ -62,18 +62,6 @@ const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-haero-dark mb-1">Președinte</h3>
-                  <p className="text-haero-gray-500">Mircea Stan</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-haero-yellow-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-haero-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <div>
                   <h3 className="font-bold text-haero-dark mb-1">Vicepreședinte</h3>
                   <p className="text-haero-gray-500">Ana Maria Bălțătescu</p>
                 </div>
