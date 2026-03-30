@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
             <Logo size={48} />
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-haero-dark">HAERO</span>
-              <p className="text-xs text-gray-500">Asociația Pacienților cu Angioedem Ereditar</p>
+              <p className="text-xs text-gray-500">Asociația pentru Angioedem Ereditar</p>
             </div>
           </a>
 

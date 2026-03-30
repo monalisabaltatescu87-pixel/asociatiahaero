@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
               <Logo size={40} />
               <div>
                 <span className="text-lg font-bold">HAERO</span>
-                <p className="text-gray-400 text-xs">Asociația Pacienților cu Angioedem Ereditar</p>
+                <p className="text-gray-400 text-xs">Asociația pentru Angioedem Ereditar</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm">

@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
           Asociația <span className="text-haero-red">HAERO</span>
         </h1>
         <p className="text-xl sm:text-2xl text-gray-600 mb-4">
-          Asociația Pacienților cu Angioedem Ereditar din România
+          Asociația pentru Angioedem Ereditar
         </p>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
           O comunitate a cărei voce să devină vocea comună a tuturor pacienților
