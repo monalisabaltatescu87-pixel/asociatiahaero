@@ -6,9 +6,9 @@ const Navbar: React.FC = () => {
 
   const links = [
     { href: '#despre', label: 'Despre Noi' },
-    { href: '#hae', label: 'Ce este HAE?' },
+    { href: '#hae', label: 'Ce este AEE?' },
     { href: '#misiune', label: 'Misiunea Noastră' },
-    { href: '#implica-te', label: 'Implică-te' },
+    { href: '#comunitate', label: 'Comunitate' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
             <Logo size={48} />
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-haero-dark">HAERO</span>
-              <p className="text-xs text-gray-500">Asociația pentru Angioedem Ereditar</p>
+              <p className="text-xs text-gray-500">Asociația Pacienților cu Angioedem Ereditar</p>
             </div>
           </a>
 
@@ -35,12 +35,6 @@ const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#doneaza"
-              className="bg-haero-red text-white px-5 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors text-sm"
-            >
-              Donează
-            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -72,13 +66,6 @@ const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#doneaza"
-              className="block mx-4 mt-2 text-center bg-haero-red text-white px-5 py-2 rounded-full font-semibold"
-              onClick={() => setIsOpen(false)}
-            >
-              Donează
-            </a>
           </div>
         )}
       </div>

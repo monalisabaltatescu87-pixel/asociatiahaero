@@ -12,11 +12,12 @@ const Hero: React.FC = () => {
           Asociația <span className="text-haero-red">HAERO</span>
         </h1>
         <p className="text-xl sm:text-2xl text-gray-600 mb-4">
-          Asociația pentru Angioedem Ereditar
+          Asociația Pacienților cu Angioedem Ereditar din România
         </p>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-          Suntem alături de pacienții cu Angioedem Ereditar (HAE) din România,
-          oferind sprijin, informare și speranță.
+          O comunitate a cărei voce să devină vocea comună a tuturor pacienților
+          cu această boală rară. Fiecare pacient cu angioedem ereditar are nevoie
+          să se simtă înțeles, acceptat și motivat.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -26,10 +27,10 @@ const Hero: React.FC = () => {
             Descoperă Misiunea Noastră
           </a>
           <a
-            href="#implica-te"
+            href="#comunitate"
             className="bg-white text-haero-red border-2 border-haero-red px-8 py-4 rounded-full text-lg font-semibold hover:bg-haero-red hover:text-white transition-colors"
           >
-            Implică-te
+            Alătură-te Comunității
           </a>
         </div>
       </div>

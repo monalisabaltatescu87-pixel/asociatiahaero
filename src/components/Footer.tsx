@@ -11,12 +11,12 @@ const Footer: React.FC = () => {
               <Logo size={40} />
               <div>
                 <span className="text-lg font-bold">HAERO</span>
-                <p className="text-gray-400 text-xs">Asociația pentru Angioedem Ereditar</p>
+                <p className="text-gray-400 text-xs">Asociația Pacienților cu Angioedem Ereditar</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm">
-              Împreună pentru o viață mai bună pentru pacienții cu Angioedem Ereditar
-              din România.
+              Împreună pentru creșterea calității vieții pacienților cu
+              angioedem ereditar din România.
             </p>
           </div>
 
@@ -24,9 +24,9 @@ const Footer: React.FC = () => {
             <h3 className="font-bold mb-4">Linkuri Utile</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><a href="#despre" className="hover:text-white transition-colors">Despre Noi</a></li>
-              <li><a href="#hae" className="hover:text-white transition-colors">Ce este HAE?</a></li>
+              <li><a href="#hae" className="hover:text-white transition-colors">Ce este AEE?</a></li>
               <li><a href="#misiune" className="hover:text-white transition-colors">Misiunea Noastră</a></li>
-              <li><a href="#implica-te" className="hover:text-white transition-colors">Implică-te</a></li>
+              <li><a href="#comunitate" className="hover:text-white transition-colors">Comunitate</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -34,9 +34,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-bold mb-4">Resurse</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><span className="hover:text-white transition-colors cursor-pointer">HAEi (HAE International)</span></li>
-              <li><span className="hover:text-white transition-colors cursor-pointer">Ghid Pacient</span></li>
-              <li><span className="hover:text-white transition-colors cursor-pointer">Politica de Confidențialitate</span></li>
+              <li><a href="https://haei.org" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">HAEi (HAE International)</a></li>
+              <li><a href="https://romania.haei.org" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">HAEi România</a></li>
+              <li><a href="https://www.angioedem.ro" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Centrul de Expertiză AEE</a></li>
             </ul>
           </div>
         </div>

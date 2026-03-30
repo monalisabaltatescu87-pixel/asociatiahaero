@@ -8,8 +8,8 @@ const Mission: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Conștientizare',
-      description: 'Creșterea gradului de conștientizare despre HAE în rândul publicului și al profesioniștilor din sănătate.',
+      title: 'Calitatea Vieții',
+      description: 'Scopul nostru primordial este de a îmbunătăți calitatea vieții pacienților, atât prin facilitarea îngrijirilor medicale de calitate, cât și prin diminuarea impactului psihosocial pe care această boală rară îl produce.',
     },
     {
       icon: (
@@ -18,7 +18,16 @@ const Mission: React.FC = () => {
         </svg>
       ),
       title: 'Acces la Tratament',
-      description: 'Advocacy pentru accesul pacienților români la cele mai noi și eficiente tratamente disponibile.',
+      description: 'Vrem să reușim ca fiecare pacient cu angioedem ereditar din România să beneficieze de tratament individualizat. Militam pentru accesul la tratament specific și pentru introducerea de protocoale terapeutice moderne.',
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+      ),
+      title: 'Dialog Deschis',
+      description: 'Rămânem aproape de comunitate, inițiem și menținem un dialog deschis între pacienți și medici, informăm și întreprindem acțiuni care aduc beneficii celor diagnosticați cu angioedem ereditar.',
     },
     {
       icon: (
@@ -26,17 +35,8 @@ const Mission: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
       ),
-      title: 'Colaborare Internațională',
-      description: 'Parteneriate cu organizații internaționale HAE pentru schimb de experiență și bune practici.',
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
-      title: 'Cercetare',
-      description: 'Sprijinirea cercetării în domeniul HAE și promovarea participării la studii clinice.',
+      title: 'Colaborare cu HAEi',
+      description: 'Adunăm pentru pacienți știrile relevante din domeniu, noutățile legate de tratament și inițiativele Asociației internaționale de angioedem ereditar (HAEi) pentru a ține comunitatea informată.',
     },
   ];
 
@@ -49,8 +49,9 @@ const Mission: React.FC = () => {
           </h2>
           <div className="w-20 h-1 bg-haero-red mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            Ne dedicăm îmbunătățirii vieții pacienților cu Angioedem Ereditar din România
-            prin educație, advocacy și suport comunitar.
+            Ideea înființării Asociației a venit ca urmare a faptului că fiecare pacient
+            cu angioedem ereditar are nevoie să se simtă înțeles, acceptat și motivat să
+            facă față acestei boli care reprezintă o continuă provocare.
           </p>
         </div>
 
