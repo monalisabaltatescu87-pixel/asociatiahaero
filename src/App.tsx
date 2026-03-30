@@ -14,6 +14,7 @@ import CauzeAEE from './pages/CauzeAEE';
 import TratamenteAEE from './pages/TratamenteAEE';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
+import AssociationBylaws from './pages/AssociationBylaws';
 
 function HomePage() {
   return <Hero />;
@@ -37,6 +38,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/politica-confidentialitate" element={<PrivacyPolicy />} />
           <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
+          <Route path="/statutul-asociatiei" element={<AssociationBylaws />} />
         </Routes>
         <Footer />
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Comunitate: React.FC = () => {
   return (
@@ -60,6 +61,152 @@ const Comunitate: React.FC = () => {
                 Urmărește-ne
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership Form Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
+              Devino <span className="text-haero-yellow-600">Membru</span>
+            </h2>
+            <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
+            <p className="text-haero-gray-500 max-w-2xl mx-auto text-lg">
+              Asociația HAERO nu solicită donații și nu percepe cotizații pentru calitatea de membru.
+              Înscrierea ta ca membru ne ajută să demonstrăm că există o comunitate reală de pacienți,
+              aparținători și profesioniști care susțin drepturile persoanelor cu angioedem ereditar.
+              Cu cât suntem mai mulți, cu atât vocea noastră este mai puternică în fața autorităților
+              și a factorilor de decizie din sistemul de sănătate. Fiecare membru contează — prezența
+              ta în asociație oferă credibilitate și legitimitate demersurilor noastre pentru acces
+              egal la tratament, informare și îngrijire de calitate.
+            </p>
+          </div>
+
+          <div className="bg-haero-cream rounded-2xl p-8 sm:p-10 shadow-raised border-t-4 border-haero-yellow">
+            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="member-name" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                    Nume și prenume <span className="text-haero-red">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="member-name"
+                    required
+                    className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                    placeholder="Numele tău complet"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="member-email" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                    Adresa de email <span className="text-haero-red">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="member-email"
+                    required
+                    className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                    placeholder="email@exemplu.ro"
+                  />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="member-phone" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                    Număr de telefon <span className="text-xs text-haero-gray-500 font-normal">(opțional)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="member-phone"
+                    className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                    placeholder="+40 7XX XXX XXX"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="member-address" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                    Adresa <span className="text-xs text-haero-gray-500 font-normal">(opțional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="member-address"
+                    className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                    placeholder="Orașul sau localitatea"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="member-role" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                  Rol <span className="text-haero-red">*</span>
+                </label>
+                <select
+                  id="member-role"
+                  required
+                  className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                  defaultValue=""
+                >
+                  <option value="" disabled>Selectează rolul tău</option>
+                  <option value="pacient">Pacient</option>
+                  <option value="aparținator">Aparținator</option>
+                  <option value="medic">Medic</option>
+                  <option value="altceva">Altceva</option>
+                </select>
+              </div>
+
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="accept-member"
+                    required
+                    className="mt-1 h-4 w-4 rounded border-haero-gray-300 text-haero-yellow-600 focus:ring-haero-yellow-700"
+                  />
+                  <label htmlFor="accept-member" className="text-sm text-haero-gray-700">
+                    Accept să devin membru al Asociației HAERO. <span className="text-haero-red">*</span>
+                  </label>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="accept-privacy"
+                    required
+                    className="mt-1 h-4 w-4 rounded border-haero-gray-300 text-haero-yellow-600 focus:ring-haero-yellow-700"
+                  />
+                  <label htmlFor="accept-privacy" className="text-sm text-haero-gray-700">
+                    Confirm că am citit și sunt de acord cu{' '}
+                    <Link to="/politica-confidentialitate" className="text-haero-yellow-700 underline hover:text-haero-yellow-600">
+                      Politica de Confidențialitate
+                    </Link>. <span className="text-haero-red">*</span>
+                  </label>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="accept-statut"
+                    required
+                    className="mt-1 h-4 w-4 rounded border-haero-gray-300 text-haero-yellow-600 focus:ring-haero-yellow-700"
+                  />
+                  <label htmlFor="accept-statut" className="text-sm text-haero-gray-700">
+                    Confirm că am citit{' '}
+                    <Link to="/statutul-asociatiei" className="text-haero-yellow-700 underline hover:text-haero-yellow-600">
+                      Statutul Asociației
+                    </Link>. <span className="text-haero-red">*</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-haero-yellow text-haero-dark py-3 rounded-full font-bold hover:bg-haero-yellow-600 transition-all duration-200 shadow-raised hover:shadow-lifted text-lg mt-4"
+              >
+                Trimite cererea de membru
+              </button>
+            </form>
           </div>
         </div>
       </section>
