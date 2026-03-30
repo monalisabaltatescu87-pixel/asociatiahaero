@@ -10,9 +10,9 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 64 }) => {
     <img
       src={`${process.env.PUBLIC_URL}/logo haero.jpeg`}
       alt="HAERO - Asociația pentru Angioedem Ereditar"
-      width={size}
       height={size}
       className={`object-contain ${className}`}
+      style={{ height: size, width: 'auto' }}
     />
   );
 };

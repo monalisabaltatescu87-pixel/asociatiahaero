@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CeEsteAEE: React.FC = () => {
+const WhatIsHAE: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -269,4 +269,4 @@ const CeEsteAEE: React.FC = () => {
   );
 };
 
-export default CeEsteAEE;
+export default WhatIsHAE;

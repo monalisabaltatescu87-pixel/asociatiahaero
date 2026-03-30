@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const TratamenteAEE: React.FC = () => {
+const HAETreatments: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -256,4 +256,4 @@ const TratamenteAEE: React.FC = () => {
   );
 };
 
-export default TratamenteAEE;
+export default HAETreatments;
