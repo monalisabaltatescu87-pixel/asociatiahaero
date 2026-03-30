@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const GetInvolved: React.FC = () => {
   return (
@@ -29,12 +30,12 @@ const GetInvolved: React.FC = () => {
               deschis, pot pune întrebări și pot primi răspunsuri de la persoane care au
               parte de experiențe asemănătoare.
             </p>
-            <a
-              href="#contact"
+            <Link
+              to="/comunitate"
               className="inline-block bg-haero-yellow text-haero-dark px-6 py-3 rounded-full font-bold hover:bg-haero-yellow-600 transition-all duration-200 shadow-raised hover:shadow-lifted"
             >
               Alătură-te
-            </a>
+            </Link>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-raised hover:shadow-lifted transition-all duration-200 hover:-translate-y-0.5 text-center border-t-4 border-haero-yellow">
@@ -49,12 +50,12 @@ const GetInvolved: React.FC = () => {
               cu simptomele specifice AEE sau ești medic și ai nevoie de informații,
               te invităm să ne contactezi.
             </p>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-block bg-transparent text-haero-dark border-2 border-haero-yellow px-6 py-3 rounded-full font-bold hover:bg-haero-yellow-50 transition-all duration-200"
             >
               Contactează-ne
-            </a>
+            </Link>
           </div>
         </div>
       </div>
