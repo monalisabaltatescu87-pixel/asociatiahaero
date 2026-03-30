@@ -53,6 +53,11 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-haero-gray-700 pt-8 text-center text-haero-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Asociația HAERO. Toate drepturile rezervate.</p>
+          <div className="mt-3 space-x-4">
+            <Link to="/politica-confidentialitate" className="hover:text-haero-yellow transition-colors">Politica de Confidențialitate</Link>
+            <span>|</span>
+            <Link to="/termeni-si-conditii" className="hover:text-haero-yellow transition-colors">Termeni și Condiții</Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -12,6 +12,8 @@ import CeEsteAEE from './pages/CeEsteAEE';
 import DeclansatoriAEE from './pages/DeclansatoriAEE';
 import CauzeAEE from './pages/CauzeAEE';
 import TratamenteAEE from './pages/TratamenteAEE';
+import PoliticaConfidentialitate from './pages/PoliticaConfidentialitate';
+import TermeniSiConditii from './pages/TermeniSiConditii';
 
 function HomePage() {
   return <Hero />;
@@ -33,6 +35,8 @@ function App() {
           <Route path="/misiune" element={<MisiuneaNoastra />} />
           <Route path="/comunitate" element={<Comunitate />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/politica-confidentialitate" element={<PoliticaConfidentialitate />} />
+          <Route path="/termeni-si-conditii" element={<TermeniSiConditii />} />
         </Routes>
         <Footer />
       </div>
