@@ -109,6 +109,82 @@ const HAECauses: React.FC = () => {
             </h2>
             <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto"></div>
           </div>
+
+          {/* Disease Mechanism Diagram */}
+          <div className="mb-12 bg-gradient-to-br from-haero-yellow-50 to-white rounded-2xl p-6 sm:p-8 border border-haero-yellow-200 shadow-raised">
+            <h3 className="text-center text-sm font-semibold text-haero-gray-500 uppercase tracking-wider mb-6">
+              Cascada bradikininei în AEE
+            </h3>
+            <svg viewBox="0 0 600 520" className="w-full max-w-lg mx-auto" aria-label="Diagrama mecanismului bolii AEE: cascada bradikininei">
+              {/* Step 1: Gene mutation */}
+              <rect x="150" y="10" width="300" height="60" rx="12" fill="#FBC02D" />
+              <text x="300" y="35" textAnchor="middle" fontWeight="bold" fontSize="14" fill="#2D2926">Mutație gena SERPING1</text>
+              <text x="300" y="53" textAnchor="middle" fontSize="11" fill="#2D2926">defect genetic moștenit sau de novo</text>
+
+              {/* Arrow 1 */}
+              <line x1="300" y1="70" x2="300" y2="100" stroke="#D32F2F" strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+
+              {/* Step 2: C1-INH deficiency */}
+              <rect x="150" y="100" width="300" height="60" rx="12" fill="#FFF3E0" stroke="#FBC02D" strokeWidth="2" />
+              <text x="300" y="125" textAnchor="middle" fontWeight="bold" fontSize="14" fill="#2D2926">Deficit de C1-Inhibitor</text>
+              <text x="300" y="143" textAnchor="middle" fontSize="11" fill="#5D4037">proteină insuficientă sau nefuncțională</text>
+
+              {/* Arrow 2 */}
+              <line x1="300" y1="160" x2="300" y2="190" stroke="#D32F2F" strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+
+              {/* Step 3: Kallikrein uncontrolled */}
+              <rect x="150" y="190" width="300" height="60" rx="12" fill="#FFF3E0" stroke="#FBC02D" strokeWidth="2" />
+              <text x="300" y="215" textAnchor="middle" fontWeight="bold" fontSize="14" fill="#2D2926">Kalikreina necontrolată</text>
+              <text x="300" y="233" textAnchor="middle" fontSize="11" fill="#5D4037">enzimă care scapă de sub reglare</text>
+
+              {/* Arrow 3 */}
+              <line x1="300" y1="250" x2="300" y2="280" stroke="#D32F2F" strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+
+              {/* Step 4: Bradykinin overproduction */}
+              <rect x="150" y="280" width="300" height="60" rx="12" fill="#FFCCBC" stroke="#D32F2F" strokeWidth="2" />
+              <text x="300" y="305" textAnchor="middle" fontWeight="bold" fontSize="14" fill="#B71C1C">Exces de bradikinină</text>
+              <text x="300" y="323" textAnchor="middle" fontSize="11" fill="#5D4037">supraproducție de bradikinină</text>
+
+              {/* Arrow 4 */}
+              <line x1="300" y1="340" x2="300" y2="370" stroke="#D32F2F" strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+
+              {/* Step 5: Vascular permeability */}
+              <rect x="150" y="370" width="300" height="60" rx="12" fill="#FFCCBC" stroke="#D32F2F" strokeWidth="2" />
+              <text x="300" y="395" textAnchor="middle" fontWeight="bold" fontSize="14" fill="#B71C1C">Permeabilitate vasculară crescută</text>
+              <text x="300" y="413" textAnchor="middle" fontSize="11" fill="#5D4037">lichid se scurge prin pereții vaselor</text>
+
+              {/* Arrow 5 */}
+              <line x1="300" y1="430" x2="300" y2="460" stroke="#D32F2F" strokeWidth="2.5" markerEnd="url(#arrowRed)" />
+
+              {/* Step 6: Angioedema */}
+              <rect x="150" y="460" width="300" height="55" rx="12" fill="#D32F2F" />
+              <text x="300" y="485" textAnchor="middle" fontWeight="bold" fontSize="15" fill="#FFFFFF">Angioedem (umflătură)</text>
+              <text x="300" y="502" textAnchor="middle" fontSize="11" fill="#FFCDD2">episod acut de AEE</text>
+
+              {/* Side annotation: NOT histamine */}
+              <rect x="465" y="290" width="130" height="40" rx="8" fill="#E3F2FD" stroke="#1976D2" strokeWidth="1.5" />
+              <text x="530" y="307" textAnchor="middle" fontWeight="bold" fontSize="10" fill="#1976D2">≠ Histamină</text>
+              <text x="530" y="320" textAnchor="middle" fontSize="9" fill="#1976D2">nu e reacție alergică</text>
+              <line x1="450" y1="310" x2="465" y2="310" stroke="#1976D2" strokeWidth="1.5" strokeDasharray="4 2" />
+
+              {/* Side annotation: Normal regulation */}
+              <rect x="5" y="200" width="130" height="40" rx="8" fill="#E8F5E9" stroke="#388E3C" strokeWidth="1.5" />
+              <text x="70" y="217" textAnchor="middle" fontWeight="bold" fontSize="10" fill="#388E3C">Normal: C1-INH</text>
+              <text x="70" y="230" textAnchor="middle" fontSize="9" fill="#388E3C">controlează kalikreina</text>
+              <line x1="135" y1="220" x2="150" y2="220" stroke="#388E3C" strokeWidth="1.5" strokeDasharray="4 2" />
+
+              {/* Arrow marker definition */}
+              <defs>
+                <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#D32F2F" />
+                </marker>
+              </defs>
+            </svg>
+            <p className="text-center text-xs text-haero-gray-500 mt-4">
+              Figura: Cascada bradikininei — mecanismul prin care deficitul de C1-inhibitor duce la episoade de angioedem ereditar.
+            </p>
+          </div>
+
           <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
             Fără suficient inhibitor C1 funcțional, o enzimă din sânge numită
             <strong> kalikreină</strong> scapă de sub control, declanșând supraproducția
