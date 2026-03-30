@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PoliticaConfidentialitate: React.FC = () => {
+const PrivacyPolicy: React.FC = () => {
   return (
     <div className="pt-20">
       <section className="py-20 bg-haero-cream">
@@ -130,4 +130,4 @@ const PoliticaConfidentialitate: React.FC = () => {
   );
 };
 
-export default PoliticaConfidentialitate;
+export default PrivacyPolicy;

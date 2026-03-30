@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TermeniSiConditii: React.FC = () => {
+const TermsAndConditions: React.FC = () => {
   return (
     <div className="pt-20">
       <section className="py-20 bg-haero-cream">
@@ -85,4 +85,4 @@ const TermeniSiConditii: React.FC = () => {
   );
 };
 
-export default TermeniSiConditii;
+export default TermsAndConditions;

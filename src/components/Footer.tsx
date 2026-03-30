@@ -45,7 +45,6 @@ const Footer: React.FC = () => {
             <h3 className="font-bold mb-4 text-haero-yellow">Resurse</h3>
             <ul className="space-y-2 text-haero-gray-500 text-sm">
               <li><a href="https://haei.org" target="_blank" rel="noopener noreferrer" className="hover:text-haero-yellow transition-colors">HAEi (HAE International)</a></li>
-              <li><a href="https://romania.haei.org" target="_blank" rel="noopener noreferrer" className="hover:text-haero-yellow transition-colors">HAEi România</a></li>
               <li><a href="https://www.angioedem.ro" target="_blank" rel="noopener noreferrer" className="hover:text-haero-yellow transition-colors">Centrul de Expertiză AEE</a></li>
             </ul>
           </div>
