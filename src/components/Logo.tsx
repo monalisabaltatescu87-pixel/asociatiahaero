@@ -39,7 +39,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 64 }) => {
       <circle cx="115" cy="135" r="8" fill="#1976D2" />
       <circle cx="135" cy="85" r="8" fill="#FFF9C4" />
 
-      {/* HAEro text */}
+      {/* HAERO text */}
       <text
         x="100"
         y="105"
@@ -50,7 +50,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 64 }) => {
         fill="#2D2D2D"
         letterSpacing="1"
       >
-        HAEro
+        HAERO
       </text>
     </svg>
   );

@@ -19,7 +19,7 @@ const Donate: React.FC = () => {
           <div className="space-y-4 mb-8">
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 p-3 bg-gray-50 rounded-lg">
               <span className="font-semibold text-gray-700 sm:w-48 flex-shrink-0">Denumire:</span>
-              <span className="text-gray-600">Asociația HAEro</span>
+              <span className="text-gray-600">Asociația HAERO</span>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 p-3 bg-gray-50 rounded-lg">
               <span className="font-semibold text-gray-700 sm:w-48 flex-shrink-0">CIF:</span>

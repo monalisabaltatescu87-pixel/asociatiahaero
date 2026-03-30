@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
           <Logo size={160} />
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-haero-dark mb-4">
-          Asociația <span className="text-haero-red">HAEro</span>
+          Asociația <span className="text-haero-red">HAERO</span>
         </h1>
         <p className="text-xl sm:text-2xl text-gray-600 mb-4">
           Asociația pentru Angioedem Ereditar

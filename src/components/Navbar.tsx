@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
           <a href="#" className="flex items-center gap-3">
             <Logo size={48} />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-haero-dark">HAEro</span>
+              <span className="text-xl font-bold text-haero-dark">HAERO</span>
               <p className="text-xs text-gray-500">Asociația pentru Angioedem Ereditar</p>
             </div>
           </a>

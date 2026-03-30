@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-4">
               <Logo size={40} />
               <div>
-                <span className="text-lg font-bold">HAEro</span>
+                <span className="text-lg font-bold">HAERO</span>
                 <p className="text-gray-400 text-xs">Asociația pentru Angioedem Ereditar</p>
               </div>
             </div>
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Asociația HAEro. Toate drepturile rezervate.</p>
+          <p>&copy; {new Date().getFullYear()} Asociația HAERO. Toate drepturile rezervate.</p>
         </div>
       </div>
     </footer>

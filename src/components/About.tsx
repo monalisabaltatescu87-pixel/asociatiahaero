@@ -6,11 +6,11 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
-            Despre <span className="text-haero-red">HAEro</span>
+            Despre <span className="text-haero-red">HAERO</span>
           </h2>
           <div className="w-20 h-1 bg-haero-yellow mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            HAEro este o asociație non-guvernamentală dedicată sprijinirii pacienților
+            HAERO este o asociație non-guvernamentală dedicată sprijinirii pacienților
             cu Angioedem Ereditar (HAE) din România. Fondata din dorința de a crea o
             comunitate puternică, oferim resurse, informații și suport pentru cei afectați.
           </p>
