@@ -1,0 +1,118 @@
+import React from 'react';
+
+const Contact: React.FC = () => {
+  return (
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
+            Contactează-ne
+          </h2>
+          <div className="w-20 h-1 bg-haero-blue mx-auto mb-6"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Suntem aici pentru tine. Nu ezita să ne contactezi pentru orice întrebare
+            sau dacă ai nevoie de suport.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="space-y-8">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 bg-haero-red/10 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-haero-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-bold text-haero-dark mb-1">Email</h3>
+                <p className="text-gray-600">contact@asociatiahaero.ro</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 bg-haero-yellow/10 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-haero-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-bold text-haero-dark mb-1">Adresă</h3>
+                <p className="text-gray-600">București, România</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 bg-haero-blue/10 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-haero-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-bold text-haero-dark mb-1">Social Media</h3>
+                <p className="text-gray-600">Urmărește-ne pe Facebook și Instagram</p>
+              </div>
+            </div>
+          </div>
+
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Nume
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-haero-red focus:border-transparent outline-none"
+                  placeholder="Numele tău"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-haero-red focus:border-transparent outline-none"
+                  placeholder="email@exemplu.ro"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                Subiect
+              </label>
+              <input
+                type="text"
+                id="subject"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-haero-red focus:border-transparent outline-none"
+                placeholder="Subiectul mesajului"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                Mesaj
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-haero-red focus:border-transparent outline-none resize-none"
+                placeholder="Scrie mesajul tău aici..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-haero-red text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+            >
+              Trimite Mesajul
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
