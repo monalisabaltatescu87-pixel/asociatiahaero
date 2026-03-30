@@ -1,9 +1,10 @@
+import SEO from '../components/SEO';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const WhatIsHAE: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Ce este Angioedemul Ereditar" description="Angioedemul ereditar (HAE) este o boală genetică rară. Află despre simptome, cum se manifestă și de ce diagnosticul precoce este important." path="/ce-este-aee" /><div className="pt-20">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -266,6 +267,7 @@ const WhatIsHAE: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

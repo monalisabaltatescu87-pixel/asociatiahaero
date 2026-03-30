@@ -1,8 +1,9 @@
+import SEO from '../components/SEO';
 import React from 'react';
 
 const StatutAsociatie: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Statutul Asociației" description="Statutul simplificat al Asociației HAERO — organizare, scopuri, drepturi și obligații ale membrilor." path="/statutul-asociatiei" /><div className="pt-20">
       <section className="py-20 bg-haero-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -195,6 +196,7 @@ const StatutAsociatie: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

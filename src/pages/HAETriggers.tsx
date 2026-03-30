@@ -1,9 +1,10 @@
+import SEO from '../components/SEO';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HAETriggers: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Factori Declanșatori AEE" description="Descoperă factorii care pot declanșa crizele de angioedem ereditar: stres, traume, infecții, fluctuații hormonale și alții." path="/care-sunt-declansatorii-aee" /><div className="pt-20">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -232,6 +233,7 @@ const HAETriggers: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

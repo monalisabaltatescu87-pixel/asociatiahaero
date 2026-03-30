@@ -1,9 +1,10 @@
+import SEO from '../components/SEO';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HAECauses: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Cauzele Angioedemului Ereditar" description="Angioedemul ereditar este cauzat de o mutație genetică ce afectează proteina C1-inhibitor. Află despre mecanismele biologice ale bolii." path="/ce-cauzeaza-aee" /><div className="pt-20">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -169,6 +170,7 @@ const HAECauses: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 
