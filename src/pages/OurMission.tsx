@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MisiuneaNoastra: React.FC = () => {
+const OurMission: React.FC = () => {
   const actions = [
     {
       icon: (
@@ -136,4 +136,4 @@ const MisiuneaNoastra: React.FC = () => {
   );
 };
 
-export default MisiuneaNoastra;
+export default OurMission;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const DeclansatoriAEE: React.FC = () => {
+const HAETriggers: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -235,4 +235,4 @@ const DeclansatoriAEE: React.FC = () => {
   );
 };
 
-export default DeclansatoriAEE;
+export default HAETriggers;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CauzeAEE: React.FC = () => {
+const HAECauses: React.FC = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -172,4 +172,4 @@ const CauzeAEE: React.FC = () => {
   );
 };
 
-export default CauzeAEE;
+export default HAECauses;
