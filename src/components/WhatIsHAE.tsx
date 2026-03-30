@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const WhatIsHAE: React.FC = () => {
   return (
@@ -26,16 +27,22 @@ const WhatIsHAE: React.FC = () => {
               a genei inhibitorului C1 la concepție — absența istoricului familial nu
               exclude diagnosticul.
             </p>
-            <p className="text-haero-gray-700 text-lg leading-relaxed">
+            <p className="text-haero-gray-700 text-lg mb-8 leading-relaxed">
               Incidența este de <strong>1 din 10.000 până la 1 din 50.000</strong> de
               persoane. Cel mai frecvent, primele episoade apar în copilărie sau
               adolescență și continuă să se manifeste cu o frecvență variabilă pe
               parcursul întregii vieți.
             </p>
+            <Link
+              to="/ce-este-aee"
+              className="bg-haero-yellow text-haero-dark px-6 py-3 rounded-full font-bold hover:bg-haero-yellow-600 transition-all duration-200 shadow-lifted hover:shadow-floating hover:scale-[1.02] inline-block"
+            >
+              Află mai multe despre AEE →
+            </Link>
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-yellow">
+            <Link to="/ce-este-aee" className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-yellow block hover:shadow-lifted hover:-translate-y-0.5 transition-all duration-200">
               <h3 className="font-bold text-haero-dark mb-2">Simptome</h3>
               <p className="text-haero-gray-500">
                 Zonele cele mai frecvent implicate sunt extremitățile (mâinile, picioarele,
@@ -43,25 +50,33 @@ const WhatIsHAE: React.FC = () => {
                 forma cea mai gravă datorită posibilei evoluții spre asfixie), precum și
                 abdomenul (colică abdominală cu greață, vărsături, diaree, dureri intense).
               </p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-yellow-600">
-              <h3 className="font-bold text-haero-dark mb-2">Diagnostic</h3>
+              <span className="text-haero-yellow-600 font-semibold text-sm mt-3 inline-block">Citește mai mult →</span>
+            </Link>
+            <Link to="/care-sunt-declansatorii-aee" className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-yellow-600 block hover:shadow-lifted hover:-translate-y-0.5 transition-all duration-200">
+              <h3 className="font-bold text-haero-dark mb-2">Factori declanșatori</h3>
               <p className="text-haero-gray-500">
-                Certitudinea diagnosticului vine adesea după ani în care vizitele la medic
-                au fost nenumărate. Atacurile abdominale pot fi confundate cu alte patologii
-                și pot duce la intervenții chirurgicale inutile. Este important să informați
-                medicul despre istoricul familial.
+                Stresul, traumatismele fizice, infecțiile, modificările hormonale și anumite
+                medicamente pot declanșa episoade de angioedem ereditar.
               </p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-yellow-700">
+              <span className="text-haero-yellow-600 font-semibold text-sm mt-3 inline-block">Citește mai mult →</span>
+            </Link>
+            <Link to="/ce-cauzeaza-aee" className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-yellow-700 block hover:shadow-lifted hover:-translate-y-0.5 transition-all duration-200">
+              <h3 className="font-bold text-haero-dark mb-2">Principalele cauze</h3>
+              <p className="text-haero-gray-500">
+                AEE este cauzat de mutații genetice care afectează inhibitorul C1 esterază,
+                ducând la producția excesivă de bradikinină și apariția edemului.
+              </p>
+              <span className="text-haero-yellow-600 font-semibold text-sm mt-3 inline-block">Citește mai mult →</span>
+            </Link>
+            <Link to="/cum-tratam-aee" className="bg-white rounded-2xl p-6 shadow-raised border-l-4 border-haero-red block hover:shadow-lifted hover:-translate-y-0.5 transition-all duration-200">
               <h3 className="font-bold text-haero-dark mb-2">Tratament</h3>
               <p className="text-haero-gray-500">
                 Există tratamente moderne care pot preveni și trata crizele de angioedem.
                 HAERO militează pentru accesul fiecărui pacient la tratament specific,
-                individualizat, și pentru îmbunătățirea managementului bolii, în special
-                în zona de profilaxie.
+                individualizat.
               </p>
-            </div>
+              <span className="text-haero-yellow-600 font-semibold text-sm mt-3 inline-block">Citește mai mult →</span>
+            </Link>
           </div>
         </div>
       </div>

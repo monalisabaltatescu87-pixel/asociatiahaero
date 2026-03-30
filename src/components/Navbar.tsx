@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -11,13 +15,36 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const links = [
-    { href: '#despre', label: 'Despre Noi' },
-    { href: '#hae', label: 'Ce este AEE?' },
-    { href: '#misiune', label: 'Misiunea Noastră' },
-    { href: '#comunitate', label: 'Comunitate' },
-    { href: '#contact', label: 'Contact' },
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setDropdownOpen(false);
+  }, [location]);
+
+  const mainLinks = [
+    { to: '/despre', label: 'Despre Noi' },
+    { to: '/misiune', label: 'Misiunea Noastră' },
+    { to: '/comunitate', label: 'Comunitate' },
+    { to: '/contact', label: 'Contact' },
   ];
+
+  const aeeSubLinks = [
+    { to: '/ce-este-aee', label: 'Care sunt simptomele AEE?' },
+    { to: '/care-sunt-declansatorii-aee', label: 'Factori declanșatori' },
+    { to: '/ce-cauzeaza-aee', label: 'Principalele cauze' },
+    { to: '/cum-tratam-aee', label: 'Tratamente disponibile' },
+  ];
+
+  const isAeePage = ['/ce-este-aee', '/care-sunt-declansatorii-aee', '/ce-cauzeaza-aee', '/cum-tratam-aee'].includes(location.pathname);
 
   return (
     <nav
@@ -29,24 +56,74 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a href="#top" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <Logo size={48} />
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-haero-dark">HAERO</span>
               <p className="text-xs text-haero-gray-500">Asociația pentru Angioedem Ereditar</p>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-6">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-haero-gray-700 hover:text-haero-yellow-600 transition-colors font-semibold text-sm border-b-2 border-transparent hover:border-haero-yellow"
+            <Link
+              to="/despre"
+              className={`transition-colors font-semibold text-sm border-b-2 ${
+                location.pathname === '/despre'
+                  ? 'border-haero-yellow text-haero-yellow-600'
+                  : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+              }`}
+            >
+              Despre Noi
+            </Link>
+
+            {/* AEE Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`transition-colors font-semibold text-sm border-b-2 flex items-center gap-1 ${
+                  isAeePage
+                    ? 'border-haero-yellow text-haero-yellow-600'
+                    : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+                }`}
+              >
+                Ce este AEE?
+                <svg className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-floating border border-haero-gray-100 py-2 z-50">
+                  {aeeSubLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      className={`block px-4 py-2 text-sm transition-colors ${
+                        location.pathname === link.to
+                          ? 'bg-haero-yellow-50 text-haero-yellow-600 font-semibold'
+                          : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {mainLinks.slice(1).map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`transition-colors font-semibold text-sm border-b-2 ${
+                  location.pathname === link.to
+                    ? 'border-haero-yellow text-haero-yellow-600'
+                    : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -69,15 +146,52 @@ const Navbar: React.FC = () => {
         {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-haero-gray-300 bg-haero-cream rounded-b-2xl">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block py-3 px-4 text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600 font-medium transition-colors"
+            <Link
+              to="/despre"
+              className={`block py-3 px-4 font-medium transition-colors ${
+                location.pathname === '/despre'
+                  ? 'text-haero-yellow-600 bg-haero-yellow-50'
+                  : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              Despre Noi
+            </Link>
+
+            {/* Mobile AEE section */}
+            <div className="border-l-2 border-haero-yellow ml-4">
+              <p className="py-3 px-4 text-haero-gray-700 font-semibold">
+                Ce este AEE?
+              </p>
+              {aeeSubLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`block py-2 px-6 text-sm transition-colors ${
+                    location.pathname === link.to
+                      ? 'text-haero-yellow-600 font-semibold bg-haero-yellow-50'
+                      : 'text-haero-gray-500 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {mainLinks.slice(1).map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`block py-3 px-4 font-medium transition-colors ${
+                  location.pathname === link.to
+                    ? 'text-haero-yellow-600 bg-haero-yellow-50'
+                    : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         )}

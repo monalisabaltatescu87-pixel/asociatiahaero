@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Hero: React.FC = () => {
@@ -24,18 +25,18 @@ const Hero: React.FC = () => {
           să se simtă înțeles, acceptat și motivat.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#despre"
+          <Link
+            to="/despre"
             className="bg-haero-yellow text-haero-dark px-8 py-4 rounded-full text-lg font-bold hover:bg-haero-yellow-600 transition-all duration-200 shadow-lifted hover:shadow-floating hover:scale-[1.02] tracking-wide"
           >
             Descoperă Misiunea Noastră
-          </a>
-          <a
-            href="#comunitate"
+          </Link>
+          <Link
+            to="/comunitate"
             className="bg-transparent text-haero-dark border-2 border-haero-yellow px-8 py-4 rounded-full text-lg font-semibold hover:bg-haero-yellow-50 transition-all duration-200"
           >
             Alătură-te Comunității
-          </a>
+          </Link>
         </div>
       </div>
 

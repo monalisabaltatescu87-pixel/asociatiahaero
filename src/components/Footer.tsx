@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-haero-dark text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Logo size={40} />
@@ -23,11 +24,20 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-bold mb-4 text-haero-yellow">Linkuri Utile</h3>
             <ul className="space-y-2 text-haero-gray-500 text-sm">
-              <li><a href="#despre" className="hover:text-haero-yellow transition-colors">Despre Noi</a></li>
-              <li><a href="#hae" className="hover:text-haero-yellow transition-colors">Ce este AEE?</a></li>
-              <li><a href="#misiune" className="hover:text-haero-yellow transition-colors">Misiunea Noastră</a></li>
-              <li><a href="#comunitate" className="hover:text-haero-yellow transition-colors">Comunitate</a></li>
-              <li><a href="#contact" className="hover:text-haero-yellow transition-colors">Contact</a></li>
+              <li><Link to="/despre" className="hover:text-haero-yellow transition-colors">Despre Noi</Link></li>
+              <li><Link to="/misiune" className="hover:text-haero-yellow transition-colors">Misiunea Noastră</Link></li>
+              <li><Link to="/comunitate" className="hover:text-haero-yellow transition-colors">Comunitate</Link></li>
+              <li><Link to="/contact" className="hover:text-haero-yellow transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold mb-4 text-haero-yellow">Despre AEE</h3>
+            <ul className="space-y-2 text-haero-gray-500 text-sm">
+              <li><Link to="/ce-este-aee" className="hover:text-haero-yellow transition-colors">Care sunt simptomele AEE?</Link></li>
+              <li><Link to="/care-sunt-declansatorii-aee" className="hover:text-haero-yellow transition-colors">Factori declanșatori</Link></li>
+              <li><Link to="/ce-cauzeaza-aee" className="hover:text-haero-yellow transition-colors">Principalele cauze</Link></li>
+              <li><Link to="/cum-tratam-aee" className="hover:text-haero-yellow transition-colors">Tratamente disponibile</Link></li>
             </ul>
           </div>
 
