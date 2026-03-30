@@ -1,9 +1,10 @@
+import SEO from '../components/SEO';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Community: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Comunitate" description="Alătură-te comunității HAERO. Conectează-te cu alți pacienți, aparținători și medici implicați în lupta cu angioedemul ereditar." path="/comunitate" /><div className="pt-20">
       <section className="py-20 bg-haero-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -225,6 +226,7 @@ const Community: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

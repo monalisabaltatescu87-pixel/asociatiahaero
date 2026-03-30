@@ -1,8 +1,9 @@
+import SEO from '../components/SEO';
 import React from 'react';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Contact" description="Contactează Asociația HAERO pentru întrebări, informații sau colaborări. Email, telefon și formular de contact." path="/contact" /><div className="pt-20">
       <section className="py-20 bg-haero-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -156,6 +157,7 @@ const ContactPage: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

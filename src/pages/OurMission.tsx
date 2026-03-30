@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import React from 'react';
 
 const OurMission: React.FC = () => {
@@ -61,7 +62,7 @@ const OurMission: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <><SEO title="Misiunea Noastră" description="HAERO luptă pentru drepturile pacienților cu angioedem ereditar — acces la tratament, informare, suport emoțional și reprezentare." path="/misiune" /><div className="pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,6 +134,7 @@ const OurMission: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

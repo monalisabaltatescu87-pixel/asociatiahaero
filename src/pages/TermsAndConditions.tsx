@@ -1,8 +1,9 @@
+import SEO from '../components/SEO';
 import React from 'react';
 
 const TermsAndConditions: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Termeni și Condiții" description="Termenii și condițiile de utilizare a site-ului Asociației HAERO." path="/termeni-si-conditii" /><div className="pt-20">
       <section className="py-20 bg-haero-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -82,6 +83,7 @@ const TermsAndConditions: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

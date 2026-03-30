@@ -1,9 +1,10 @@
+import SEO from '../components/SEO';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HAETreatments: React.FC = () => {
   return (
-    <div className="pt-20">
+    <><SEO title="Tratamente pentru Angioedem Ereditar" description="Opțiuni de tratament disponibile pentru angioedemul ereditar: tratament la cerere, profilaxie pe termen lung și scurt, și noi terapii." path="/cum-tratam-aee" /><div className="pt-20">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -253,6 +254,7 @@ const HAETreatments: React.FC = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 

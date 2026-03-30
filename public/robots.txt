@@ -1,3 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://monalisabaltatescu87-pixel.github.io/asociatiahaero/sitemap.xml

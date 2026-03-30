@@ -1,10 +1,11 @@
 import React from 'react';
+import SEO from './SEO';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100 pt-20">
+    <><SEO title="Acasă" description="Asociația HAERO militează pentru drepturile pacienților cu angioedem ereditar (HAE) din România — acces egal la tratament, informare și suport de calitate." path="/" /><section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100 pt-20">
       {/* Decorative blob */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-haero-yellow-200 rounded-full blur-3xl opacity-30 pointer-events-none" />
       <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-haero-yellow-100 rounded-full blur-3xl opacity-40 pointer-events-none" />
@@ -49,7 +50,7 @@ const Hero: React.FC = () => {
           />
         </svg>
       </div>
-    </section>
+    </section></>
   );
 };
 
