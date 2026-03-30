@@ -9,15 +9,15 @@ const CauzeAEE: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Link to="/ce-este-aee" className="text-haero-yellow-600 font-semibold text-sm hover:text-haero-yellow-700 transition-colors mb-4 inline-block">
-              ← Ce este AEE?
+              ← Care sunt simptomele AEE?
             </Link>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-haero-dark mb-4">
               Principalele <span className="text-haero-yellow-600">cauze</span>
             </h1>
             <div className="w-20 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
             <p className="text-lg text-haero-gray-500 max-w-3xl mx-auto leading-relaxed">
-              Angioedermul Ereditar este cauzat de o mutație genetică care afectează
-              producția sau funcția inhibitorului C1 esterază.
+              AEE tip I și tip II sunt cauzate de un defect (mutație) în gena responsabilă
+              pentru producerea proteinei inhibitor C1 esterază (C1-INH).
             </p>
           </div>
         </div>
@@ -32,19 +32,27 @@ const CauzeAEE: React.FC = () => {
                 Cauza <span className="text-haero-yellow-600">genetică</span>
               </h2>
               <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
-                AEE este cauzat de mutații în gena <strong>SERPING1</strong>, care codifică
-                proteina inhibitorul C1 esterază (C1-INH). Această proteină joacă un rol
-                esențial în reglarea mai multor căi biologice, inclusiv sistemul complementului,
-                sistemul de coagulare și sistemul kininelor.
+                AEE este cauzat de mutații în gena <strong>SERPING1</strong>, care furnizează
+                instrucțiuni pentru producerea proteinei inhibitorul C1 esterază (C1-INH).
+                Această proteină este importantă pentru controlul răspunsului imunitar
+                și al inflamației.
               </p>
               <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
-                Boala este transmisă <strong>autozomal dominant</strong>, ceea ce înseamnă
-                că este suficientă o singură copie a genei mutante pentru a dezvolta boala.
-                Un părinte afectat are 50% șanse de a transmite mutația fiecărui copil.
+                În condiții normale, C1-INH reglează producția de <strong>bradikinină</strong> în
+                organism — un hormon care joacă un rol important în controlul dilatării
+                și permeabilității vaselor de sânge. Dacă C1-INH nu funcționează corect
+                sau dacă concentrația sa este scăzută, bradikinina este eliberată în exces,
+                provocând umflăturile localizate.
+              </p>
+              <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
+                Boala este transmisă <strong>autozomal dominant</strong> — un copil are
+                50% șanse de a moșteni boala dacă unul dintre părinți este afectat. Cu
+                toate acestea, aproximativ <strong>25% din cazuri</strong> rezultă din
+                mutații spontane (de novo).
               </p>
               <p className="text-haero-gray-700 text-lg leading-relaxed">
-                Aproximativ <strong>25% din cazuri</strong> apar prin mutații spontane (de novo),
-                fără istoric familial. Absența cazurilor de AEE în familie nu exclude diagnosticul.
+                Au fost identificate aproape <strong>300 de variante patogene</strong> ale
+                genei SERPING1.
               </p>
             </div>
 
@@ -52,9 +60,10 @@ const CauzeAEE: React.FC = () => {
               <div className="bg-white rounded-2xl p-8 shadow-raised border-t-4 border-haero-yellow">
                 <h3 className="font-bold text-haero-dark mb-3 text-lg">Tipul I — Deficit cantitativ</h3>
                 <p className="text-haero-gray-500 leading-relaxed mb-3">
-                  Reprezintă aproximativ <strong>85% din cazuri</strong>. Se caracterizează
-                  prin niveluri scăzute de inhibitor C1 esterază în sânge. Organismul produce
-                  o cantitate insuficientă de proteină.
+                  Reprezintă aproximativ <strong>85% din cazuri</strong>. Mutațiile produc
+                  o proteină C1-INH trunchiată sau incorect pliată, rezultând niveluri
+                  antigenice mai mici de 50% față de normal și un deficit funcțional
+                  echivalent.
                 </p>
                 <div className="bg-haero-yellow-50 rounded-lg px-4 py-2 text-sm text-haero-gray-700">
                   Nivel C1-INH: scăzut | Funcție C1-INH: scăzută
@@ -64,9 +73,10 @@ const CauzeAEE: React.FC = () => {
               <div className="bg-white rounded-2xl p-8 shadow-raised border-t-4 border-haero-yellow-600">
                 <h3 className="font-bold text-haero-dark mb-3 text-lg">Tipul II — Deficit funcțional</h3>
                 <p className="text-haero-gray-500 leading-relaxed mb-3">
-                  Reprezintă aproximativ <strong>15% din cazuri</strong>. Nivelurile de
-                  inhibitor C1 sunt normale sau chiar crescute, dar proteina nu funcționează
-                  corect.
+                  Reprezintă aproximativ <strong>15% din cazuri</strong>. Mutațiile la
+                  nivelul buclei centrului reactiv (exonul 8) generează o proteină
+                  nefuncțională care poate circula la niveluri antigenice normale sau
+                  crescute, dar căreia îi lipsește activitatea inhibitorie.
                 </p>
                 <div className="bg-haero-yellow-50 rounded-lg px-4 py-2 text-sm text-haero-gray-700">
                   Nivel C1-INH: normal/crescut | Funcție C1-INH: scăzută
@@ -76,9 +86,9 @@ const CauzeAEE: React.FC = () => {
               <div className="bg-white rounded-2xl p-8 shadow-raised border-t-4 border-haero-yellow-700">
                 <h3 className="font-bold text-haero-dark mb-3 text-lg">Tipul III — Cu C1-INH normal</h3>
                 <p className="text-haero-gray-500 leading-relaxed mb-3">
-                  Formă rară, descrisă mai recent. Nivelurile și funcția C1-INH sunt normale.
-                  Poate fi cauzat de mutații ale genei factorului XII sau alte gene.
-                  Predomină la femei.
+                  Formă rară, cu niveluri cantitative și funcționale normale ale C1-INH.
+                  Un subset de pacienți prezintă mutații ale genei <strong>F12 (factorul XII)</strong> care
+                  facilitează activarea inadecvată a cascadei kalikreină–bradikinină.
                 </p>
                 <div className="bg-haero-yellow-50 rounded-lg px-4 py-2 text-sm text-haero-gray-700">
                   Nivel C1-INH: normal | Funcție C1-INH: normală
@@ -99,24 +109,29 @@ const CauzeAEE: React.FC = () => {
             <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto"></div>
           </div>
           <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
-            Când inhibitorul C1 esterază lipsește sau nu funcționează corect, sistemul
-            kininelor devine hiperactivat. Acest lucru duce la producția excesivă de
-            <strong> bradikinină</strong> — un mediator care crește permeabilitatea vasculară.
+            Fără suficient inhibitor C1 funcțional, o enzimă din sânge numită
+            <strong> kalikreină</strong> scapă de sub control, declanșând supraproducția
+            de <strong>bradikinină</strong>. Excesul de bradikinină determină vasele de
+            sânge să elibereze lichid în țesuturile înconjurătoare, provocând umflăturile
+            caracteristice pe care le experimentează pacienții cu AEE.
           </p>
           <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
-            Bradikinina cauzează dilatarea vaselor de sânge și scurgerea de lichid în
-            țesuturile din jur, provocând umflăturile (edemul) caracteristice bolii.
-            Spre deosebire de reacțiile alergice, acest proces <strong>nu implică
-            histamina</strong>, motiv pentru care antihistaminicele, corticosteroizii
-            și adrenalina nu sunt eficiente în tratamentul AEE.
+            Bradikinina promovează inflamația prin creșterea cantității de lichid care
+            se scurge prin pereții vaselor de sânge în țesuturile corpului
+            (permeabilitate vasculară crescută).
           </p>
-          <div className="bg-haero-yellow-50 rounded-2xl p-6 border border-haero-yellow-200">
+          <div className="bg-haero-yellow-50 rounded-2xl p-6 border border-haero-yellow-200 mb-6">
             <p className="text-haero-gray-700 leading-relaxed font-medium">
-              Această diferență esențială față de angioedermul alergic subliniază importanța
-              diagnosticului corect și a tratamentului specific cu medicamente care vizează
-              calea bradikininei.
+              Spre deosebire de reacțiile alergice, acest proces <strong>nu implică
+              histamina</strong>. De aceea, antihistaminicele, corticosteroizii și
+              adrenalina sunt <strong>ineficiente</strong> în tratamentul AEE.
             </p>
           </div>
+          <p className="text-haero-gray-700 text-lg leading-relaxed">
+            Această diferență esențială față de angioedermul alergic subliniază importanța
+            diagnosticului corect și a tratamentului specific cu medicamente care vizează
+            calea bradikininei.
+          </p>
         </div>
       </section>
 
@@ -131,6 +146,26 @@ const CauzeAEE: React.FC = () => {
               Tratamente disponibile →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Source Attribution */}
+      <section className="py-8 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-haero-gray-500 text-sm">
+            Informații bazate pe date de la{' '}
+            <a href="https://haei.org/hae/what_causes_hae" target="_blank" rel="noopener noreferrer" className="text-haero-yellow-600 hover:text-haero-yellow-700 underline">
+              HAE International (HAEi)
+            </a>
+            {', '}
+            <a href="https://medlineplus.gov/genetics/condition/hereditary-angioedema/" target="_blank" rel="noopener noreferrer" className="text-haero-yellow-600 hover:text-haero-yellow-700 underline">
+              MedlinePlus
+            </a>
+            {' și '}
+            <a href="https://emedicine.medscape.com/article/135604-overview" target="_blank" rel="noopener noreferrer" className="text-haero-yellow-600 hover:text-haero-yellow-700 underline">
+              Medscape
+            </a>.
+          </p>
         </div>
       </section>
     </div>

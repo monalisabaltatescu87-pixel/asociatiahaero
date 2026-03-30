@@ -9,21 +9,21 @@ const DeclansatoriAEE: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Link to="/ce-este-aee" className="text-haero-yellow-600 font-semibold text-sm hover:text-haero-yellow-700 transition-colors mb-4 inline-block">
-              ← Ce este AEE?
+              ← Care sunt simptomele AEE?
             </Link>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-haero-dark mb-4">
               Factori <span className="text-haero-yellow-600">declanșatori</span>
             </h1>
             <div className="w-20 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
             <p className="text-lg text-haero-gray-500 max-w-3xl mx-auto leading-relaxed">
-              Episoadele de angioedem ereditar pot fi declanșate de o varietate de factori,
-              deși uneori apar și fără un motiv aparent.
+              Majoritatea episoadelor de AEE apar spontan. Cu toate acestea, există
+              o serie de factori cunoscuți care pot declanșa sau agrava crizele.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Triggers Grid */}
+      {/* Main Triggers */}
       <section className="py-16 bg-haero-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
@@ -35,11 +35,12 @@ const DeclansatoriAEE: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Stresul emoțional</h3>
+                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Stresul fizic și emoțional</h3>
                   <p className="text-haero-gray-500 leading-relaxed">
-                    Stresul psihologic și emoțional este unul dintre cei mai frecvenți factori
-                    declanșatori raportați de pacienți. Anxietatea, supărarea sau presiunea
-                    emoțională pot precipita un episod.
+                    Infecțiile, leziunile, intervențiile chirurgicale sau stresul pot duce
+                    la consumul inhibitorului C1 și pot determina creșterea nivelului de
+                    bradikinină, cu formarea ulterioară de edem. Stresul emoțional poate
+                    agrava frecvența și severitatea atacurilor.
                   </p>
                 </div>
               </div>
@@ -53,10 +54,12 @@ const DeclansatoriAEE: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Traumatisme fizice</h3>
+                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Proceduri stomatologice și chirurgicale</h3>
                   <p className="text-haero-gray-500 leading-relaxed">
-                    Lovituri, presiune locală, proceduri stomatologice sau chirurgicale pot
-                    declanșa episoade de angioedem în zona afectată sau în alte regiuni ale corpului.
+                    Procedurile stomatologice sau intervențiile chirurgicale (inclusiv
+                    amigdalectomia) sunt factori declanșatori deosebit de critici,
+                    deoarece pot cauza umflături la nivelul gâtului sau căilor respiratorii.
+                    Se recomandă profilaxia pe termen scurt înaintea acestor proceduri.
                   </p>
                 </div>
               </div>
@@ -72,9 +75,10 @@ const DeclansatoriAEE: React.FC = () => {
                 <div>
                   <h3 className="font-bold text-haero-dark mb-2 text-lg">Modificări hormonale</h3>
                   <p className="text-haero-gray-500 leading-relaxed">
-                    Fluctuațiile hormonale, cum ar fi cele din timpul ciclului menstrual,
-                    sarcinii sau utilizării contraceptivelor orale cu estrogen, pot influența
-                    frecvența și severitatea episoadelor.
+                    La femei, menstruația și sarcina pot afecta simptomele AEE. Unele
+                    femei raportează o creștere a numărului de atacuri în timpul perioadei
+                    menstruale. Atacurile se corelează adesea cu expunerea la estrogen,
+                    posibil prin creșterea producției de bradikinină.
                   </p>
                 </div>
               </div>
@@ -90,8 +94,9 @@ const DeclansatoriAEE: React.FC = () => {
                 <div>
                   <h3 className="font-bold text-haero-dark mb-2 text-lg">Infecții</h3>
                   <p className="text-haero-gray-500 leading-relaxed">
-                    Infecțiile bacteriene sau virale, inclusiv răcelile comune, pot activa
-                    sistemul complementului și pot declanșa episoade de angioedem.
+                    Infecțiile bacteriene sau virale, inclusiv răcelile comune și bolile
+                    virale, pot duce la consumul inhibitorului C1 și pot declanșa episoade
+                    de angioedem prin activarea cascadei complementului.
                   </p>
                 </div>
               </div>
@@ -105,11 +110,11 @@ const DeclansatoriAEE: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Medicamente</h3>
+                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Traumatisme fizice</h3>
                   <p className="text-haero-gray-500 leading-relaxed">
-                    Anumite medicamente, în special inhibitorii enzimei de conversie a
-                    angiotensinei (IECA) și estrogenul, pot agrava sau declanșa episoade
-                    de AEE și trebuie evitate.
+                    Traumatismele minore, presiunea locală, lovituri sau leziuni pot
+                    declanșa episoade de angioedem în zona afectată. Și expunerea la
+                    frig poate fi un factor declanșator.
                   </p>
                 </div>
               </div>
@@ -119,14 +124,15 @@ const DeclansatoriAEE: React.FC = () => {
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-haero-yellow-50 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-haero-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Oboseala și efortul fizic</h3>
+                  <h3 className="font-bold text-haero-dark mb-2 text-lg">Pubertatea și adolescența</h3>
                   <p className="text-haero-gray-500 leading-relaxed">
-                    Oboseala excesivă, efortul fizic intens sau lipsa somnului pot contribui
-                    la apariția episoadelor de angioedem, mai ales în perioade de vulnerabilitate.
+                    Frecvența și severitatea atacurilor de AEE pot crește în timpul
+                    pubertății și adolescenței, pe măsură ce organismul trece prin
+                    schimbări hormonale semnificative.
                   </p>
                 </div>
               </div>
@@ -135,8 +141,51 @@ const DeclansatoriAEE: React.FC = () => {
         </div>
       </section>
 
-      {/* Important Note */}
+      {/* Medications to Avoid */}
       <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-red-50 rounded-2xl p-8 border border-red-200">
+            <h3 className="font-bold text-haero-dark mb-4 text-xl">Medicamente de evitat</h3>
+            <p className="text-haero-gray-700 leading-relaxed mb-4">
+              Anumite medicamente pot crește frecvența și severitatea atacurilor de AEE
+              și trebuie evitate:
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-haero-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <p className="text-haero-gray-700">
+                  <strong>Inhibitori ai enzimei de conversie a angiotensinei (IECA)</strong> —
+                  utilizați pentru tratamentul hipertensiunii arteriale, pot crește
+                  frecvența și severitatea atacurilor de AEE.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-haero-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <p className="text-haero-gray-700">
+                  <strong>Medicamente pe bază de estrogen</strong> — contraceptive orale
+                  și terapia de substituție hormonală sunt asociate cu creșterea
+                  frecvenței și severității atacurilor.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-haero-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <p className="text-haero-gray-700">
+                  <strong>Tamoxifenul</strong> — trebuie evitat la pacienții cu AEE.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Important Note */}
+      <section className="py-16 bg-haero-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-haero-yellow-50 rounded-2xl p-8 border border-haero-yellow-200">
             <h3 className="font-bold text-haero-dark mb-4 text-lg">Important de știut</h3>
@@ -154,7 +203,7 @@ const DeclansatoriAEE: React.FC = () => {
       </section>
 
       {/* Navigation */}
-      <section className="py-12 bg-haero-cream">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
             <Link to="/ce-este-aee" className="text-haero-yellow-600 font-semibold hover:text-haero-yellow-700 transition-colors">
@@ -164,6 +213,22 @@ const DeclansatoriAEE: React.FC = () => {
               Principalele cauze →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Source Attribution */}
+      <section className="py-8 bg-haero-cream">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-haero-gray-500 text-sm">
+            Informații bazate pe date de la{' '}
+            <a href="https://haei.org/what-is-hae/attack-triggers/" target="_blank" rel="noopener noreferrer" className="text-haero-yellow-600 hover:text-haero-yellow-700 underline">
+              HAE International (HAEi)
+            </a>
+            {' și '}
+            <a href="https://www.merckmanuals.com/professional/immunology-allergic-disorders/allergic-autoimmune-and-other-hypersensitivity-disorders/hereditary-and-acquired-c1-inhibitor-deficiency-or-dysfunction" target="_blank" rel="noopener noreferrer" className="text-haero-yellow-600 hover:text-haero-yellow-700 underline">
+              Merck Manual
+            </a>.
+          </p>
         </div>
       </section>
     </div>
