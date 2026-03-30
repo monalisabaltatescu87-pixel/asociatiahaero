@@ -24,11 +24,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-bold mb-4 text-haero-yellow">Linkuri Utile</h3>
             <ul className="space-y-2 text-haero-gray-500 text-sm">
-              <li><a href="/#despre" className="hover:text-haero-yellow transition-colors">Despre Noi</a></li>
-              <li><a href="/#hae" className="hover:text-haero-yellow transition-colors">Ce este AEE?</a></li>
-              <li><a href="/#misiune" className="hover:text-haero-yellow transition-colors">Misiunea Noastră</a></li>
-              <li><a href="/#comunitate" className="hover:text-haero-yellow transition-colors">Comunitate</a></li>
-              <li><a href="/#contact" className="hover:text-haero-yellow transition-colors">Contact</a></li>
+              <li><Link to="/despre" className="hover:text-haero-yellow transition-colors">Despre Noi</Link></li>
+              <li><Link to="/misiune" className="hover:text-haero-yellow transition-colors">Misiunea Noastră</Link></li>
+              <li><Link to="/comunitate" className="hover:text-haero-yellow transition-colors">Comunitate</Link></li>
+              <li><Link to="/contact" className="hover:text-haero-yellow transition-colors">Contact</Link></li>
             </ul>
           </div>
 

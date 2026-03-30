@@ -9,8 +9,6 @@ const Navbar: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  const isSubPage = location.pathname !== '/';
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -33,10 +31,10 @@ const Navbar: React.FC = () => {
   }, [location]);
 
   const mainLinks = [
-    { href: '#despre', label: 'Despre Noi' },
-    { href: '#misiune', label: 'Misiunea Noastră' },
-    { href: '#comunitate', label: 'Comunitate' },
-    { href: '#contact', label: 'Contact' },
+    { to: '/despre', label: 'Despre Noi' },
+    { to: '/misiune', label: 'Misiunea Noastră' },
+    { to: '/comunitate', label: 'Comunitate' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   const aeeSubLinks = [
@@ -46,11 +44,7 @@ const Navbar: React.FC = () => {
     { to: '/cum-tratam-aee', label: 'Tratamente disponibile' },
   ];
 
-  const handleAnchorClick = (href: string) => {
-    if (isSubPage) {
-      window.location.href = '/' + href;
-    }
-  };
+  const isAeePage = ['/ce-este-aee', '/care-sunt-declansatorii-aee', '/ce-cauzeaza-aee', '/cum-tratam-aee'].includes(location.pathname);
 
   return (
     <nav
@@ -72,25 +66,25 @@ const Navbar: React.FC = () => {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-6">
-            {mainLinks.slice(0, 1).map((link) => (
-              <a
-                key={link.href}
-                href={isSubPage ? '/' + link.href : link.href}
-                onClick={() => handleAnchorClick(link.href)}
-                className="text-haero-gray-700 hover:text-haero-yellow-600 transition-colors font-semibold text-sm border-b-2 border-transparent hover:border-haero-yellow"
-              >
-                {link.label}
-              </a>
-            ))}
+            <Link
+              to="/despre"
+              className={`transition-colors font-semibold text-sm border-b-2 ${
+                location.pathname === '/despre'
+                  ? 'border-haero-yellow text-haero-yellow-600'
+                  : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+              }`}
+            >
+              Despre Noi
+            </Link>
 
             {/* AEE Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`text-haero-gray-700 hover:text-haero-yellow-600 transition-colors font-semibold text-sm border-b-2 flex items-center gap-1 ${
-                  location.pathname.includes('aee') || location.pathname.includes('tratam') || location.pathname.includes('declansatori') || location.pathname.includes('cauzeaza')
+                className={`transition-colors font-semibold text-sm border-b-2 flex items-center gap-1 ${
+                  isAeePage
                     ? 'border-haero-yellow text-haero-yellow-600'
-                    : 'border-transparent'
+                    : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
                 }`}
               >
                 Ce este AEE?
@@ -101,12 +95,6 @@ const Navbar: React.FC = () => {
 
               {dropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-floating border border-haero-gray-100 py-2 z-50">
-                  <a
-                    href={isSubPage ? '/#hae' : '#hae'}
-                    className="block px-4 py-2 text-sm text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600 transition-colors"
-                  >
-                    Ce este AEE? (rezumat)
-                  </a>
                   {aeeSubLinks.map((link) => (
                     <Link
                       key={link.to}
@@ -125,14 +113,17 @@ const Navbar: React.FC = () => {
             </div>
 
             {mainLinks.slice(1).map((link) => (
-              <a
-                key={link.href}
-                href={isSubPage ? '/' + link.href : link.href}
-                onClick={() => handleAnchorClick(link.href)}
-                className="text-haero-gray-700 hover:text-haero-yellow-600 transition-colors font-semibold text-sm border-b-2 border-transparent hover:border-haero-yellow"
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`transition-colors font-semibold text-sm border-b-2 ${
+                  location.pathname === link.to
+                    ? 'border-haero-yellow text-haero-yellow-600'
+                    : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -155,23 +146,23 @@ const Navbar: React.FC = () => {
         {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-haero-gray-300 bg-haero-cream rounded-b-2xl">
-            <a
-              href={isSubPage ? '/#despre' : '#despre'}
-              className="block py-3 px-4 text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600 font-medium transition-colors"
+            <Link
+              to="/despre"
+              className={`block py-3 px-4 font-medium transition-colors ${
+                location.pathname === '/despre'
+                  ? 'text-haero-yellow-600 bg-haero-yellow-50'
+                  : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+              }`}
               onClick={() => setIsOpen(false)}
             >
               Despre Noi
-            </a>
+            </Link>
 
             {/* Mobile AEE section */}
             <div className="border-l-2 border-haero-yellow ml-4">
-              <a
-                href={isSubPage ? '/#hae' : '#hae'}
-                className="block py-3 px-4 text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600 font-semibold transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
+              <p className="py-3 px-4 text-haero-gray-700 font-semibold">
                 Ce este AEE?
-              </a>
+              </p>
               {aeeSubLinks.map((link) => (
                 <Link
                   key={link.to}
@@ -189,14 +180,18 @@ const Navbar: React.FC = () => {
             </div>
 
             {mainLinks.slice(1).map((link) => (
-              <a
-                key={link.href}
-                href={isSubPage ? '/' + link.href : link.href}
-                className="block py-3 px-4 text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600 font-medium transition-colors"
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`block py-3 px-4 font-medium transition-colors ${
+                  location.pathname === link.to
+                    ? 'text-haero-yellow-600 bg-haero-yellow-50'
+                    : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         )}

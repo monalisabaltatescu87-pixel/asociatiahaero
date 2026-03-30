@@ -151,7 +151,7 @@ const TratamenteAEE: React.FC = () => {
             să ducă o viață normală, fără teama episoadelor imprevizibile.
           </p>
           <Link
-            to="/#contact"
+            to="/contact"
             className="bg-haero-yellow text-haero-dark px-8 py-4 rounded-full text-lg font-bold hover:bg-haero-yellow-600 transition-all duration-200 shadow-lifted hover:shadow-floating hover:scale-[1.02] tracking-wide inline-block"
           >
             Contactează-ne
