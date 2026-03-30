@@ -15,26 +15,7 @@ const GetInvolved: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow text-center">
-            <div className="w-20 h-20 bg-haero-red/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-haero-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-haero-dark mb-3">Donează</h3>
-            <p className="text-gray-600 mb-6">
-              Donația ta ne ajută să continuăm activitățile de suport și informare
-              pentru pacienții HAE.
-            </p>
-            <a
-              href="#doneaza"
-              className="inline-block bg-haero-red text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors"
-            >
-              Donează Acum
-            </a>
-          </div>
-
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow text-center">
             <div className="w-20 h-20 bg-haero-yellow/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-haero-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">

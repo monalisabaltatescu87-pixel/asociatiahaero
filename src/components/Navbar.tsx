@@ -35,12 +35,6 @@ const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#doneaza"
-              className="bg-haero-red text-white px-5 py-2 rounded-full font-semibold hover:bg-red-700 transition-colors text-sm"
-            >
-              Donează
-            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -72,13 +66,6 @@ const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#doneaza"
-              className="block mx-4 mt-2 text-center bg-haero-red text-white px-5 py-2 rounded-full font-semibold"
-              onClick={() => setIsOpen(false)}
-            >
-              Donează
-            </a>
           </div>
         )}
       </div>
