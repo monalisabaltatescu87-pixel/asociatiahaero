@@ -108,7 +108,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <label htmlFor="category" className="block text-sm font-semibold text-haero-gray-700 mb-1">
-                    Cine ești?
+                    Mă descrie cel mai bine
                   </label>
                   <select
                     id="category"
