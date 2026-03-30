@@ -138,22 +138,36 @@ const Comunitate: React.FC = () => {
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="member-role" className="block text-sm font-semibold text-haero-gray-700 mb-1">
-                  Rol <span className="text-haero-red">*</span>
-                </label>
-                <select
-                  id="member-role"
-                  required
-                  className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
-                  defaultValue=""
-                >
-                  <option value="" disabled>Selectează rolul tău</option>
-                  <option value="pacient">Pacient</option>
-                  <option value="aparținator">Aparținator</option>
-                  <option value="medic">Medic</option>
-                  <option value="altceva">Altceva</option>
-                </select>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="member-locality" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                    Localitate
+                  </label>
+                  <input
+                    type="text"
+                    id="member-locality"
+                    className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                    placeholder="Oraș sau sat"
+                  />
+                  <p className="text-xs text-haero-gray-500 mt-1">Nu este nevoie de adresa exactă, doar orașul sau satul.</p>
+                </div>
+                <div>
+                  <label htmlFor="member-category" className="block text-sm font-semibold text-haero-gray-700 mb-1">
+                    Mă descrie cel mai bine <span className="text-haero-red">*</span>
+                  </label>
+                  <select
+                    id="member-category"
+                    required
+                    className="w-full px-4 py-3 border border-haero-gray-300 rounded-lg focus:ring-2 focus:ring-haero-yellow-700 focus:border-transparent outline-none bg-white transition-shadow"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Selectează o opțiune</option>
+                    <option value="pacient-diagnosticat">Pacient diagnosticat</option>
+                    <option value="persoana-cu-simptome">Persoană cu simptome, nediagnosticată</option>
+                    <option value="medic">Medic</option>
+                    <option value="reprezentant-pharma">Reprezentant pharma</option>
+                  </select>
+                </div>
               </div>
 
               <div className="space-y-4 pt-2">
