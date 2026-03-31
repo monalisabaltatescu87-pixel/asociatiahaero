@@ -1,4 +1,5 @@
 import SEO from '../components/SEO';
+import PatientEcosystem from '../components/PatientEcosystem';
 import React from 'react';
 
 const OurMission: React.FC = () => {
@@ -87,6 +88,9 @@ const OurMission: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Patient Ecosystem Triangle */}
+      <PatientEcosystem />
 
       {/* What We Do Section */}
       <section className="py-20 bg-haero-cream">
