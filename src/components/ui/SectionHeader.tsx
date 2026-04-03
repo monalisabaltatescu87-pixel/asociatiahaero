@@ -1,0 +1,79 @@
+import React from 'react';
+
+type DividerColor = 'primary' | 'accent' | 'secondary';
+
+interface SectionHeaderProps {
+  label?: string;
+  title: string;
+  titleHighlight?: string;
+  description?: string;
+  dividerColor?: DividerColor;
+  align?: 'center' | 'left';
+  className?: string;
+}
+
+const dividerColors: Record<DividerColor, string> = {
+  primary: 'from-primary-400 via-primary-300 to-transparent',
+  accent: 'from-accent-400 via-accent-300 to-transparent',
+  secondary: 'from-secondary-400 via-secondary-300 to-transparent',
+};
+
+const labelColors: Record<DividerColor, string> = {
+  primary: 'text-primary-500',
+  accent: 'text-accent-500',
+  secondary: 'text-secondary-500',
+};
+
+const highlightColors: Record<DividerColor, string> = {
+  primary: 'text-primary-500',
+  accent: 'text-accent-500',
+  secondary: 'text-secondary-500',
+};
+
+const SectionHeader: React.FC<SectionHeaderProps> = ({
+  label,
+  title,
+  titleHighlight,
+  description,
+  dividerColor = 'primary',
+  align = 'center',
+  className = '',
+}) => {
+  const isCenter = align === 'center';
+
+  return (
+    <div className={`${isCenter ? 'text-center' : ''} mb-14 ${className}`}>
+      {label && (
+        <span
+          className={`inline-block text-[11px] font-bold uppercase tracking-[3px] ${labelColors[dividerColor]} mb-3`}
+        >
+          {label}
+        </span>
+      )}
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-800 mb-4 text-balance">
+        {title}
+        {titleHighlight && (
+          <span className={` ${highlightColors[dividerColor]}`}>
+            {' '}{titleHighlight}
+          </span>
+        )}
+      </h2>
+      <div
+        className={`h-1 w-16 rounded-full bg-gradient-to-r ${dividerColors[dividerColor]} ${
+          isCenter ? 'mx-auto' : ''
+        } mb-6`}
+      />
+      {description && (
+        <p
+          className={`text-neutral-500 text-lg leading-relaxed ${
+            isCenter ? 'max-w-3xl mx-auto' : 'max-w-2xl'
+          }`}
+        >
+          {description}
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default SectionHeader;

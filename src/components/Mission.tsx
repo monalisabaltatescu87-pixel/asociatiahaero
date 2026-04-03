@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionHeader, Card, IconBox } from './ui';
 
 const Mission: React.FC = () => {
   const goals = [
@@ -9,7 +10,9 @@ const Mission: React.FC = () => {
         </svg>
       ),
       title: 'Calitatea Vieții',
-      description: 'Scopul nostru primordial este de a îmbunătăți calitatea vieții pacienților, atât prin facilitarea îngrijirilor medicale de calitate, cât și prin diminuarea impactului psihosocial pe care această boală rară îl produce.',
+      description:
+        'Scopul nostru primordial este de a îmbunătăți calitatea vieții pacienților, atât prin facilitarea îngrijirilor medicale de calitate, cât și prin diminuarea impactului psihosocial pe care această boală rară îl produce.',
+      color: 'primary' as const,
     },
     {
       icon: (
@@ -18,7 +21,9 @@ const Mission: React.FC = () => {
         </svg>
       ),
       title: 'Acces la Tratament',
-      description: 'Vrem să reușim ca fiecare pacient cu angioedem ereditar din România să beneficieze de tratament individualizat. Militam pentru accesul la tratament specific și pentru introducerea de protocoale terapeutice moderne.',
+      description:
+        'Vrem să reușim ca fiecare pacient cu angioedem ereditar din România să beneficieze de tratament individualizat. Militam pentru accesul la tratament specific și pentru introducerea de protocoale terapeutice moderne.',
+      color: 'accent' as const,
     },
     {
       icon: (
@@ -27,7 +32,9 @@ const Mission: React.FC = () => {
         </svg>
       ),
       title: 'Dialog Deschis',
-      description: 'Rămânem aproape de comunitate, inițiem și menținem un dialog deschis între pacienți și medici, informăm și întreprindem acțiuni care aduc beneficii celor diagnosticați cu angioedem ereditar.',
+      description:
+        'Rămânem aproape de comunitate, inițiem și menținem un dialog deschis între pacienți și medici, informăm și întreprindem acțiuni care aduc beneficii celor diagnosticați cu angioedem ereditar.',
+      color: 'secondary' as const,
     },
     {
       icon: (
@@ -36,39 +43,37 @@ const Mission: React.FC = () => {
         </svg>
       ),
       title: 'Colaborare cu HAEi',
-      description: 'Adunăm pentru pacienți știrile relevante din domeniu, noutățile legate de tratament și inițiativele Asociației internaționale de angioedem ereditar (HAEi) pentru a ține comunitatea informată.',
+      description:
+        'Adunăm pentru pacienți știrile relevante din domeniu, noutățile legate de tratament și inițiativele Asociației internaționale de angioedem ereditar (HAEi) pentru a ține comunitatea informată.',
+      color: 'primary' as const,
     },
   ];
 
   return (
-    <section id="misiune" className="py-20 bg-haero-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
-            Misiunea <span className="text-haero-yellow-600">Noastră</span>
-          </h2>
-          <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
-          <p className="text-haero-gray-500 max-w-3xl mx-auto text-lg">
-            Ideea înființării Asociației a venit ca urmare a faptului că fiecare pacient
-            cu angioedem ereditar are nevoie să se simtă înțeles, acceptat și motivat să
-            facă față acestei boli care reprezintă o continuă provocare.
-          </p>
-        </div>
+    <section className="py-24 bg-neutral-50 relative">
+      <div className="absolute inset-0 pattern-stripes" />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          label="Ce facem"
+          title="Misiunea"
+          titleHighlight="Noastră"
+          dividerColor="accent"
+          description="Ideea înființării Asociației a venit ca urmare a faptului că fiecare pacient cu angioedem ereditar are nevoie să se simtă înțeles, acceptat și motivat să facă față acestei boli care reprezintă o continuă provocare."
+        />
 
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-6">
           {goals.map((goal, index) => (
-            <div
-              key={index}
-              className="flex gap-4 p-6 bg-white rounded-2xl shadow-raised hover:shadow-lifted transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <div className="flex-shrink-0 w-12 h-12 bg-haero-yellow-100 rounded-lg flex items-center justify-center text-haero-yellow-600">
-                {goal.icon}
+            <Card key={index} variant="default" className="p-6">
+              <div className="flex gap-4">
+                <IconBox variant={goal.color} size="md">
+                  {goal.icon}
+                </IconBox>
+                <div>
+                  <h3 className="text-lg font-bold text-neutral-800 mb-2">{goal.title}</h3>
+                  <p className="text-neutral-500 leading-relaxed">{goal.description}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-haero-dark mb-2">{goal.title}</h3>
-                <p className="text-haero-gray-500">{goal.description}</p>
-              </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

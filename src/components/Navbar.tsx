@@ -49,65 +49,88 @@ const Navbar: React.FC = () => {
     { to: '/despre-haei', label: 'Despre HAEi' },
   ];
 
-  const isAeePage = ['/ce-este-aee', '/care-sunt-declansatorii-aee', '/ce-cauzeaza-aee', '/cum-tratam-aee', '/diagnosticarea-aee', '/aee-si-copiii', '/femei-si-sarcina', '/calatorii', '/despre-haei'].includes(location.pathname);
+  const isAeePage = aeeSubLinks.map(l => l.to).includes(location.pathname);
+
+  const linkBase = 'relative text-sm font-semibold transition-colors duration-200 py-1';
+  const linkActive = 'text-primary-500';
+  const linkInactive = 'text-neutral-600 hover:text-primary-500';
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 transition-all duration-200 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-floating'
-          : 'bg-white/70 backdrop-blur-sm'
+          ? 'bg-white/95 backdrop-blur-md shadow-lifted'
+          : 'bg-white/60 backdrop-blur-sm'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center gap-3">
-            <Logo size={48} />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-[72px]">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <Logo size={42} />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-haero-dark">HAERO</span>
-              <p className="text-xs text-haero-gray-500">Asociația pentru Angioedem Ereditar</p>
+              <span className="text-lg font-extrabold text-neutral-800 tracking-tight">
+                HAERO
+              </span>
+              <p className="text-[11px] text-neutral-500 -mt-0.5 tracking-wide">
+                Asociația pentru Angioedem Ereditar
+              </p>
             </div>
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-7">
             <Link
               to="/despre"
-              className={`transition-colors font-semibold text-sm border-b-2 ${
-                location.pathname === '/despre'
-                  ? 'border-haero-yellow text-haero-yellow-600'
-                  : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+              className={`${linkBase} ${
+                location.pathname === '/despre' ? linkActive : linkInactive
               }`}
             >
               Despre Noi
+              {location.pathname === '/despre' && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-400 rounded-full" />
+              )}
             </Link>
 
             {/* AEE Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`transition-colors font-semibold text-sm border-b-2 flex items-center gap-1 ${
-                  isAeePage
-                    ? 'border-haero-yellow text-haero-yellow-600'
-                    : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+                className={`${linkBase} flex items-center gap-1 ${
+                  isAeePage ? linkActive : linkInactive
                 }`}
               >
                 Ce este AEE?
-                <svg className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    dropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                 </svg>
+                {isAeePage && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-400 rounded-full" />
+                )}
               </button>
 
               {dropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-floating border border-haero-gray-100 py-2 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-floating border border-neutral-200 py-2 z-50 animate-scale-in origin-top">
+                  <div className="px-4 py-2 mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-[2px] text-accent-500">
+                      Informații despre AEE
+                    </span>
+                  </div>
                   {aeeSubLinks.map((link) => (
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`block px-4 py-2 text-sm transition-colors ${
+                      className={`block px-4 py-2.5 text-sm transition-all duration-150 rounded-lg mx-2 ${
                         location.pathname === link.to
-                          ? 'bg-haero-yellow-50 text-haero-yellow-600 font-semibold'
-                          : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                          ? 'bg-primary-50 text-primary-600 font-semibold'
+                          : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-800'
                       }`}
                     >
                       {link.label}
@@ -121,20 +144,21 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`transition-colors font-semibold text-sm border-b-2 ${
-                  location.pathname === link.to
-                    ? 'border-haero-yellow text-haero-yellow-600'
-                    : 'border-transparent text-haero-gray-700 hover:text-haero-yellow-600 hover:border-haero-yellow'
+                className={`${linkBase} ${
+                  location.pathname === link.to ? linkActive : linkInactive
                 }`}
               >
                 {link.label}
+                {location.pathname === link.to && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-400 rounded-full" />
+                )}
               </Link>
             ))}
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-haero-dark"
+            className="md:hidden p-2 text-neutral-700 hover:text-neutral-900 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -150,13 +174,13 @@ const Navbar: React.FC = () => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-haero-gray-300 bg-haero-cream rounded-b-2xl">
+          <div className="md:hidden pb-5 pt-2 border-t border-neutral-200 bg-white rounded-b-2xl animate-fade-in">
             <Link
               to="/despre"
-              className={`block py-3 px-4 font-medium transition-colors ${
+              className={`block py-3 px-4 font-medium rounded-xl mx-2 transition-colors ${
                 location.pathname === '/despre'
-                  ? 'text-haero-yellow-600 bg-haero-yellow-50'
-                  : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                  ? 'text-primary-600 bg-primary-50'
+                  : 'text-neutral-600 hover:bg-neutral-100'
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -164,18 +188,18 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Mobile AEE section */}
-            <div className="border-l-2 border-haero-yellow ml-4">
-              <p className="py-3 px-4 text-haero-gray-700 font-semibold">
+            <div className="ml-4 mt-2 mb-2 border-l-2 border-accent-300 pl-2">
+              <p className="py-2 px-3 text-neutral-700 font-bold text-sm uppercase tracking-wider">
                 Ce este AEE?
               </p>
               {aeeSubLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`block py-2 px-6 text-sm transition-colors ${
+                  className={`block py-2 px-3 text-sm rounded-lg transition-colors ${
                     location.pathname === link.to
-                      ? 'text-haero-yellow-600 font-semibold bg-haero-yellow-50'
-                      : 'text-haero-gray-500 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                      ? 'text-primary-600 font-semibold bg-primary-50'
+                      : 'text-neutral-500 hover:bg-neutral-100 hover:text-neutral-700'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -188,10 +212,10 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`block py-3 px-4 font-medium transition-colors ${
+                className={`block py-3 px-4 font-medium rounded-xl mx-2 transition-colors ${
                   location.pathname === link.to
-                    ? 'text-haero-yellow-600 bg-haero-yellow-50'
-                    : 'text-haero-gray-700 hover:bg-haero-yellow-50 hover:text-haero-yellow-600'
+                    ? 'text-primary-600 bg-primary-50'
+                    : 'text-neutral-600 hover:bg-neutral-100'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

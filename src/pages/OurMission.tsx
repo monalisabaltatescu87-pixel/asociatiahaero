@@ -1,5 +1,8 @@
 import SEO from '../components/SEO';
 import React from 'react';
+import { PageHero, SectionHeader, Card, IconBox } from '../components/ui';
+
+const colorCycle: Array<'primary' | 'accent' | 'secondary'> = ['primary', 'accent', 'secondary'];
 
 const OurMission: React.FC = () => {
   const actions = [
@@ -64,70 +67,70 @@ const OurMission: React.FC = () => {
   return (
     <><SEO title="Misiunea Noastră" description="HAERO luptă pentru drepturile pacienților cu angioedem ereditar — acces la tratament, informare, suport emoțional și reprezentare." path="/misiune" /><div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-haero-yellow-50 via-haero-cream to-haero-yellow-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
-              Misiunea <span className="text-haero-yellow-600">Noastră</span>
-            </h2>
-            <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
-          </div>
+      <PageHero
+        variant="primary"
+        badge="Cine suntem"
+        title="Misiunea"
+        titleHighlight="Noastră"
+        description="Asociația HAERO există pentru a proteja și promova drepturile pacienților cu angioedem ereditar (HAE) din România. Credem că fiecare persoană afectată merită acces egal, rapid și fără discriminare la diagnostic, tratament și suport de calitate."
+      />
 
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <p className="text-haero-gray-700 text-lg leading-relaxed">
-              Asociația HAERO există pentru a proteja și promova drepturile pacienților cu angioedem
-              ereditar (HAE) din România. Credem că fiecare persoană afectată merită acces egal, rapid
-              și fără discriminare la diagnostic, tratament și suport de calitate.
-            </p>
-            <p className="text-haero-gray-500 text-lg leading-relaxed">
-              Prin advocacy activ, campanii de informare și o comunitate în care nimeni nu se simte singur,
-              luptăm pentru o viață demnă și împlinită a pacienților cu HAE — indiferent de vârstă,
-              localizare geografică sau condiție socio-economică.
-            </p>
-          </div>
+      {/* Additional mission statement */}
+      <section className="py-12 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-neutral-500 text-lg leading-relaxed">
+            Prin advocacy activ, campanii de informare și o comunitate în care nimeni nu se simte singur,
+            luptăm pentru o viață demnă și împlinită a pacienților cu HAE — indiferent de vârstă,
+            localizare geografică sau condiție socio-economică.
+          </p>
         </div>
       </section>
 
       {/* What We Do Section */}
-      <section className="py-20 bg-haero-cream">
+      <section className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
-              Ce facem <span className="text-haero-yellow-600">concret</span>
-            </h2>
-            <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
-          </div>
+          <SectionHeader
+            label="Acțiuni"
+            title="Ce facem"
+            titleHighlight="concret"
+            dividerColor="accent"
+          />
 
           <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {actions.map((action, index) => (
-              <div
-                key={index}
-                className="flex gap-4 p-6 bg-white rounded-2xl shadow-raised hover:shadow-lifted transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-haero-yellow-100 rounded-lg flex items-center justify-center text-haero-yellow-600">
-                  {action.icon}
-                </div>
-                <p className="text-haero-gray-500 leading-relaxed">{action.text}</p>
-              </div>
-            ))}
+            {actions.map((action, index) => {
+              const color = colorCycle[index % 3];
+              return (
+                <Card key={index} variant="default" hover>
+                  <div className="p-6 flex gap-4">
+                    <IconBox variant={color}>
+                      {action.icon}
+                    </IconBox>
+                    <p className="text-neutral-500 leading-relaxed">{action.text}</p>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Why It Matters Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-haero-dark mb-4">
-            De ce <span className="text-haero-yellow-600">contează</span>
-          </h2>
-          <div className="w-16 h-1 bg-haero-yellow rounded-full mx-auto mb-8"></div>
+      <section className="relative py-20 bg-gradient-to-br from-secondary-50 via-white to-accent-50 overflow-hidden">
+        <div className="absolute -top-20 -left-20 w-64 h-64 blob-secondary opacity-30" />
+        <div className="absolute -bottom-16 right-[10%] w-48 h-48 blob-accent opacity-20" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeader
+            title="De ce"
+            titleHighlight="contează"
+            dividerColor="secondary"
+          />
           <div className="space-y-6">
-            <p className="text-haero-gray-700 text-lg leading-relaxed">
+            <p className="text-neutral-600 text-lg leading-relaxed">
               Angioedemul ereditar este o boală rară, adesea nediagnosticată sau diagnosticată
               cu întârziere de ani de zile. Crizele pot fi severe, cu risc vital, iar lipsa
               accesului rapid la tratament poate costa vieți.
             </p>
-            <p className="text-haero-yellow-700 text-xl font-semibold leading-relaxed">
+            <p className="text-primary-600 text-xl font-semibold leading-relaxed">
               HAERO este vocea care spune: fiecare pacient contează, fiecare criză prevenită este o victorie.
             </p>
           </div>

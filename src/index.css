@@ -2,11 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #fdfcfa;
+    color: #2d2822;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: #fceec5;
+    color: #2d2822;
+  }
+
+  /* Smooth focus styles */
+  *:focus-visible {
+    outline: 2px solid #5a9da4;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
 
-body {
-  font-family: 'Nunito', sans-serif;
-  background-color: #FFFEF5;
+@layer components {
+  /* Organic blob decorations */
+  .blob-primary {
+    background: radial-gradient(circle, rgba(228,181,68,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .blob-accent {
+    background: radial-gradient(circle, rgba(90,157,164,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .blob-secondary {
+    background: radial-gradient(circle, rgba(150,104,162,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Subtle dot pattern */
+  .pattern-dots {
+    background-image: radial-gradient(rgba(228,181,68,0.12) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+
+  /* Diagonal stripe pattern */
+  .pattern-stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(90,157,164,0.04) 8px,
+      rgba(90,157,164,0.04) 16px
+    );
+  }
+
+  /* Gradient mesh background */
+  .gradient-mesh {
+    background:
+      radial-gradient(at 20% 20%, rgba(228,181,68,0.08) 0%, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(90,157,164,0.06) 0%, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(150,104,162,0.04) 0%, transparent 50%);
+  }
+
+  /* Organic card hover */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    @apply shadow-lifted -translate-y-1;
+  }
+
+  /* Section divider */
+  .section-divider {
+    @apply w-full h-px;
+    background: linear-gradient(90deg, transparent, #ddd6c9, transparent);
+  }
+
+  /* Trust badge styling */
+  .trust-badge {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest;
+    @apply text-accent-600 bg-accent-50 border border-accent-200 px-4 py-1.5 rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Stagger animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
 }
