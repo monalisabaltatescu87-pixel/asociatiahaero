@@ -1,6 +1,5 @@
 import SEO from '../components/SEO';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { PageHero, SectionHeader, Card, IconBox, Button } from '../components/ui';
 
 const colorCycle: Array<'primary' | 'accent' | 'secondary'> = ['primary', 'accent', 'secondary'];
