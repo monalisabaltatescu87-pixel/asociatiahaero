@@ -38,13 +38,18 @@ const Navbar: React.FC = () => {
   ];
 
   const aeeSubLinks = [
-    { to: '/ce-este-aee', label: 'Care sunt simptomele AEE?' },
+    { to: '/ce-este-aee', label: 'Ce este AEE?' },
+    { to: '/ce-cauzeaza-aee', label: 'Tipurile și cauzele AEE' },
     { to: '/care-sunt-declansatorii-aee', label: 'Factori declanșatori' },
-    { to: '/ce-cauzeaza-aee', label: 'Principalele cauze' },
+    { to: '/diagnosticarea-aee', label: 'Diagnosticarea AEE' },
     { to: '/cum-tratam-aee', label: 'Tratamente disponibile' },
+    { to: '/aee-si-copiii', label: 'AEE și copiii' },
+    { to: '/femei-si-sarcina', label: 'Femei și sarcină' },
+    { to: '/calatorii', label: 'Călătorii cu AEE' },
+    { to: '/despre-haei', label: 'Despre HAEi' },
   ];
 
-  const isAeePage = ['/ce-este-aee', '/care-sunt-declansatorii-aee', '/ce-cauzeaza-aee', '/cum-tratam-aee'].includes(location.pathname);
+  const isAeePage = ['/ce-este-aee', '/care-sunt-declansatorii-aee', '/ce-cauzeaza-aee', '/cum-tratam-aee', '/diagnosticarea-aee', '/aee-si-copiii', '/femei-si-sarcina', '/calatorii', '/despre-haei'].includes(location.pathname);
 
   return (
     <nav

@@ -13,6 +13,11 @@ import WhatIsHAE from './pages/WhatIsHAE';
 import HAETriggers from './pages/HAETriggers';
 import HAECauses from './pages/HAECauses';
 import HAETreatments from './pages/HAETreatments';
+import DiagnosticAEE from './pages/DiagnosticAEE';
+import AEEChildren from './pages/AEEChildren';
+import WomenPregnancy from './pages/WomenPregnancy';
+import Travel from './pages/Travel';
+import AboutHAEi from './pages/AboutHAEi';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import AssociationBylaws from './pages/AssociationBylaws';
@@ -36,6 +41,11 @@ function App() {
               <Route path="/care-sunt-declansatorii-aee" element={<HAETriggers />} />
               <Route path="/ce-cauzeaza-aee" element={<HAECauses />} />
               <Route path="/cum-tratam-aee" element={<HAETreatments />} />
+              <Route path="/diagnosticarea-aee" element={<DiagnosticAEE />} />
+              <Route path="/aee-si-copiii" element={<AEEChildren />} />
+              <Route path="/femei-si-sarcina" element={<WomenPregnancy />} />
+              <Route path="/calatorii" element={<Travel />} />
+              <Route path="/despre-haei" element={<AboutHAEi />} />
               <Route path="/misiune" element={<OurMission />} />
               <Route path="/comunitate" element={<Community />} />
               <Route path="/contact" element={<ContactPage />} />

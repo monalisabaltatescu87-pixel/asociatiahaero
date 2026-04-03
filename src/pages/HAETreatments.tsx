@@ -17,9 +17,11 @@ const HAETreatments: React.FC = () => {
             </h1>
             <div className="w-20 h-1 bg-haero-yellow rounded-full mx-auto mb-6"></div>
             <p className="text-lg text-haero-gray-500 max-w-3xl mx-auto leading-relaxed">
-              Managementul AEE se bazează pe două piloane terapeutice principale:
-              tratamentul la cerere pentru controlul rapid al atacurilor acute și
-              profilaxia pentru prevenirea episoadelor.
+              Există tratamente eficiente care ajută la reducerea frecvenței și severității
+              umflăturilor și ameliorează simptomele. Din păcate, similar cu multe alte boli
+              rare, nu există un tratament curativ pentru AEE. Obiectivele tratamentului AEE
+              sunt de a obține controlul complet al bolii și de a normaliza viața pacienților.
+              Cu medicamentele moderne, unele persoane raportează că pot trăi practic fără umflături.
             </p>
           </div>
         </div>
@@ -40,6 +42,27 @@ const HAETreatments: React.FC = () => {
         </div>
       </section>
 
+      {/* About Drug Classes */}
+      <section className="py-16 bg-haero-cream">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-8 shadow-raised border-l-4 border-haero-gray-300">
+            <h3 className="text-xl font-bold text-haero-dark mb-4">
+              Despre clasele și denumirile medicamentelor
+            </h3>
+            <p className="text-haero-gray-700 text-lg mb-4 leading-relaxed">
+              Medicamentele cu anumite similitudini pot fi grupate în clase de medicamente.
+              Fiecare medicament are un nume generic aprobat (substanța activă). Mai multe
+              companii pot produce același medicament generic, fiecare cu un nume de marcă comercial.
+            </p>
+            <div className="bg-haero-yellow-50 rounded-xl p-6">
+              <p className="text-haero-gray-700 text-sm leading-relaxed">
+                <strong>Exemplu:</strong> ibuprofenul (generic) → Advil®, Neurofen®, Motrin® etc.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Treatment Categories */}
       <section className="py-16 bg-haero-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,147 +73,153 @@ const HAETreatments: React.FC = () => {
                 Tratamentul la cerere (acut)
               </h3>
               <p className="text-haero-gray-700 text-lg mb-4 leading-relaxed">
-                Atacurile de AEE trebuie tratate cât mai devreme posibil. Tratamentul
-                precoce cu concentrat de inhibitor C1 intravenos, ecallantide sau icatibant
-                oferă un răspuns mai bun decât tratamentul tardiv, rezultând adesea un timp
-                mai scurt până la ameliorarea completă a simptomelor.
+                Utilizat pentru a opri progresia umflăturii. Utilizarea rapidă este deosebit
+                de importantă la nivelul gâtului/căilor respiratorii, deoarece poate duce la
+                deces prin sufocare.
               </p>
-              <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
-                Autoadministrarea și administrarea la domiciliu pot reduce timpul până la
-                tratament, permițând administrarea medicamentului mai devreme în cursul
-                unui atac. Aceasta permite o independență mai mare și un management mai
-                fiabil al simptomelor AEE.
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">Concentrat de C1-INH derivat din plasmă</h4>
+                  <h4 className="font-bold text-haero-dark mb-2">Concentrat de C1-inhibitor intravenos</h4>
                   <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Înlocuiește proteina lipsă sau disfuncțională prin administrare
-                    intravenoasă. Toate concentratele de C1-INH sunt autorizate pentru
-                    autoadministrare.
+                    Produse din plasmă sanguină (pdC1-inhibitor) și produse recombinante
+                    (rhC1-inhibitor). Toate concentratele de C1-inhibitor sunt autorizate
+                    pentru autoadministrare.
                   </p>
                 </div>
                 <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">Icatibant</h4>
+                  <h4 className="font-bold text-haero-dark mb-2">Inhibitor de kalikreină plasmatică</h4>
                   <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Antagonist al receptorului B2 al bradikininei, administrat subcutanat.
-                    Blochează acțiunea bradikininei, mediatorul principal al edemului.
-                    Autorizat pentru autoadministrare.
-                  </p>
-                </div>
-                <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">C1-INH recombinant</h4>
-                  <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Varianta recombinantă a inhibitorului C1, administrare intravenoasă.
-                    Oferă o alternativă la produsele derivate din plasmă.
-                  </p>
-                </div>
-                <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">Ecallantide</h4>
-                  <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Inhibitor al kalicreinei plasmatice, administrat subcutanat.
-                    Reduce producția de bradikinină prin inhibarea enzimei care o generează.
+                    Ecallantidă — reduce producția de bradikinină prin inhibarea enzimei
+                    care o generează.
                   </p>
                 </div>
                 <div className="bg-haero-yellow-50 rounded-xl p-6 md:col-span-2">
-                  <h4 className="font-bold text-haero-dark mb-2">Sebetralstat</h4>
+                  <h4 className="font-bold text-haero-dark mb-2">Antagonist al receptorilor de bradikinină</h4>
                   <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Primul și singurul tratament la cerere <strong>oral</strong> aprobat
-                    pentru atacurile acute de AEE. Oferă o opțiune convenabilă fără
-                    necesitatea injecțiilor.
+                    Icatibant — blochează acțiunea bradikininei, mediatorul principal al
+                    edemului. Autorizat pentru autoadministrare.
                   </p>
                 </div>
+              </div>
+
+              {/* WAO/EAACI Recommendations */}
+              <div className="bg-haero-yellow-50 rounded-xl p-6 border border-haero-yellow-200">
+                <h4 className="font-bold text-haero-dark mb-3">Recomandări WAO/EAACI</h4>
+                <ul className="text-haero-gray-700 text-sm leading-relaxed space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Tratamentul precoce oferă răspuns mai bun</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Tratamentul ar trebui administrat cât mai devreme posibil, prin autoadministrare</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Toate concentratele de C1-inhibitor și icatibantul sunt autorizate pentru autoadministrare</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Dacă nu sunt disponibile, se utilizează plasma tratată cu solvent-detergent (SDP) sau plasma proaspătă congelată (FFP)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Se recomandă evitarea antifibrinoliticelor (acid tranexamic) sau androgenilor (danazol) ca tratamente la cerere</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
             {/* Long-term Prophylaxis */}
             <div className="bg-white rounded-2xl p-8 shadow-raised border-l-4 border-haero-yellow">
               <h3 className="text-xl font-bold text-haero-dark mb-4">
-                Profilaxia pe termen lung (LTP)
+                Profilaxia pe termen lung (PTL)
               </h3>
-              <p className="text-haero-gray-700 text-lg mb-6 leading-relaxed">
-                Profilaxia pe termen lung presupune utilizarea regulată de medicamente
-                pentru a preveni apariția episoadelor de umflătură. Unele medicamente
-                moderne de profilaxie fac ca pacienții cu AEE să nu mai experimenteze
-                deloc episoade de umflătură.
+              <p className="text-haero-gray-700 text-lg mb-4 leading-relaxed">
+                Utilizarea regulată de medicamente pentru a preveni episoadele de umflare.
+                Reduce numărul atacurilor, iar cu medicamente moderne, unele persoane nu mai
+                au atacuri deloc. Trebuie adaptată individual.
               </p>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-haero-yellow-50 rounded-xl p-6">
+                  <h4 className="font-bold text-haero-dark mb-2">Concentrat de C1-inhibitor (pdC1-inhibitor)</h4>
+                  <p className="text-haero-gray-500 text-sm leading-relaxed">
+                    Administrare regulată pentru menținerea unui nivel constant de inhibitor
+                    C1 esterază în organism. Disponibil în formă subcutanată și intravenoasă.
+                  </p>
+                </div>
                 <div className="bg-haero-yellow-50 rounded-xl p-6">
                   <h4 className="font-bold text-haero-dark mb-2">Lanadelumab</h4>
                   <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Inhibitor al kalicreinei plasmatice (anticorp monoclonal), administrat
-                    subcutanat la fiecare 2 sau 4 săptămâni. Recomandat ca opțiune de
-                    primă linie pentru profilaxia pe termen lung.
-                  </p>
-                </div>
-                <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">Berotralstat</h4>
-                  <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Inhibitor <strong>oral</strong> al kalicreinei plasmatice, administrat
-                    zilnic sub formă de capsulă. Recomandat ca opțiune de primă linie
-                    pentru profilaxie, fără necesitatea injecțiilor.
-                  </p>
-                </div>
-                <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">Concentrat de C1-INH subcutanat</h4>
-                  <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Administrare subcutanată regulată pentru menținerea unui nivel
-                    constant de inhibitor C1 esterază în organism. Disponibil și în
-                    formă intravenoasă.
-                  </p>
-                </div>
-                <div className="bg-haero-yellow-50 rounded-xl p-6">
-                  <h4 className="font-bold text-haero-dark mb-2">Garadacimab</h4>
-                  <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Singura terapie aprobată care inhibă <strong>începutul cascadei AEE</strong> prin
-                    țintirea factorului XII activat (FXIIa). Administrare subcutanată
-                    o dată pe lună.
+                    Inhibitor de kalikreină plasmatică (anticorp monoclonal), administrat
+                    subcutanat. Recomandat ca opțiune de primă linie pentru profilaxia pe
+                    termen lung.
                   </p>
                 </div>
                 <div className="bg-haero-yellow-50 rounded-xl p-6 md:col-span-2">
-                  <h4 className="font-bold text-haero-dark mb-2">Donidalorsen</h4>
+                  <h4 className="font-bold text-haero-dark mb-2">Berotralstat</h4>
                   <p className="text-haero-gray-500 text-sm leading-relaxed">
-                    Prima și singura terapie profilactică <strong>bazată pe ARN</strong> pentru
-                    AEE, oferind cel mai lung interval între doze — la fiecare 4 sau 8
-                    săptămâni.
+                    Inhibitor de kalikreină plasmatică, administrat oral. Recomandat ca
+                    opțiune de primă linie pentru profilaxie, fără necesitatea injecțiilor.
                   </p>
                 </div>
+              </div>
+
+              {/* Alternative PTL options */}
+              <div className="bg-haero-yellow-50 rounded-xl p-6 border border-haero-yellow-200">
+                <h4 className="font-bold text-haero-dark mb-3">Alternative când medicamentele de mai sus nu sunt disponibile</h4>
+                <ul className="text-haero-gray-700 text-sm leading-relaxed space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Androgenii atenuați pot fi utilizați, dar au multe efecte secundare</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Antifibrinoliticele (acid tranexamic) pot fi utilizate când androgenii sunt contraindicați</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-6 bg-red-50 rounded-xl p-4 border border-red-200">
+                <p className="text-haero-gray-700 text-sm leading-relaxed font-medium">
+                  <strong>Atenție:</strong> Chiar dacă se utilizează profilaxia pe termen lung,
+                  tratamentul la cerere trebuie să fie întotdeauna disponibil.
+                </p>
               </div>
             </div>
 
             {/* Short-term Prophylaxis */}
             <div className="bg-white rounded-2xl p-8 shadow-raised border-l-4 border-haero-blue">
               <h3 className="text-xl font-bold text-haero-dark mb-4">
-                Profilaxia pe termen scurt (STP)
+                Profilaxia pe termen scurt
               </h3>
               <p className="text-haero-gray-700 text-lg mb-4 leading-relaxed">
-                Se administrează chiar înainte de o procedură chirurgicală sau
-                stomatologică pentru a preveni un atac de AEE în timpul sau după
-                procedură. Utilizarea concentratului de C1-INH intravenos derivat din
-                plasmă este considerată tratamentul de elecție, administrat cât mai
-                aproape posibil de începutul procedurii.
+                Se efectuează înainte de proceduri chirurgicale sau dentare. Concentratul de
+                C1-inhibitor derivat din plasmă intravenos este tratamentul ales.
               </p>
-              <p className="text-haero-gray-700 text-lg leading-relaxed">
-                Pacienții care primesc tratament profilactic au în continuare nevoie de
-                un plan de tratament la cerere eficient, în cazul în care profilaxia nu
-                este 100% eficientă.
-              </p>
-            </div>
-
-            {/* Emerging Therapies */}
-            <div className="bg-white rounded-2xl p-8 shadow-raised border-l-4 border-haero-gray-300">
-              <h3 className="text-xl font-bold text-haero-dark mb-4">
-                Terapii emergente și viitoare
-              </h3>
-              <p className="text-haero-gray-700 text-lg leading-relaxed">
-                Terapiile emergente — inclusiv noi agenți orali, anticorpi monoclonali,
-                terapii ARN și abordări pioniere de editare genetică — continuă să
-                evolueze, vizând simplificarea tratamentului și personalizarea îngrijirilor.
-                Noile medicamente vor simplifica modul de administrare (oral versus
-                parenteral), vor prelungi intervalul între administrări (până la 3-6 luni
-                de eficacitate cu o singură administrare) și pot determina o vindecare
-                definitivă a bolii prin manipulare genetică.
-              </p>
+              <div className="bg-haero-yellow-50 rounded-xl p-6 mb-4">
+                <h4 className="font-bold text-haero-dark mb-3">Alternative</h4>
+                <ul className="text-haero-gray-700 text-sm leading-relaxed space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Concentrat recombinant de C1-inhibitor</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Plasmă proaspătă congelată (FFP)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-haero-yellow-600 mt-1">•</span>
+                    <span>Androgeni atenuați (5 zile înainte și 2-3 zile după procedură)</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+                <p className="text-haero-gray-700 text-sm leading-relaxed font-medium">
+                  <strong>Atenție:</strong> Tratamentul la cerere trebuie să fie disponibil în
+                  timpul procedurii.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -227,8 +256,8 @@ const HAETreatments: React.FC = () => {
             <Link to="/ce-cauzeaza-aee" className="text-haero-yellow-600 font-semibold hover:text-haero-yellow-700 transition-colors">
               ← Principalele cauze
             </Link>
-            <Link to="/ce-este-aee" className="text-haero-yellow-600 font-semibold hover:text-haero-yellow-700 transition-colors sm:text-right">
-              Înapoi la simptomele AEE →
+            <Link to="/diagnosticarea-aee" className="text-haero-yellow-600 font-semibold hover:text-haero-yellow-700 transition-colors sm:text-right">
+              Diagnosticarea AEE →
             </Link>
           </div>
         </div>

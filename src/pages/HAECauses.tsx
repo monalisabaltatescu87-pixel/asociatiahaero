@@ -59,12 +59,11 @@ const HAECauses: React.FC = () => {
 
             <div className="space-y-6">
               <div className="bg-white rounded-2xl p-8 shadow-raised border-t-4 border-haero-yellow">
-                <h3 className="font-bold text-haero-dark mb-3 text-lg">Tipul I — Deficit cantitativ</h3>
+                <h3 className="font-bold text-haero-dark mb-3 text-lg">AEE Tip I — Deficit cantitativ</h3>
                 <p className="text-haero-gray-500 leading-relaxed mb-3">
-                  Reprezintă aproximativ <strong>85% din cazuri</strong>. Mutațiile produc
-                  o proteină C1-INH trunchiată sau incorect pliată, rezultând niveluri
-                  antigenice mai mici de 50% față de normal și un deficit funcțional
-                  echivalent.
+                  <strong>85% din persoanele cu AEE.</strong> Cea mai frecventă formă a
+                  afecțiunii, se caracterizează prin niveluri cantitative scăzute de
+                  C1-inhibitor.
                 </p>
                 <div className="bg-haero-yellow-50 rounded-lg px-4 py-2 text-sm text-haero-gray-700">
                   Nivel C1-INH: scăzut | Funcție C1-INH: scăzută
@@ -72,24 +71,35 @@ const HAECauses: React.FC = () => {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-raised border-t-4 border-haero-yellow-600">
-                <h3 className="font-bold text-haero-dark mb-3 text-lg">Tipul II — Deficit funcțional</h3>
+                <h3 className="font-bold text-haero-dark mb-3 text-lg">AEE Tip II — Deficit funcțional</h3>
                 <p className="text-haero-gray-500 leading-relaxed mb-3">
-                  Reprezintă aproximativ <strong>15% din cazuri</strong>. Mutațiile la
-                  nivelul buclei centrului reactiv (exonul 8) generează o proteină
-                  nefuncțională care poate circula la niveluri antigenice normale sau
-                  crescute, dar căreia îi lipsește activitatea inhibitorie.
+                  <strong>15% din persoanele cu AEE.</strong> Testele de laborator arată
+                  niveluri normale sau crescute de C1-inhibitor, dar proteina nu
+                  funcționează corect.
                 </p>
                 <div className="bg-haero-yellow-50 rounded-lg px-4 py-2 text-sm text-haero-gray-700">
                   Nivel C1-INH: normal/crescut | Funcție C1-INH: scăzută
                 </div>
               </div>
 
+              <div className="bg-haero-yellow-50 rounded-2xl p-6 border border-haero-yellow-200">
+                <p className="text-haero-gray-700 leading-relaxed">
+                  Absența unui istoric familial nu exclude diagnosticul de AEE cauzat de
+                  deficiența de C1-inhibitor. Până la <strong>25% din cazurile de HAE</strong> rezultă
+                  dintr-o mutație spontană a genei C1-inhibitorului la concepție. Copiii
+                  au <strong>50% șanse</strong> să moștenească HAE dacă unul dintre părinți are
+                  această afecțiune.
+                </p>
+              </div>
+
               <div className="bg-white rounded-2xl p-8 shadow-raised border-t-4 border-haero-yellow-700">
-                <h3 className="font-bold text-haero-dark mb-3 text-lg">Tipul III — Cu C1-INH normal</h3>
+                <h3 className="font-bold text-haero-dark mb-3 text-lg">AEE cu C1-inhibitor normal</h3>
                 <p className="text-haero-gray-500 leading-relaxed mb-3">
-                  Formă rară, cu niveluri cantitative și funcționale normale ale C1-INH.
-                  Un subset de pacienți prezintă mutații ale genei <strong>F12 (factorul XII)</strong> care
-                  facilitează activarea inadecvată a cascadei kalikreină–bradikinină.
+                  Simptomele sunt consistente cu AEE tip I și II, dar rezultatele de
+                  laborator arată niveluri și funcție normale ale C1-inhibitorului.
+                  Studiile recente au confirmat că AEE cu C1-Inhibitor normal include un
+                  număr de mutații genetice care sunt conectate cu umflarea. Așteptarea
+                  este ca mai multe astfel de mutații să fie identificate în viitor.
                 </p>
                 <div className="bg-haero-yellow-50 rounded-lg px-4 py-2 text-sm text-haero-gray-700">
                   Nivel C1-INH: normal | Funcție C1-INH: normală
