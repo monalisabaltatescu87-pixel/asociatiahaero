@@ -23,12 +23,6 @@ const blobColors = {
   secondary: 'blob-secondary',
 };
 
-const highlightColors = {
-  primary: 'text-primary-500',
-  accent: 'text-accent-500',
-  secondary: 'text-secondary-500',
-};
-
 const PageHero: React.FC<PageHeroProps> = ({
   title,
   titleHighlight,
@@ -65,9 +59,7 @@ const PageHero: React.FC<PageHeroProps> = ({
         )}
 
         {badge && (
-          <span
-            className={`inline-block text-[11px] font-bold uppercase tracking-[3px] ${highlightColors[variant]} mb-4`}
-          >
+          <span className="inline-block text-[11px] font-bold uppercase tracking-[3px] text-primary-500 mb-4">
             {badge}
           </span>
         )}
@@ -75,7 +67,7 @@ const PageHero: React.FC<PageHeroProps> = ({
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-800 mb-5 text-balance leading-tight">
           {title}
           {titleHighlight && (
-            <span className={` ${highlightColors[variant]}`}> {titleHighlight}</span>
+            <span className="text-primary-500"> {titleHighlight}</span>
           )}
         </h1>
 

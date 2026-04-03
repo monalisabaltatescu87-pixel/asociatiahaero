@@ -12,22 +12,10 @@ interface SectionHeaderProps {
   className?: string;
 }
 
-const dividerColors: Record<DividerColor, string> = {
+const dividerGradients: Record<DividerColor, string> = {
   primary: 'from-primary-400 via-primary-300 to-transparent',
   accent: 'from-accent-400 via-accent-300 to-transparent',
   secondary: 'from-secondary-400 via-secondary-300 to-transparent',
-};
-
-const labelColors: Record<DividerColor, string> = {
-  primary: 'text-primary-500',
-  accent: 'text-accent-500',
-  secondary: 'text-secondary-500',
-};
-
-const highlightColors: Record<DividerColor, string> = {
-  primary: 'text-primary-500',
-  accent: 'text-accent-500',
-  secondary: 'text-secondary-500',
 };
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -44,22 +32,20 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div className={`${isCenter ? 'text-center' : ''} mb-14 ${className}`}>
       {label && (
-        <span
-          className={`inline-block text-[11px] font-bold uppercase tracking-[3px] ${labelColors[dividerColor]} mb-3`}
-        >
+        <span className="inline-block text-[11px] font-bold uppercase tracking-[3px] text-primary-500 mb-3">
           {label}
         </span>
       )}
       <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-800 mb-4 text-balance">
         {title}
         {titleHighlight && (
-          <span className={` ${highlightColors[dividerColor]}`}>
+          <span className="text-primary-500">
             {' '}{titleHighlight}
           </span>
         )}
       </h2>
       <div
-        className={`h-1 w-16 rounded-full bg-gradient-to-r ${dividerColors[dividerColor]} ${
+        className={`h-1 w-16 rounded-full bg-gradient-to-r ${dividerGradients[dividerColor]} ${
           isCenter ? 'mx-auto' : ''
         } mb-6`}
       />

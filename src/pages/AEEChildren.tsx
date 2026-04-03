@@ -107,14 +107,14 @@ const AEEChildren: React.FC = () => {
 
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
             <Card variant="bordered" hover={false} className="p-6 text-center">
-              <p className="text-5xl font-extrabold text-secondary-500 mb-2">50%</p>
+              <p className="text-5xl font-extrabold text-primary-500 mb-2">50%</p>
               <p className="text-neutral-700 leading-relaxed font-medium">
                 dintre persoanele cu AEE raportează primele simptome
                 până la <strong>vârsta de 10 ani</strong>
               </p>
             </Card>
             <Card variant="bordered" hover={false} className="p-6 text-center">
-              <p className="text-5xl font-extrabold text-secondary-500 mb-2">&lt;18 ani</p>
+              <p className="text-5xl font-extrabold text-primary-500 mb-2">&lt;18 ani</p>
               <p className="text-neutral-700 leading-relaxed font-medium">
                 Majoritatea pacienților au experimentat <strong>primul atac</strong> înainte
                 de vârsta adultă
@@ -255,10 +255,10 @@ const AEEChildren: React.FC = () => {
       <section className="py-12 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
-            <Link to="/diagnosticarea-aee" className="text-secondary-500 font-semibold hover:text-secondary-600 transition-colors">
+            <Link to="/diagnosticarea-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors">
               ← Diagnosticarea AEE
             </Link>
-            <Link to="/femei-si-sarcina" className="text-secondary-500 font-semibold hover:text-secondary-600 transition-colors sm:text-right">
+            <Link to="/femei-si-sarcina" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right">
               Femei și sarcina →
             </Link>
           </div>
@@ -270,7 +270,7 @@ const AEEChildren: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
-            <a href="https://haei.org" target="_blank" rel="noopener noreferrer" className="text-secondary-500 hover:text-secondary-600 underline">
+            <a href="https://haei.org" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               HAE International (HAEi)
             </a>.
           </p>

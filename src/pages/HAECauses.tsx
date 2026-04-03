@@ -228,10 +228,10 @@ const HAECauses: React.FC = () => {
       <section className="py-12 bg-neutral-50 section-divider">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
-            <Link to="/care-sunt-declansatorii-aee" className="text-accent-500 font-semibold hover:text-accent-600 transition-colors">
+            <Link to="/care-sunt-declansatorii-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors">
               ← Factori declanșatori
             </Link>
-            <Link to="/cum-tratam-aee" className="text-accent-500 font-semibold hover:text-accent-600 transition-colors sm:text-right">
+            <Link to="/cum-tratam-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right">
               Tratamente disponibile →
             </Link>
           </div>
@@ -243,15 +243,15 @@ const HAECauses: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
-            <a href="https://haei.org/hae/what_causes_hae" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://haei.org/hae/what_causes_hae" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               HAE International (HAEi)
             </a>
             {', '}
-            <a href="https://medlineplus.gov/genetics/condition/hereditary-angioedema/" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://medlineplus.gov/genetics/condition/hereditary-angioedema/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               MedlinePlus
             </a>
             {' și '}
-            <a href="https://emedicine.medscape.com/article/135604-overview" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://emedicine.medscape.com/article/135604-overview" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               Medscape
             </a>.
           </p>

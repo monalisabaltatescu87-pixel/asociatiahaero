@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SectionHeader, Card, Badge } from './ui';
 
@@ -48,9 +49,7 @@ const WhatIsHAE: React.FC = () => {
               className="inline-flex items-center gap-2 bg-accent-400 text-white px-7 py-3 rounded-full font-bold hover:bg-accent-500 transition-all duration-300 shadow-raised hover:shadow-glow-accent hover:-translate-y-0.5"
             >
               Află mai multe despre AEE
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <ArrowRight size={16} />
             </Link>
           </div>
 
@@ -66,9 +65,7 @@ const WhatIsHAE: React.FC = () => {
               </p>
               <span className="text-primary-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
                 Citește mai mult
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronRight size={14} />
               </span>
             </Card>
 
@@ -78,11 +75,9 @@ const WhatIsHAE: React.FC = () => {
                 Stresul, traumatismele fizice, infecțiile, modificările hormonale și anumite
                 medicamente pot declanșa episoade de angioedem ereditar.
               </p>
-              <span className="text-accent-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
+              <span className="text-primary-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
                 Citește mai mult
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronRight size={14} />
               </span>
             </Card>
 
@@ -92,11 +87,9 @@ const WhatIsHAE: React.FC = () => {
                 AEE este cauzat de mutații genetice care afectează inhibitorul C1 esterază,
                 ducând la producția excesivă de bradikinină și apariția edemului.
               </p>
-              <span className="text-secondary-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
+              <span className="text-primary-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
                 Citește mai mult
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronRight size={14} />
               </span>
             </Card>
 
@@ -107,11 +100,9 @@ const WhatIsHAE: React.FC = () => {
                 HAERO militează pentru accesul fiecărui pacient la tratament specific,
                 individualizat.
               </p>
-              <span className="text-accent-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
+              <span className="text-primary-500 font-semibold text-sm mt-3 inline-flex items-center gap-1">
                 Citește mai mult
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ChevronRight size={14} />
               </span>
             </Card>
           </div>

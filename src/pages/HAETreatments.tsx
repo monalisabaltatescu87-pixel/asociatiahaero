@@ -96,23 +96,23 @@ const HAETreatments: React.FC = () => {
                 <h4 className="font-bold text-neutral-800 mb-3">Recomandări WAO/EAACI</h4>
                 <ul className="text-neutral-700 text-sm leading-relaxed space-y-2">
                   <li className="flex items-start gap-2">
-                    <span className="text-accent-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Tratamentul precoce oferă răspuns mai bun</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Tratamentul ar trebui administrat cât mai devreme posibil, prin autoadministrare</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Toate concentratele de C1-inhibitor și icatibantul sunt autorizate pentru autoadministrare</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Dacă nu sunt disponibile, se utilizează plasma tratată cu solvent-detergent (SDP) sau plasma proaspătă congelată (FFP)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-accent-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Se recomandă evitarea antifibrinoliticelor (acid tranexamic) sau androgenilor (danazol) ca tratamente la cerere</span>
                   </li>
                 </ul>
@@ -190,15 +190,15 @@ const HAETreatments: React.FC = () => {
                 <h4 className="font-bold text-neutral-800 mb-3">Alternative</h4>
                 <ul className="text-neutral-700 text-sm leading-relaxed space-y-2">
                   <li className="flex items-start gap-2">
-                    <span className="text-secondary-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Concentrat recombinant de C1-inhibitor</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-secondary-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Plasmă proaspătă congelată (FFP)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-secondary-500 mt-1">•</span>
+                    <span className="text-primary-500 mt-1">•</span>
                     <span>Androgeni atenuați (5 zile înainte și 2-3 zile după procedură)</span>
                   </li>
                 </ul>
@@ -241,10 +241,10 @@ const HAETreatments: React.FC = () => {
       <section className="py-12 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
-            <Link to="/ce-cauzeaza-aee" className="text-accent-500 font-semibold hover:text-accent-600 transition-colors">
+            <Link to="/ce-cauzeaza-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors">
               ← Principalele cauze
             </Link>
-            <Link to="/diagnosticarea-aee" className="text-accent-500 font-semibold hover:text-accent-600 transition-colors sm:text-right">
+            <Link to="/diagnosticarea-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right">
               Diagnosticarea AEE →
             </Link>
           </div>
@@ -256,15 +256,15 @@ const HAETreatments: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
-            <a href="https://haei.org/what-is-hae/treatment/" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://haei.org/what-is-hae/treatment/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               HAE International (HAEi)
             </a>
             {', '}
-            <a href="https://www.haea.org/pages/p/treatments" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://www.haea.org/pages/p/treatments" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               US HAEA
             </a>
             {' și '}
-            <a href="https://emedicine.medscape.com/article/135604-treatment" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://emedicine.medscape.com/article/135604-treatment" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               Medscape
             </a>.
           </p>

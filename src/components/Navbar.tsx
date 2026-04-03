@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
+import { ChevronDown, X, Menu } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,16 +102,13 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 Ce este AEE?
-                <svg
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                <ChevronDown
+                  size={14}
+                  strokeWidth={2.5}
+                  className={`transition-transform duration-200 ${
                     dropdownOpen ? 'rotate-180' : ''
                   }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                </svg>
+                />
                 {isAeePage && (
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-400 rounded-full" />
                 )}
@@ -119,7 +117,7 @@ const Navbar: React.FC = () => {
               {dropdownOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-floating border border-neutral-200 py-2 z-50 animate-scale-in origin-top">
                   <div className="px-4 py-2 mb-1">
-                    <span className="text-[10px] font-bold uppercase tracking-[2px] text-accent-500">
+                    <span className="text-[10px] font-bold uppercase tracking-[2px] text-primary-500">
                       Informații despre AEE
                     </span>
                   </div>
@@ -162,13 +160,7 @@ const Navbar: React.FC = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 

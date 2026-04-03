@@ -24,7 +24,7 @@ const WomenPregnancy: React.FC = () => {
               <div className="flex items-center mb-4">
                 <span className="text-3xl mr-3" aria-hidden="true">💊</span>
                 <h2 className="text-2xl font-bold text-neutral-800">
-                  Tratamentul <span className="text-secondary-500">AEE</span> în sarcină
+                  Tratamentul <span className="text-primary-500">AEE</span> în sarcină
                 </h2>
               </div>
               <p className="text-neutral-600 text-lg leading-relaxed mb-4">
@@ -41,7 +41,7 @@ const WomenPregnancy: React.FC = () => {
               <div className="flex items-center mb-4">
                 <span className="text-3xl mr-3" aria-hidden="true">⚡</span>
                 <h2 className="text-2xl font-bold text-neutral-800">
-                  Atacuri de <span className="text-accent-500">AEE</span>
+                  Atacuri de <span className="text-primary-500">AEE</span>
                 </h2>
               </div>
               <p className="text-neutral-600 text-lg leading-relaxed mb-4">
@@ -79,7 +79,7 @@ const WomenPregnancy: React.FC = () => {
             <div className="flex items-center mb-4">
               <span className="text-3xl mr-3" aria-hidden="true">👶</span>
               <h2 className="text-2xl font-bold text-neutral-800">
-                Bebelușul <span className="text-secondary-500">meu</span>
+                Bebelușul <span className="text-primary-500">meu</span>
               </h2>
             </div>
             <p className="text-neutral-600 text-lg leading-relaxed mb-4">
@@ -141,10 +141,10 @@ const WomenPregnancy: React.FC = () => {
       <section className="py-12 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
-            <Link to="/aee-si-copiii" className="text-secondary-500 font-semibold hover:text-secondary-600 transition-colors">
+            <Link to="/aee-si-copiii" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors">
               ← AEE și copiii
             </Link>
-            <Link to="/calatorii" className="text-secondary-500 font-semibold hover:text-secondary-600 transition-colors sm:text-right">
+            <Link to="/calatorii" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right">
               Călătorii →
             </Link>
           </div>
@@ -156,7 +156,7 @@ const WomenPregnancy: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
-            <a href="https://haei.org" target="_blank" rel="noopener noreferrer" className="text-secondary-500 hover:text-secondary-600 underline">
+            <a href="https://haei.org" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               HAE International (HAEi)
             </a>.
           </p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -56,7 +57,7 @@ const Footer: React.FC = () => {
 
           {/* AEE column */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-accent-400 mb-4">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-primary-400 mb-4">
               Despre AEE
             </h3>
             <ul className="space-y-2.5">
@@ -69,7 +70,7 @@ const Footer: React.FC = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-neutral-400 text-sm hover:text-accent-300 transition-colors duration-200"
+                    className="text-neutral-400 text-sm hover:text-primary-300 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -80,7 +81,7 @@ const Footer: React.FC = () => {
 
           {/* Resources column */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-secondary-300 mb-4">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-primary-400 mb-4">
               Resurse
             </h3>
             <ul className="space-y-2.5">
@@ -89,12 +90,10 @@ const Footer: React.FC = () => {
                   href="https://haei.org"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 text-sm hover:text-secondary-200 transition-colors duration-200 inline-flex items-center gap-1"
+                  className="text-neutral-400 text-sm hover:text-primary-300 transition-colors duration-200 inline-flex items-center gap-1"
                 >
                   HAEi (HAE International)
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  <ExternalLink size={12} />
                 </a>
               </li>
               <li>
@@ -102,12 +101,10 @@ const Footer: React.FC = () => {
                   href="https://www.angioedem.ro"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-400 text-sm hover:text-secondary-200 transition-colors duration-200 inline-flex items-center gap-1"
+                  className="text-neutral-400 text-sm hover:text-primary-300 transition-colors duration-200 inline-flex items-center gap-1"
                 >
                   Centrul de Expertiză AEE
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  <ExternalLink size={12} />
                 </a>
               </li>
             </ul>

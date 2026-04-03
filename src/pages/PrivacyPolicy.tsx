@@ -21,7 +21,7 @@ const PrivacyPolicy: React.FC = () => {
                 Operatorul datelor personale este Asociația HAERO.
               </p>
               <p className="text-neutral-600 mt-2">
-                Pentru orice solicitare privind datele personale ne puteți contacta la: Email: <a href="mailto:asociatia.haero@gmail.com" className="text-accent-500 hover:underline">asociatia.haero@gmail.com</a>
+                Pentru orice solicitare privind datele personale ne puteți contacta la: Email: <a href="mailto:asociatia.haero@gmail.com" className="text-primary-500 hover:underline">asociatia.haero@gmail.com</a>
               </p>
             </div>
 

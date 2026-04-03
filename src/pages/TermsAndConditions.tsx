@@ -40,7 +40,7 @@ const TermsAndConditions: React.FC = () => {
             <div>
               <h3 className="text-xl font-bold text-primary-500 mb-3">3. Protecția datelor personale</h3>
               <p className="text-neutral-600">
-                Datele personale sunt prelucrate în conformitate cu legislația aplicabilă privind protecția datelor și cu <Link to="/politica-confidentialitate" className="text-accent-500 hover:underline">Politica de Confidențialitate</Link> disponibilă pe site.
+                Datele personale sunt prelucrate în conformitate cu legislația aplicabilă privind protecția datelor și cu <Link to="/politica-confidentialitate" className="text-primary-500 hover:underline">Politica de Confidențialitate</Link> disponibilă pe site.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ const TermsAndConditions: React.FC = () => {
             <div>
               <h3 className="text-xl font-bold text-primary-500 mb-3">8. Contact</h3>
               <p className="text-neutral-600">
-                Pentru întrebări privind utilizarea site-ului sau acești termeni, ne puteți contacta la adresa de email: <a href="mailto:asociatia.haero@gmail.com" className="text-accent-500 hover:underline">asociatia.haero@gmail.com</a>.
+                Pentru întrebări privind utilizarea site-ului sau acești termeni, ne puteți contacta la adresa de email: <a href="mailto:asociatia.haero@gmail.com" className="text-primary-500 hover:underline">asociatia.haero@gmail.com</a>.
               </p>
             </div>
           </Card>

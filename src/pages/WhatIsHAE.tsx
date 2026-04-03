@@ -1,5 +1,6 @@
 import SEO from '../components/SEO';
 import React from 'react';
+import { Hand, Activity, AlertTriangle } from 'lucide-react';
 import { PageHero, SectionHeader, Card, IconBox, Callout } from '../components/ui';
 
 const WhatIsHAE: React.FC = () => {
@@ -117,9 +118,7 @@ const WhatIsHAE: React.FC = () => {
             <Card variant="feature" accentColor="primary" hover>
               <div className="p-8">
                 <IconBox variant="primary" size="md" className="mb-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-                  </svg>
+                  <Hand size={24} />
                 </IconBox>
                 <h3 className="font-bold text-neutral-800 mb-3 text-lg">Umflături cutanate</h3>
                 <p className="text-neutral-500 leading-relaxed mb-3">
@@ -136,9 +135,7 @@ const WhatIsHAE: React.FC = () => {
             <Card variant="feature" accentColor="secondary" hover>
               <div className="p-8">
                 <IconBox variant="secondary" size="md" className="mb-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
-                  </svg>
+                  <Activity size={24} />
                 </IconBox>
                 <h3 className="font-bold text-neutral-800 mb-3 text-lg">Simptome abdominale</h3>
                 <p className="text-neutral-500 leading-relaxed mb-3">
@@ -154,9 +151,7 @@ const WhatIsHAE: React.FC = () => {
             <Card variant="feature" accentColor="accent" hover>
               <div className="p-8">
                 <IconBox variant="accent" size="md" className="mb-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
+                  <AlertTriangle size={24} />
                 </IconBox>
                 <h3 className="font-bold text-neutral-800 mb-3 text-lg">Edem laringian</h3>
                 <p className="text-neutral-500 leading-relaxed mb-3">
@@ -233,7 +228,7 @@ const WhatIsHAE: React.FC = () => {
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   Înțelege mecanismele genetice și biologice care stau la baza acestei boli rare.
                 </p>
-                <span className="text-secondary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
+                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
               </div>
             </Card>
             <Card variant="feature" accentColor="accent" to="/cum-tratam-aee" hover>
@@ -242,7 +237,7 @@ const WhatIsHAE: React.FC = () => {
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   Află despre tratamentele moderne disponibile pentru managementul AEE.
                 </p>
-                <span className="text-accent-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
+                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
               </div>
             </Card>
             <Card variant="feature" accentColor="primary" to="/diagnosticarea-aee" hover>
@@ -260,7 +255,7 @@ const WhatIsHAE: React.FC = () => {
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   Informații despre cum afectează angioedemul ereditar copiii și ce trebuie să știe părinții.
                 </p>
-                <span className="text-secondary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
+                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
               </div>
             </Card>
             <Card variant="feature" accentColor="accent" to="/femei-si-sarcina" hover>
@@ -269,7 +264,7 @@ const WhatIsHAE: React.FC = () => {
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   Informații esențiale despre AEE în contextul sarcinii și sănătății femeilor.
                 </p>
-                <span className="text-accent-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
+                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
               </div>
             </Card>
             <Card variant="feature" accentColor="primary" to="/calatorii" hover>
@@ -287,7 +282,7 @@ const WhatIsHAE: React.FC = () => {
                 <p className="text-neutral-500 text-sm leading-relaxed">
                   Află despre organizația internațională HAE International și misiunea sa.
                 </p>
-                <span className="text-secondary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
+                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
               </div>
             </Card>
           </div>
@@ -299,15 +294,15 @@ const WhatIsHAE: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
-            <a href="https://haei.org/what-is-hae/" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://haei.org/what-is-hae/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               HAE International (HAEi)
             </a>
             {', '}
-            <a href="https://rarediseases.org/rare-diseases/hereditary-angioedema/" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://rarediseases.org/rare-diseases/hereditary-angioedema/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               NORD
             </a>
             {' și '}
-            <a href="https://my.clevelandclinic.org/health/diseases/hereditary-angioedema" target="_blank" rel="noopener noreferrer" className="text-accent-500 hover:text-accent-600 underline">
+            <a href="https://my.clevelandclinic.org/health/diseases/hereditary-angioedema" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
               Cleveland Clinic
             </a>.
           </p>

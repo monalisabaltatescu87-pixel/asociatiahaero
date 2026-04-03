@@ -62,7 +62,7 @@ const StatutAsociatie: React.FC = () => {
               <div className="space-y-3 text-neutral-600">
                 <p><strong className="text-neutral-800">4.1.</strong> Organele asociației sunt: Adunarea Generală a asociaților, Consiliul Director și Cenzorul.</p>
 
-                <h4 className="text-lg font-semibold text-secondary-500 mt-6 mb-2">4.2. Adunarea generală</h4>
+                <h4 className="text-lg font-semibold text-primary-500 mt-6 mb-2">4.2. Adunarea generală</h4>
                 <p><strong className="text-neutral-800">4.2.1.</strong> Adunarea generală a asociaților este organul de conducere al asociației și este alcătuit din totalitatea asociaților.</p>
                 <p><strong className="text-neutral-800">4.2.2.</strong> Adunarea generală a asociaților se convoacă cel puțin o dată pe an, sau ori de câte ori este nevoie.</p>
                 <p><strong className="text-neutral-800">4.2.3.</strong> Convocarea adunării generale se face de către președintele Consiliului Director sau în lipsa acestuia de către unul dintre membrii, cu cel puțin 5 zile înainte de data adunării, cu arătarea ordinii de zi.</p>
@@ -87,7 +87,7 @@ const StatutAsociatie: React.FC = () => {
                 <p><strong className="text-neutral-800">4.2.5.1</strong> Dizolvarea și lichidarea asociației se va face conform legii.</p>
                 <p><strong className="text-neutral-800">4.2.6.</strong> Hotărârile Adunării generale, luate în limitele legii și ale prezentului statut, sunt obligatorii chiar și pentru asociații care nu au luat parte la adunare sau, dacă au luat parte la adunare, au votat împotrivă.</p>
 
-                <h4 className="text-lg font-semibold text-secondary-500 mt-6 mb-2">4.3. Consiliul Director</h4>
+                <h4 className="text-lg font-semibold text-primary-500 mt-6 mb-2">4.3. Consiliul Director</h4>
                 <p><strong className="text-neutral-800">4.3.1.</strong> Consiliul director este format din 3 membri și este numit de către adunarea generală pentru un mandat de 5 ani, mandatul membrilor putând fi reînnoit.</p>
                 <p><strong className="text-neutral-800">4.3.2.</strong> Membrii Consiliului director se numesc din cadrul membrilor asociației, dintre persoanele cu o activitate semnificativă în dezvoltarea scopului asociației.</p>
                 <p><strong className="text-neutral-800">4.3.3.</strong> Calitatea de membru al Consiliului director se poate pierde prin:</p>
@@ -113,12 +113,12 @@ const StatutAsociatie: React.FC = () => {
                   <li><strong className="text-neutral-800">h.</strong> îndeplinește orice alte atribuții stabilite de către Adunarea generală.</li>
                 </ul>
 
-                <h4 className="text-lg font-semibold text-secondary-500 mt-6 mb-2">4.4. Președintele Consiliului Director</h4>
+                <h4 className="text-lg font-semibold text-primary-500 mt-6 mb-2">4.4. Președintele Consiliului Director</h4>
                 <p><strong className="text-neutral-800">4.4.</strong> Președintele Consiliului Director este desemnat de către Consiliul Director pentru un mandat de 4 ani, mandatul său putând fi reînnoit.</p>
                 <p><strong className="text-neutral-800">4.4.1.</strong> Președintele Consiliului Director este organul de execuție al asociației având atribuții de administrare a asociației, având dreptul și obligația de a administra patrimoniul asociației, relațiile asociației cu banca, autoritățile statului și alte persoane juridice sau fizice cu care asociația intră în contact.</p>
                 <p><strong className="text-neutral-800">4.4.2.</strong> Președintele Consiliului director poate delega parte sau totalitatea atribuțiile sale unui sau unor directori executivi în baza unui mandat special dat în acest sens.</p>
 
-                <h4 className="text-lg font-semibold text-secondary-500 mt-6 mb-2">4.5. Cenzorul</h4>
+                <h4 className="text-lg font-semibold text-primary-500 mt-6 mb-2">4.5. Cenzorul</h4>
                 <p><strong className="text-neutral-800">4.5.</strong> Cenzorul asociației este numit de Adunarea generală pentru un mandat de 4 ani, mandatul acestuia putând fi reînnoit.</p>
                 <p><strong className="text-neutral-800">4.5.1.</strong> Calitatea de cenzor se poate pierde prin demisie, deces sau revocarea dispusă de adunarea generală pentru nerespectarea atribuțiilor prevăzute de Statut sau lege.</p>
                 <p><strong className="text-neutral-800">4.5.2.</strong> În cazul prevăzut de articolul precedent, Adunarea generală va numi o altă persoană care va îndeplini funcția de cenzor.</p>
