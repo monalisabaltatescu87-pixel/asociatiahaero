@@ -14,6 +14,7 @@ interface ButtonProps {
   type?: 'button' | 'submit';
   className?: string;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
@@ -45,10 +46,11 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   className = '',
   fullWidth = false,
+  disabled = false,
 }) => {
   const base = `inline-flex items-center justify-center font-bold rounded-full transition-all duration-300 hover:-translate-y-0.5 ${
     variantStyles[variant]
-  } ${sizeStyles[size]} ${fullWidth ? 'w-full' : ''} ${className}`;
+  } ${sizeStyles[size]} ${fullWidth ? 'w-full' : ''} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`;
 
   if (to) {
     return (
@@ -67,7 +69,7 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button type={type} onClick={onClick} className={base}>
+    <button type={type} onClick={onClick} className={base} disabled={disabled}>
       {children}
     </button>
   );

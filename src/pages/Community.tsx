@@ -4,9 +4,65 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui';
 
+const WEBHOOK_URL =
+  'https://script.google.com/macros/s/AKfycbzMo8ooVZKpcl52LhVKbKCFtokcMJrwrX9DxcJzprTnRYMFuINaWvPa--oy2Yh7ed8/exec';
+
 const Community: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    locality: '',
+    category: '',
+    acceptMember: false,
+    acceptPrivacy: false,
+    acceptStatut: false,
+  });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('loading');
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          locality: formData.locality,
+          category: formData.category,
+          acceptMember: formData.acceptMember,
+          acceptPrivacy: formData.acceptPrivacy,
+          acceptStatut: formData.acceptStatut,
+        }),
+      });
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        locality: '',
+        category: '',
+        acceptMember: false,
+        acceptPrivacy: false,
+        acceptStatut: false,
+      });
+    } catch {
+      setSubmitStatus('error');
+    }
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -180,7 +236,25 @@ const Community: React.FC = () => {
                   : 'opacity-0 translate-y-6'
               }`}
             >
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              {submitStatus === 'success' ? (
+                <div className="text-center py-8">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100 mb-4">
+                    <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-neutral-800 mb-2">Cererea ta a fost trimisă!</h3>
+                  <p className="text-neutral-600 text-sm">Mulțumim că te-ai alăturat comunității HAERO.</p>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitStatus('idle')}
+                    className="mt-4 text-sm text-primary-500 underline hover:text-primary-600"
+                  >
+                    Trimite o altă cerere
+                  </button>
+                </div>
+              ) : (
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="member-name" className="block text-sm font-semibold text-neutral-700 mb-1">
@@ -189,6 +263,9 @@ const Community: React.FC = () => {
                     <input
                       type="text"
                       id="member-name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="Numele tău complet"
@@ -201,6 +278,9 @@ const Community: React.FC = () => {
                     <input
                       type="email"
                       id="member-email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="email@exemplu.ro"
@@ -216,6 +296,9 @@ const Community: React.FC = () => {
                     <input
                       type="tel"
                       id="member-phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="+40 7XX XXX XXX"
                     />
@@ -227,6 +310,9 @@ const Community: React.FC = () => {
                     <input
                       type="text"
                       id="member-locality"
+                      name="locality"
+                      value={formData.locality}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="Oraș sau sat"
                     />
@@ -240,9 +326,11 @@ const Community: React.FC = () => {
                   </label>
                   <select
                     id="member-category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
-                    defaultValue=""
                   >
                     <option value="" disabled>Selectează o opțiune</option>
                     <option value="pacient-diagnosticat">Pacient diagnosticat</option>
@@ -257,6 +345,9 @@ const Community: React.FC = () => {
                     <input
                       type="checkbox"
                       id="accept-member"
+                      name="acceptMember"
+                      checked={formData.acceptMember}
+                      onChange={handleChange}
                       required
                       className="mt-1 h-4 w-4 rounded border-neutral-300 text-primary-500 focus:ring-primary-400"
                     />
@@ -269,6 +360,9 @@ const Community: React.FC = () => {
                     <input
                       type="checkbox"
                       id="accept-privacy"
+                      name="acceptPrivacy"
+                      checked={formData.acceptPrivacy}
+                      onChange={handleChange}
                       required
                       className="mt-1 h-4 w-4 rounded border-neutral-300 text-primary-500 focus:ring-primary-400"
                     />
@@ -284,6 +378,9 @@ const Community: React.FC = () => {
                     <input
                       type="checkbox"
                       id="accept-statut"
+                      name="acceptStatut"
+                      checked={formData.acceptStatut}
+                      onChange={handleChange}
                       required
                       className="mt-1 h-4 w-4 rounded border-neutral-300 text-primary-500 focus:ring-primary-400"
                     />
@@ -296,10 +393,16 @@ const Community: React.FC = () => {
                   </div>
                 </div>
 
-                <Button type="submit" variant="primary" size="lg" fullWidth className="mt-4">
-                  Trimite cererea de membru
+                {submitStatus === 'error' && (
+                  <p className="text-sm text-error">A apărut o eroare. Te rugăm să încerci din nou.</p>
+                )}
+
+                <Button type="submit" variant="primary" size="lg" fullWidth className="mt-4" disabled={submitStatus === 'loading'}>
+                  {submitStatus === 'loading' ? 'Se trimite...' : 'Trimite cererea de membru'}
                 </Button>
               </form>
+              )}
+
             </div>
           </div>
         </section>
