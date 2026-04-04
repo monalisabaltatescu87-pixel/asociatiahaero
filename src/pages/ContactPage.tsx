@@ -110,7 +110,7 @@ const ContactPage: React.FC = () => {
                   icon: <User size={22} strokeWidth={1.5} />,
                   iconStyle: 'bg-primary-50 border-2 border-primary-200 text-primary-500',
                   label: 'Vicepreședinte',
-                  value: 'Ana Maria Bălțătescu',
+                  value: 'Ana-Maria Stan',
                 },
               ].map((item, index) => {
                 const Tag = item.href ? 'a' : 'div';
