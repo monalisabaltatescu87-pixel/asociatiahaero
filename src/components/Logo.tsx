@@ -8,7 +8,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ className = '', size = 64 }) => {
   return (
     <img
-      src={`${process.env.PUBLIC_URL}/logo haero.jpeg`}
+      src={`${process.env.PUBLIC_URL}/Logo-haero.png`}
       alt="HAERO - Asociația pentru Angioedem Ereditar"
       height={size}
       className={`object-contain ${className}`}

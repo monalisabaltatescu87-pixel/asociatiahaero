@@ -1,43 +1,40 @@
 import SEO from '../components/SEO';
 import React from 'react';
-import { Hand, Activity, AlertTriangle } from 'lucide-react';
-import { PageHero, SectionHeader, Card, IconBox, Callout } from '../components/ui';
+import { Link } from 'react-router-dom';
+import { ChevronRight, Hand, Activity, AlertTriangle } from 'lucide-react';
+import { PageHero, SectionHeader, Callout } from '../components/ui';
 
 const WhatIsHAE: React.FC = () => {
   return (
     <><SEO title="Ce este Angioedemul Ereditar" description="Angioedemul Ereditar (AEE) este o afecțiune genetică foarte rară și potențial fatală. Află despre tipurile de AEE, simptome și de ce diagnosticul precoce este important." path="/ce-este-aee" /><div>
       {/* Hero Section */}
       <PageHero
-        variant="accent"
-        badge="Ghid medical"
-        title="Ghid despre"
-        titleHighlight="Angioedemul Ereditar"
+        variant="reader"
+        title="Ghid despre Angioedemul Ereditar"
         description="Angioedemul Ereditar (AEE) este o afecțiune genetică foarte rară și potențial fatală, care apare la aproximativ 1 din 10.000 până la 1 din 50.000 de persoane. AEE provoacă simptome de angioedem (umflare) în diverse părți ale corpului, inclusiv: mâini, picioare, față și gât/căi respiratorii."
       />
 
       {/* What is HAE */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <SectionHeader
-                title="Ce este"
-                titleHighlight="AEE"
-                dividerColor="accent"
-                align="left"
-              />
-              <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
-                Persoanele cu AEE suferă adesea de dureri abdominale insuportabile, greață și vărsături cauzate de umflarea peretelui intestinal. <strong>Umflarea căilor respiratorii sau a gâtului este deosebit de periculoasă</strong>, deoarece poate cauza moartea prin sufocare.
-              </p>
-              <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
-                Majoritatea persoanelor cu AEE au un defect în gena care controlează o proteină importantă numită <strong>C1-inhibitor</strong>, care se găsește în plasmă — partea lichidă a sângelui. Din cauza acestui defect genetic, C1-inhibitorul la persoanele cu AEE nu își îndeplinește funcția de a controla interacțiunile biologice complexe din plasmă.
-              </p>
-              <p className="text-neutral-600 text-lg leading-relaxed">
-                Necontrolate, aceste interacțiuni produc o substanță numită <strong>bradikinină</strong>, care provoacă umflarea prin permiterea fluidelor plasmatice să pătrundă în țesuturile moi ale diverselor părți ale corpului.
-              </p>
-            </div>
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            reader={true}
+            title="Ce este AEE"
+          />
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+            Persoanele cu AEE suferă adesea de dureri abdominale insuportabile, greață și vărsături cauzate de umflarea peretelui intestinal. <strong className="text-neutral-800 font-bold">Umflarea căilor respiratorii sau a gâtului este deosebit de periculoasă</strong>, deoarece poate cauza moartea prin sufocare.
+          </p>
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+            Majoritatea persoanelor cu AEE au un defect în gena care controlează o proteină importantă numită <strong className="text-neutral-800 font-bold">C1-inhibitor</strong>, care se găsește în plasmă — partea lichidă a sângelui. Din cauza acestui defect genetic, C1-inhibitorul la persoanele cu AEE nu își îndeplinește funcția de a controla interacțiunile biologice complexe din plasmă.
+          </p>
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-10">
+            Necontrolate, aceste interacțiuni produc o substanță numită <strong className="text-neutral-800 font-bold">bradikinină</strong>, care provoacă umflarea prin permiterea fluidelor plasmatice să pătrundă în țesuturile moi ale diverselor părți ale corpului.
+          </p>
 
-            <Callout variant="error" title="Important de știut">
+          {/* Important callout with floating badge */}
+          <div className="relative">
+            <div className="absolute -top-3.5 left-10 w-7 h-7 bg-accent-400 text-white rounded-full flex items-center justify-center font-extrabold text-sm">!</div>
+            <Callout variant="info" title="Important de știut">
               <p className="mb-4">
                 Umflarea legată de AEE <strong>NU este aceeași</strong> cu umflarea cauzată de alergii. <strong>Antihistaminicele, corticosteroizii și epinefrina sunt ineficiente</strong> în tratarea AEE.
               </p>
@@ -53,245 +50,206 @@ const WhatIsHAE: React.FC = () => {
       </section>
 
       {/* Types of HAE */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Clasificare"
-            title="Tipurile de"
-            titleHighlight="AEE"
+            reader={true}
+            title="Tipurile de AEE"
             description="Există mai multe forme de Angioedem Ereditar, clasificate în funcție de nivelul și funcția C1-inhibitorului."
-            dividerColor="secondary"
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card variant="accent-left" accentColor="primary" hover>
-              <div className="p-8">
-                <IconBox variant="primary" size="md" className="mb-4">
-                  <span className="font-extrabold text-lg">I</span>
-                </IconBox>
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE Tip I</h3>
-                <p className="text-neutral-500 leading-relaxed mb-3">
-                  <strong>85% din persoanele cu AEE.</strong> Cea mai frecventă formă, caracterizată prin niveluri cantitative scăzute de C1-inhibitor.
+          <div className="flex flex-col gap-4">
+            {/* Type I */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center font-black text-lg flex-shrink-0 bg-primary-50 text-primary-500 border-2 border-primary-200">
+                I
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">AEE Tip I</h3>
+                <span className="text-[13px] font-bold text-primary-500">85% din persoanele cu AEE</span>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mt-2">
+                  Cea mai frecventă formă, caracterizată prin niveluri cantitative scăzute de C1-inhibitor.
                 </p>
               </div>
-            </Card>
+            </div>
 
-            <Card variant="accent-left" accentColor="secondary" hover>
-              <div className="p-8">
-                <IconBox variant="secondary" size="md" className="mb-4">
-                  <span className="font-extrabold text-lg">II</span>
-                </IconBox>
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE Tip II</h3>
-                <p className="text-neutral-500 leading-relaxed mb-3">
-                  <strong>15% din persoanele cu AEE.</strong> Teste de laborator arată niveluri normale sau crescute de C1-inhibitor, dar proteina nu funcționează corect.
+            {/* Type II */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center font-black text-lg flex-shrink-0 bg-secondary-50 text-secondary-400 border-2 border-secondary-200">
+                II
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">AEE Tip II</h3>
+                <span className="text-[13px] font-bold text-primary-500">15% din persoanele cu AEE</span>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mt-2">
+                  Teste de laborator arată niveluri normale sau crescute de C1-inhibitor, dar proteina nu funcționează corect.
                 </p>
               </div>
-            </Card>
+            </div>
 
-            <Card variant="accent-left" accentColor="accent" hover>
-              <div className="p-8">
-                <IconBox variant="accent" size="md" className="mb-4">
-                  <span className="font-extrabold text-lg">N</span>
-                </IconBox>
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE cu C1-inhibitor normal</h3>
-                <p className="text-neutral-500 leading-relaxed mb-3">
+            {/* Type Normal C1-inhibitor */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center font-black text-lg flex-shrink-0 bg-accent-50 text-accent-400 border-2 border-accent-200">
+                N
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">AEE cu C1-inhibitor normal</h3>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mt-2">
                   Simptomele sunt consistente cu AEE tip I și II, dar rezultatele de laborator arată niveluri și funcție normale ale C1-inhibitorului. Studii recente au confirmat mutații genetice conectate cu umflarea.
                 </p>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Symptoms */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Simptome"
-            title="Simptomele"
-            titleHighlight="AEE"
+            reader={true}
+            title="Simptomele AEE"
             description="Atacuri cu umflare și durere în diverse părți ale corpului — piele, abdomen, gât și căi respiratorii."
-            dividerColor="accent"
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card variant="feature" accentColor="primary" hover>
-              <div className="p-8">
-                <IconBox variant="primary" size="md" className="mb-4">
-                  <Hand size={24} />
-                </IconBox>
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Umflături cutanate</h3>
-                <p className="text-neutral-500 leading-relaxed mb-3">
+          <div className="flex flex-col gap-4">
+            {/* Skin swelling */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center flex-shrink-0 bg-primary-50 border-2 border-primary-200 text-primary-500">
+                <Hand size={22} />
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">Umflături cutanate</h3>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mt-2">
                   Umflături dureroase ale mâinilor, picioarelor, feței și regiunii genitale.
                   Zonele umflate sunt dure, dureroase, fără mâncărime și fără roșeață —
                   diferit de reacțiile alergice.
                 </p>
-                <p className="text-neutral-500 leading-relaxed text-sm">
+                <p className="text-[15px] leading-relaxed text-neutral-500 mt-2">
                   ~25% experimentează erupție cutanată roșie, fără mâncărime, înainte sau în timpul unui atac.
                 </p>
               </div>
-            </Card>
+            </div>
 
-            <Card variant="feature" accentColor="secondary" hover>
-              <div className="p-8">
-                <IconBox variant="secondary" size="md" className="mb-4">
-                  <Activity size={24} />
-                </IconBox>
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Simptome abdominale</h3>
-                <p className="text-neutral-500 leading-relaxed mb-3">
+            {/* Abdominal symptoms */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center flex-shrink-0 bg-secondary-50 border-2 border-secondary-200 text-secondary-400">
+                <Activity size={22} />
+              </div>
+              <div>
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">Simptome abdominale</h3>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mt-2">
                   Dureri abdominale insuportabile, greață, vărsături și diaree cauzate de umflarea peretelui intestinal.
                 </p>
-                <p className="text-neutral-500 leading-relaxed text-sm">
+                <p className="text-[15px] leading-relaxed text-neutral-500 mt-2">
                   Pot fi confundate cu alte patologii și pot duce la intervenții
                   chirurgicale inutile atunci când AEE nu este diagnosticat.
                 </p>
               </div>
-            </Card>
+            </div>
 
-            <Card variant="feature" accentColor="accent" hover>
-              <div className="p-8">
-                <IconBox variant="accent" size="md" className="mb-4">
-                  <AlertTriangle size={24} />
-                </IconBox>
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Edem laringian</h3>
-                <p className="text-neutral-500 leading-relaxed mb-3">
-                  Cele mai periculoase simptome. Umflăturile la nivelul gâtului sau căilor respiratorii pot cauza <strong>deces prin sufocare</strong> dacă nu sunt tratate.
+            {/* Laryngeal edema */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center flex-shrink-0 bg-accent-50 border-2 border-accent-200 text-accent-400">
+                <AlertTriangle size={22} />
+              </div>
+              <div>
+                <span className="inline-block text-xs font-bold text-error bg-error-light px-3 py-1 rounded-full mb-1.5">Pericol vital</span>
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">Edem laringian</h3>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mt-2">
+                  Cele mai periculoase simptome. Umflăturile la nivelul gâtului sau căilor respiratorii pot cauza <strong className="text-neutral-800 font-bold">deces prin sufocare</strong> dacă nu sunt tratate.
                 </p>
-                <p className="text-neutral-500 leading-relaxed text-sm">
-                  Rata mortalității este de aproximativ <strong>30%</strong> pentru persoane netratate. 50% experimentează cel puțin o umflare a gâtului în viață.
+                <p className="text-[15px] leading-relaxed text-neutral-500 mt-2">
+                  Rata mortalității este de aproximativ <strong className="text-neutral-800 font-bold">30%</strong> pentru persoane netratate. 50% experimentează cel puțin o umflare a gâtului în viață.
                 </p>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Prodromal Symptoms */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <SectionHeader
-              title="Semne de"
-              titleHighlight="avertizare"
-              dividerColor="primary"
-              align="left"
-              description="Înainte de un episod, unii pacienți experimentează semne precoce de avertizare (simptome prodromale):"
-            />
+      {/* Warning Signs */}
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            reader={true}
+            title="Semne de avertizare"
+            description="Înainte de un episod, unii pacienți experimentează semne precoce de avertizare (simptome prodromale):"
+          />
+          <div className="bg-primary-50 rounded-2xl p-7">
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
-              <div className="bg-primary-50 rounded-xl p-4 flex items-center gap-3 shadow-raised">
-                <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 bg-primary-400 rounded-full flex-shrink-0"></div>
                 <span className="text-neutral-600">Furnicături sau senzație de strângere</span>
               </div>
-              <div className="bg-primary-50 rounded-xl p-4 flex items-center gap-3 shadow-raised">
-                <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 bg-primary-400 rounded-full flex-shrink-0"></div>
                 <span className="text-neutral-600">Oboseală extremă</span>
               </div>
-              <div className="bg-primary-50 rounded-xl p-4 flex items-center gap-3 shadow-raised">
-                <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 bg-primary-400 rounded-full flex-shrink-0"></div>
                 <span className="text-neutral-600">Schimbări bruște de dispoziție</span>
               </div>
-              <div className="bg-primary-50 rounded-xl p-4 flex items-center gap-3 shadow-raised">
-                <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 bg-primary-400 rounded-full flex-shrink-0"></div>
                 <span className="text-neutral-600">Greață sau iritabilitate</span>
               </div>
             </div>
-            <p className="text-neutral-600 text-lg leading-relaxed">
-              Aproximativ <strong>25% dintre pacienți</strong> experimentează o erupție
-              cutanată roșie, fără mâncărime, care apare adesea înainte sau
-              în timpul unui episod de AEE.
-            </p>
           </div>
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mt-6">
+            Aproximativ <strong className="text-neutral-800 font-bold">25% dintre pacienți</strong> experimentează o erupție
+            cutanată roșie, fără mâncărime, care apare adesea înainte sau
+            în timpul unui episod de AEE.
+          </p>
         </div>
       </section>
 
-      {/* Sub-navigation Cards */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Află"
-            titleHighlight="mai multe"
-            dividerColor="accent"
-          />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card variant="feature" accentColor="primary" to="/care-sunt-declansatorii-aee" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Factori declanșatori</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Descoperă care sunt factorii care pot declanșa un episod de angioedem ereditar.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="secondary" to="/ce-cauzeaza-aee" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Principalele cauze</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Înțelege mecanismele genetice și biologice care stau la baza acestei boli rare.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="accent" to="/cum-tratam-aee" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Tratamente disponibile</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Află despre tratamentele moderne disponibile pentru managementul AEE.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="primary" to="/diagnosticarea-aee" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Diagnosticarea AEE</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Află cum se diagnostichează angioedemul ereditar și ce analize sunt necesare.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="secondary" to="/aee-si-copiii" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE și copiii</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Informații despre cum afectează angioedemul ereditar copiii și ce trebuie să știe părinții.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="accent" to="/femei-si-sarcina" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Femei și sarcină</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Informații esențiale despre AEE în contextul sarcinii și sănătății femeilor.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="primary" to="/calatorii" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Călătorii cu AEE</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Sfaturi și recomandări pentru călătoriile în siguranță cu angioedem ereditar.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
-            <Card variant="feature" accentColor="secondary" to="/despre-haei" hover>
-              <div className="p-8">
-                <h3 className="font-bold text-neutral-800 mb-3 text-lg">Despre HAEi</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  Află despre organizația internațională HAE International și misiunea sa.
-                </p>
-                <span className="text-primary-500 font-semibold text-sm mt-4 inline-block">Citește mai mult &rarr;</span>
-              </div>
-            </Card>
+      {/* Navigation Links */}
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-playfair text-2xl sm:text-[26px] font-bold text-neutral-800 mb-8 text-center">
+            Află mai multe
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <Link to="/care-sunt-declansatorii-aee" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Factori declanșatori
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/ce-cauzeaza-aee" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Principalele cauze
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/cum-tratam-aee" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Tratamente
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/diagnosticarea-aee" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Diagnosticarea
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/aee-si-copiii" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              AEE și copiii
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/femei-si-sarcina" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Femei și sarcină
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/calatorii" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Călătorii
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
+            <Link to="/despre-haei" className="border border-neutral-200 rounded-xl px-5 py-4 flex items-center justify-between hover:border-primary-300 hover:bg-primary-50 transition-all text-sm font-semibold text-neutral-700">
+              Despre HAEi
+              <ChevronRight size={16} className="text-neutral-400" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Source Attribution */}
-      <section className="py-8 bg-neutral-50 section-divider">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
             <a href="https://haei.org/what-is-hae/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">
@@ -306,6 +264,17 @@ const WhatIsHAE: React.FC = () => {
               Cleveland Clinic
             </a>.
           </p>
+        </div>
+      </section>
+
+      {/* Bottom Navigation */}
+      <section className="py-8 bg-white border-t border-neutral-100">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end">
+            <Link to="/ce-cauzeaza-aee" className="text-primary-500 hover:text-primary-600 text-sm font-semibold transition-colors">
+              Tipurile și cauzele AEE &rarr;
+            </Link>
+          </div>
         </div>
       </section>
     </div>

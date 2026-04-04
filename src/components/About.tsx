@@ -38,8 +38,7 @@ const About: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="Despre noi"
-          title="Despre"
-          titleHighlight="HAERO"
+          title="Despre HAERO"
           description="HAERO este o asociație non-guvernamentală înființată la Târgu-Mureș din dorința de a crea o comunitate a pacienților cu Angioedem Ereditar din România, o comunitate a cărei voce să devină vocea comună a tuturor pacienților cu această boală rară."
         />
 

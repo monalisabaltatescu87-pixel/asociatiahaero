@@ -48,8 +48,7 @@ const Mission: React.FC = () => {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="Ce facem"
-          title="Misiunea"
-          titleHighlight="Noastră"
+          title="Misiunea Noastră"
           dividerColor="accent"
           description="Ideea înființării Asociației a venit ca urmare a faptului că fiecare pacient cu angioedem ereditar are nevoie să se simtă înțeles, acceptat și motivat să facă față acestei boli care reprezintă o continuă provocare."
         />

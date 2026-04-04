@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
       },
       colors: {
         // Primary — warm golden honey

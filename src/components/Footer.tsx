@@ -17,7 +17,9 @@ const Footer: React.FC = () => {
           {/* Brand column */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <Logo size={38} />
+              <div className="bg-white rounded-xl p-1.5 shadow-raised">
+                <Logo size={34} />
+              </div>
               <div>
                 <span className="text-lg font-extrabold tracking-tight">HAERO</span>
                 <p className="text-neutral-500 text-[11px] tracking-wide">

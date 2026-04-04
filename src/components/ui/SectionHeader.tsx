@@ -5,10 +5,10 @@ type DividerColor = 'primary' | 'accent' | 'secondary';
 interface SectionHeaderProps {
   label?: string;
   title: string;
-  titleHighlight?: string;
   description?: string;
   dividerColor?: DividerColor;
   align?: 'center' | 'left';
+  reader?: boolean;
   className?: string;
 }
 
@@ -21,13 +21,29 @@ const dividerGradients: Record<DividerColor, string> = {
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   label,
   title,
-  titleHighlight,
   description,
   dividerColor = 'primary',
   align = 'center',
+  reader = false,
   className = '',
 }) => {
   const isCenter = align === 'center';
+
+  if (reader) {
+    return (
+      <div className={`mb-5 ${className}`}>
+        <h2 className="relative pl-5 font-playfair text-2xl sm:text-[26px] font-bold text-neutral-800 mb-4">
+          <span className="absolute left-0 top-1 w-1 h-7 rounded-full bg-primary-400" />
+          {title}
+        </h2>
+        {description && (
+          <p className="text-neutral-500 text-[17px] leading-relaxed max-w-2xl">
+            {description}
+          </p>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={`${isCenter ? 'text-center' : ''} mb-14 ${className}`}>
@@ -38,11 +54,6 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       )}
       <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-800 mb-4 text-balance">
         {title}
-        {titleHighlight && (
-          <span className="text-primary-500">
-            {' '}{titleHighlight}
-          </span>
-        )}
       </h2>
       <div
         className={`h-1 w-16 rounded-full bg-gradient-to-r ${dividerGradients[dividerColor]} ${

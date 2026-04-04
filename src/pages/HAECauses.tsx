@@ -1,129 +1,132 @@
 import SEO from '../components/SEO';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PageHero, SectionHeader, Card, Callout } from '../components/ui';
+import { PageHero, SectionHeader, Callout } from '../components/ui';
 
 const HAECauses: React.FC = () => {
   return (
-    <><SEO title="Cauzele Angioedemului Ereditar" description="Angioedemul ereditar este cauzat de o mutație genetică ce afectează proteina C1-inhibitor. Află despre mecanismele biologice ale bolii." path="/ce-cauzeaza-aee" /><div>
+    <><SEO title="Cauzele Angioedemului Ereditar" description="Angioedemul ereditar este cauzat de o mutație genetică ce afectează proteina C1-inhibitor. Află despre mecanismele biologice ale bolii." path="/ce-cauzeaza-aee" /><div className="bg-white">
       {/* Hero Section */}
       <PageHero
-        variant="accent"
-        badge="Cauze genetice"
-        title="Principalele"
-        titleHighlight="cauze"
+        variant="reader"
+        title="Principalele cauze"
         description="AEE tip I și tip II sunt cauzate de un defect (mutație) în gena responsabilă pentru producerea proteinei inhibitor C1 esterază (C1-INH)."
         backLink="/ce-este-aee"
-        backLabel="Care sunt simptomele AEE?"
+        backLabel="Despre AEE"
       />
 
       {/* Genetic Cause */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <SectionHeader
-                title="Cauza"
-                titleHighlight="genetică"
-                dividerColor="accent"
-                align="left"
-              />
-              <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
-                AEE este cauzat de mutații în gena <strong>SERPING1</strong>, care furnizează
-                instrucțiuni pentru producerea proteinei inhibitorul C1 esterază (C1-INH).
-                Această proteină este importantă pentru controlul răspunsului imunitar
-                și al inflamației.
-              </p>
-              <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
-                În condiții normale, C1-INH reglează producția de <strong>bradikinină</strong> în
-                organism — un hormon care joacă un rol important în controlul dilatării
-                și permeabilității vaselor de sânge. Dacă C1-INH nu funcționează corect
-                sau dacă concentrația sa este scăzută, bradikinina este eliberată în exces,
-                provocând umflăturile localizate.
-              </p>
-              <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
-                Boala este transmisă <strong>autozomal dominant</strong> — un copil are
-                50% șanse de a moșteni boala dacă unul dintre părinți este afectat. Cu
-                toate acestea, aproximativ <strong>25% din cazuri</strong> rezultă din
-                mutații spontane (de novo).
-              </p>
-              <p className="text-neutral-600 text-lg leading-relaxed">
-                Au fost identificate aproape <strong>300 de variante patogene</strong> ale
-                genei SERPING1.
-              </p>
+      <section className="py-8 bg-white">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            title="Cauza genetică"
+            reader={true}
+          />
+
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+            AEE este cauzat de mutații în gena <strong className="text-neutral-800 font-bold">SERPING1</strong>, care furnizează
+            instrucțiuni pentru producerea proteinei inhibitorul C1 esterază (C1-INH).
+            Această proteină este importantă pentru controlul răspunsului imunitar
+            și al inflamației.
+          </p>
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+            În condiții normale, C1-INH reglează producția de <strong className="text-neutral-800 font-bold">bradikinină</strong> în
+            organism — un hormon care joacă un rol important în controlul dilatării
+            și permeabilității vaselor de sânge. Dacă C1-INH nu funcționează corect
+            sau dacă concentrația sa este scăzută, bradikinina este eliberată în exces,
+            provocând umflăturile localizate.
+          </p>
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+            Boala este transmisă <strong className="text-neutral-800 font-bold">autozomal dominant</strong> — un copil are
+            50% șanse de a moșteni boala dacă unul dintre părinți este afectat. Cu
+            toate acestea, aproximativ <strong className="text-neutral-800 font-bold">25% din cazuri</strong> rezultă din
+            mutații spontane (de novo).
+          </p>
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-10">
+            Au fost identificate aproape <strong className="text-neutral-800 font-bold">300 de variante patogene</strong> ale
+            genei SERPING1.
+          </p>
+
+          {/* HAE Types as stacked rows */}
+          <div className="space-y-4 mb-8">
+            {/* Tip I */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center">
+                <span className="text-primary-500 font-bold text-lg">I</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                  <h3 className="font-bold text-neutral-800 text-lg">AEE Tip I — Deficit cantitativ</h3>
+                  <span className="text-sm text-neutral-500">85% din cazuri</span>
+                </div>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mb-3">
+                  Cea mai frecventă formă a afecțiunii, se caracterizează prin niveluri
+                  cantitative scăzute de C1-inhibitor.
+                </p>
+                <div className="bg-primary-50 rounded-lg px-4 py-2 text-sm text-neutral-600">
+                  Nivel C1-INH: scăzut | Funcție C1-INH: scăzută
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-6">
-              <Card variant="feature" accentColor="primary" hover={false}>
-                <div className="p-8">
-                  <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE Tip I — Deficit cantitativ</h3>
-                  <p className="text-neutral-500 leading-relaxed mb-3">
-                    <strong>85% din persoanele cu AEE.</strong> Cea mai frecventă formă a
-                    afecțiunii, se caracterizează prin niveluri cantitative scăzute de
-                    C1-inhibitor.
-                  </p>
-                  <div className="bg-primary-50 rounded-lg px-4 py-2 text-sm text-neutral-600">
-                    Nivel C1-INH: scăzut | Funcție C1-INH: scăzută
-                  </div>
+            {/* Tip II */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary-100 flex items-center justify-center">
+                <span className="text-secondary-500 font-bold text-lg">II</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                  <h3 className="font-bold text-neutral-800 text-lg">AEE Tip II — Deficit funcțional</h3>
+                  <span className="text-sm text-neutral-500">15% din cazuri</span>
                 </div>
-              </Card>
-
-              <Card variant="feature" accentColor="secondary" hover={false}>
-                <div className="p-8">
-                  <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE Tip II — Deficit funcțional</h3>
-                  <p className="text-neutral-500 leading-relaxed mb-3">
-                    <strong>15% din persoanele cu AEE.</strong> Testele de laborator arată
-                    niveluri normale sau crescute de C1-inhibitor, dar proteina nu
-                    funcționează corect.
-                  </p>
-                  <div className="bg-secondary-50 rounded-lg px-4 py-2 text-sm text-neutral-600">
-                    Nivel C1-INH: normal/crescut | Funcție C1-INH: scăzută
-                  </div>
-                </div>
-              </Card>
-
-              <Callout variant="info" title="Moștenire genetică">
-                <p>
-                  Absența unui istoric familial nu exclude diagnosticul de AEE cauzat de
-                  deficiența de C1-inhibitor. Până la <strong>25% din cazurile de HAE</strong> rezultă
-                  dintr-o mutație spontană a genei C1-inhibitorului la concepție. Copiii
-                  au <strong>50% șanse</strong> să moștenească HAE dacă unul dintre părinți are
-                  această afecțiune.
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mb-3">
+                  Testele de laborator arată niveluri normale sau crescute de C1-inhibitor,
+                  dar proteina nu funcționează corect.
                 </p>
-              </Callout>
-
-              <Card variant="feature" accentColor="accent" hover={false}>
-                <div className="p-8">
-                  <h3 className="font-bold text-neutral-800 mb-3 text-lg">AEE cu C1-inhibitor normal</h3>
-                  <p className="text-neutral-500 leading-relaxed mb-3">
-                    Simptomele sunt consistente cu AEE tip I și II, dar rezultatele de
-                    laborator arată niveluri și funcție normale ale C1-inhibitorului.
-                    Studiile recente au confirmat că AEE cu C1-Inhibitor normal include un
-                    număr de mutații genetice care sunt conectate cu umflarea. Așteptarea
-                    este ca mai multe astfel de mutații să fie identificate în viitor.
-                  </p>
-                  <div className="bg-accent-50 rounded-lg px-4 py-2 text-sm text-neutral-600">
-                    Nivel C1-INH: normal | Funcție C1-INH: normală
-                  </div>
+                <div className="bg-primary-50 rounded-lg px-4 py-2 text-sm text-neutral-600">
+                  Nivel C1-INH: normal/crescut | Funcție C1-INH: scăzută
                 </div>
-              </Card>
+              </div>
+            </div>
+
+            {/* C1-inhibitor normal */}
+            <div className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors">
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-100 flex items-center justify-center">
+                <span className="text-accent-500 font-bold text-lg">N</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                  <h3 className="font-bold text-neutral-800 text-lg">AEE cu C1-inhibitor normal</h3>
+                </div>
+                <p className="text-[17px] leading-[1.85] text-neutral-600 mb-3">
+                  Simptomele sunt consistente cu AEE tip I și II, dar rezultatele de
+                  laborator arată niveluri și funcție normale ale C1-inhibitorului.
+                  Studiile recente au confirmat că AEE cu C1-Inhibitor normal include un
+                  număr de mutații genetice care sunt conectate cu umflarea. Așteptarea
+                  este ca mai multe astfel de mutații să fie identificate în viitor.
+                </p>
+                <div className="bg-primary-50 rounded-lg px-4 py-2 text-sm text-neutral-600">
+                  Nivel C1-INH: normal | Funcție C1-INH: normală
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Mechanism */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mt-6">
+            Absența unui istoric familial nu exclude diagnosticul de AEE cauzat de
+            deficiența de C1-inhibitor. Până la <strong className="text-neutral-800 font-bold">25% din cazurile de HAE</strong> rezultă
+            dintr-o mutație spontană a genei C1-inhibitorului la concepție. Copiii
+            au <strong className="text-neutral-800 font-bold">50% șanse</strong> să moștenească HAE dacă unul dintre părinți are
+            această afecțiune.
+          </p>
           <SectionHeader
-            label="Mecanism"
-            title="Mecanismul"
-            titleHighlight="bolii"
-            dividerColor="secondary"
+            title="Mecanismul bolii"
+            className="mt-10"
+            reader={true}
           />
 
           {/* Disease Mechanism Diagram */}
-          <div className="mb-12 bg-gradient-to-br from-primary-50 to-white rounded-2xl p-6 sm:p-8 border border-primary-200 shadow-raised">
+          <div className="mb-10 bg-gradient-to-br from-primary-50 to-white rounded-2xl p-6 sm:p-8 border border-primary-200 shadow-raised">
             <h3 className="text-center text-sm font-semibold text-neutral-500 uppercase tracking-wider mb-6">
               Cascada bradikininei în AEE
             </h3>
@@ -197,26 +200,28 @@ const HAECauses: React.FC = () => {
             </p>
           </div>
 
-          <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
             Fără suficient inhibitor C1 funcțional, o enzimă din sânge numită
-            <strong> kalikreină</strong> scapă de sub control, declanșând supraproducția
-            de <strong>bradikinină</strong>. Excesul de bradikinină determină vasele de
+            <strong className="text-neutral-800 font-bold"> kalikreină</strong> scapă de sub control, declanșând supraproducția
+            de <strong className="text-neutral-800 font-bold">bradikinină</strong>. Excesul de bradikinină determină vasele de
             sânge să elibereze lichid în țesuturile înconjurătoare, provocând umflăturile
             caracteristice pe care le experimentează pacienții cu AEE.
           </p>
-          <p className="text-neutral-600 text-lg mb-6 leading-relaxed">
+          <p className="text-[17px] leading-[1.85] text-neutral-600 mb-8">
             Bradikinina promovează inflamația prin creșterea cantității de lichid care
             se scurge prin pereții vaselor de sânge în țesuturile corpului
             (permeabilitate vasculară crescută).
           </p>
-          <Callout variant="warning" title="Diferență esențială" className="mb-6">
+
+          <Callout variant="warning" title="Diferență esențială" className="mb-8">
             <p className="font-medium">
               Spre deosebire de reacțiile alergice, acest proces <strong>nu implică
               histamina</strong>. De aceea, antihistaminicele, corticosteroizii și
               adrenalina sunt <strong>ineficiente</strong> în tratamentul AEE.
             </p>
           </Callout>
-          <p className="text-neutral-600 text-lg leading-relaxed">
+
+          <p className="text-[17px] leading-[1.85] text-neutral-600">
             Această diferență esențială față de angioedermul alergic subliniază importanța
             diagnosticului corect și a tratamentului specific cu medicamente care vizează
             calea bradikininei.
@@ -225,14 +230,14 @@ const HAECauses: React.FC = () => {
       </section>
 
       {/* Navigation */}
-      <section className="py-12 bg-neutral-50 section-divider">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 bg-white border-t border-neutral-100">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
-            <Link to="/care-sunt-declansatorii-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors">
-              ← Factori declanșatori
+            <Link to="/ce-este-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors">
+              ← Ce este AEE?
             </Link>
-            <Link to="/cum-tratam-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right">
-              Tratamente disponibile →
+            <Link to="/care-sunt-declansatorii-aee" className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right">
+              Factori declanșatori →
             </Link>
           </div>
         </div>
@@ -240,7 +245,7 @@ const HAECauses: React.FC = () => {
 
       {/* Source Attribution */}
       <section className="py-8 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neutral-500 text-sm">
             Informații bazate pe date de la{' '}
             <a href="https://haei.org/hae/what_causes_hae" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 underline">

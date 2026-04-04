@@ -9,8 +9,7 @@ const WhatIsHAE: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="Informare"
-          title="Ce este"
-          titleHighlight="Angioedermul Ereditar?"
+          title="Ce este Angioedermul Ereditar?"
           dividerColor="accent"
         />
 
