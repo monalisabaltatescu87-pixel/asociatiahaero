@@ -2,7 +2,7 @@ import React from 'react';
 import SEO from './SEO';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import { Star, ShieldCheck, Globe, MapPin } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-neutral-800 mb-5 tracking-tight animate-fade-up delay-200 opacity-0 text-balance">
             Asociația{' '}
             <span className="relative inline-block">
-              <span className="text-primary-500">HAERO</span>
+              HAERO
               <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none">
                 <path d="M2 6c40-4 80-4 120-2s56 2 76 0" stroke="#e4b544" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
               </svg>
@@ -78,21 +78,6 @@ const Hero: React.FC = () => {
             </Link>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-14 flex flex-wrap justify-center gap-8 animate-fade-up delay-600 opacity-0">
-            <div className="flex items-center gap-2 text-sm text-neutral-500">
-              <ShieldCheck size={20} className="text-accent-400" strokeWidth={1.5} />
-              <span className="font-semibold">Organizație legitimă</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-500">
-              <Globe size={20} className="text-accent-400" strokeWidth={1.5} />
-              <span className="font-semibold">Membru HAEi</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-500">
-              <MapPin size={20} className="text-accent-400" strokeWidth={1.5} />
-              <span className="font-semibold">Târgu-Mureș, România</span>
-            </div>
-          </div>
         </div>
 
         {/* Bottom wave transition */}
