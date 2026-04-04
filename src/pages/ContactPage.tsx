@@ -1,94 +1,227 @@
 import SEO from '../components/SEO';
-import React from 'react';
-import { PageHero, Card, IconBox, Button } from '../components/ui';
-import { Mail, Phone, MapPin, User } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Mail, Phone, MapPin, User, ArrowRight } from 'lucide-react';
+import { Button } from '../components/ui';
 
 const ContactPage: React.FC = () => {
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    const elements = document.querySelectorAll('[data-animate]');
+    elements.forEach((el) => observerRef.current?.observe(el));
+
+    return () => observerRef.current?.disconnect();
+  }, []);
+
+  const isVisible = (id: string) => visibleSections.has(id);
+
   return (
-    <><SEO title="Contact" description="Contactează Asociația HAERO pentru întrebări, informații sau colaborări. Email, telefon și formular de contact." path="/contact" />
-      <PageHero
-        variant="accent"
-        title="Contactează-ne"
-        description="Dacă crezi că te identifici ca având simptomele specifice AEE sau ești medic și ai nevoie de informații mai exacte, te invităm să ne contactezi."
+    <>
+      <SEO
+        title="Contact"
+        description="Contactează Asociația HAERO pentru întrebări, informații sau colaborări. Email, telefon și formular de contact."
+        path="/contact"
       />
 
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <IconBox variant="accent">
-                  <Mail size={24} strokeWidth={1.5} />
-                </IconBox>
-                <div>
-                  <h3 className="font-bold text-neutral-800 mb-1">Email</h3>
-                  <p className="text-neutral-500">asociatia.haero@gmail.com</p>
-                </div>
-              </div>
+      <div>
+        {/* ── Hero ── */}
+        <section className="relative pt-28 pb-20 text-center overflow-hidden bg-gradient-to-b from-white to-neutral-50">
+          <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(228,181,68,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-              <div className="flex items-start gap-4">
-                <IconBox variant="primary">
-                  <Phone size={24} strokeWidth={1.5} />
-                </IconBox>
-                <div>
-                  <h3 className="font-bold text-neutral-800 mb-1">Telefon</h3>
-                  <p className="text-neutral-500">+40 746 252 817</p>
-                </div>
-              </div>
+          <div className="relative max-w-2xl mx-auto px-4 sm:px-6">
+            <h1 className="font-playfair text-4xl sm:text-5xl lg:text-[58px] font-bold leading-[1.1] text-neutral-800 mb-6 tracking-tight">
+              Contactează-ne
+            </h1>
 
-              <div className="flex items-start gap-4">
-                <IconBox variant="secondary">
-                  <MapPin size={24} strokeWidth={1.5} />
-                </IconBox>
-                <div>
-                  <h3 className="font-bold text-neutral-800 mb-1">Sediu</h3>
-                  <p className="text-neutral-500">Târgu-Mureș, România</p>
-                </div>
-              </div>
+            <p className="text-lg leading-[1.8] text-neutral-500 max-w-[560px] mx-auto">
+              Dacă crezi că te identifici ca având simptomele specifice AEE sau ești medic și ai nevoie de informații mai exacte, te invităm să ne contactezi.
+            </p>
+          </div>
+        </section>
 
-              <div className="flex items-start gap-4">
-                <IconBox variant="accent">
-                  <User size={24} strokeWidth={1.5} />
-                </IconBox>
-                <div>
-                  <h3 className="font-bold text-neutral-800 mb-1">Vicepreședinte</h3>
-                  <p className="text-neutral-500">Ana Maria Bălțătescu</p>
-                </div>
-              </div>
+        {/* ── Contact Info ── */}
+        <section className="bg-white">
+          <div className="max-w-[660px] mx-auto px-4 sm:px-6 pt-12 pb-6">
+            <h2
+              id="info-heading"
+              data-animate
+              className={`relative pl-5 font-playfair text-2xl sm:text-[26px] font-bold text-neutral-800 mb-4 transition-all duration-700 ${
+                isVisible('info-heading')
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
+            >
+              <span className="absolute left-0 top-1 w-1 h-7 rounded-full bg-primary-400" />
+              Informații de contact
+            </h2>
+
+            <p
+              id="info-desc"
+              data-animate
+              className={`text-[17px] leading-[1.85] text-neutral-600 mb-8 transition-all duration-700 ${
+                isVisible('info-desc')
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
+            >
+              Ne poți contacta prin oricare dintre canalele de mai jos.
+            </p>
+
+            {/* Contact rows */}
+            <div className="flex flex-col gap-3.5 mb-8">
+              {[
+                {
+                  id: 'contact-email',
+                  icon: <Mail size={22} strokeWidth={1.5} />,
+                  iconStyle: 'bg-primary-50 border-2 border-primary-200 text-primary-500',
+                  label: 'Email',
+                  value: 'asociatia.haero@gmail.com',
+                  href: 'mailto:asociatia.haero@gmail.com',
+                },
+                {
+                  id: 'contact-phone',
+                  icon: <Phone size={22} strokeWidth={1.5} />,
+                  iconStyle: 'bg-accent-50 border-2 border-accent-200 text-accent-500',
+                  label: 'Telefon',
+                  value: '+40 746 252 817',
+                  href: 'tel:+40746252817',
+                },
+                {
+                  id: 'contact-location',
+                  icon: <MapPin size={22} strokeWidth={1.5} />,
+                  iconStyle: 'bg-secondary-50 border-2 border-secondary-200 text-secondary-400',
+                  label: 'Sediu',
+                  value: 'Târgu-Mureș, România',
+                },
+                {
+                  id: 'contact-person',
+                  icon: <User size={22} strokeWidth={1.5} />,
+                  iconStyle: 'bg-primary-50 border-2 border-primary-200 text-primary-500',
+                  label: 'Vicepreședinte',
+                  value: 'Ana Maria Bălțătescu',
+                },
+              ].map((item, index) => {
+                const Tag = item.href ? 'a' : 'div';
+                const linkProps = item.href
+                  ? { href: item.href, target: item.href.startsWith('mailto') ? undefined : '_blank', rel: 'noopener noreferrer' }
+                  : {};
+
+                return (
+                  <Tag
+                    key={item.id}
+                    id={item.id}
+                    data-animate
+                    {...linkProps}
+                    className={`group flex items-center gap-5 p-6 bg-neutral-50 rounded-[20px] no-underline transition-all duration-500 hover:bg-neutral-100 ${
+                      item.href ? 'hover:translate-x-1 cursor-pointer' : ''
+                    } ${
+                      isVisible(item.id)
+                        ? 'opacity-100 translate-x-0'
+                        : 'opacity-0 -translate-x-8'
+                    }`}
+                    style={{ transitionDelay: `${index * 80}ms` }}
+                  >
+                    <div className={`w-[52px] h-[52px] rounded-[14px] flex items-center justify-center flex-shrink-0 ${item.iconStyle}`}>
+                      {item.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-[17px] font-extrabold text-neutral-800 mb-1">{item.label}</h3>
+                      <p className="text-[15px] leading-relaxed text-neutral-500 m-0">{item.value}</p>
+                    </div>
+                    {item.href && (
+                      <ArrowRight
+                        size={18}
+                        className="text-primary-500 transition-transform duration-200 group-hover:translate-x-1 flex-shrink-0"
+                      />
+                    )}
+                  </Tag>
+                );
+              })}
             </div>
+          </div>
+        </section>
 
-            {/* Contact Form */}
-            <Card variant="bordered" hover={false} className="p-8">
+        {/* ── Contact Form ── */}
+        <section className="bg-white pb-14">
+          <div className="max-w-[660px] mx-auto px-4 sm:px-6">
+            <h2
+              id="form-heading"
+              data-animate
+              className={`relative pl-5 font-playfair text-2xl sm:text-[26px] font-bold text-neutral-800 mb-3 transition-all duration-700 ${
+                isVisible('form-heading')
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
+            >
+              <span className="absolute left-0 top-1 w-1 h-7 rounded-full bg-primary-400" />
+              Trimite-ne un mesaj
+            </h2>
+
+            <p
+              id="form-desc"
+              data-animate
+              className={`text-[16px] leading-[1.75] text-neutral-600 mb-7 transition-all duration-700 ${
+                isVisible('form-desc')
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
+            >
+              Completează formularul de mai jos și îți vom răspunde cât mai curând posibil.
+            </p>
+
+            <div
+              id="form-card"
+              data-animate
+              className={`bg-neutral-50 rounded-[20px] p-8 sm:p-9 transition-all duration-700 ${
+                isVisible('form-card')
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
+            >
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-neutral-700 mb-1">
-                      Nume
+                      Nume <span className="text-error">*</span>
                     </label>
                     <input
                       type="text"
                       id="name"
+                      required
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="Numele tău"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-neutral-700 mb-1">
-                      Email
+                      Email <span className="text-error">*</span>
                     </label>
                     <input
                       type="email"
                       id="email"
+                      required
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="email@exemplu.ro"
                     />
                   </div>
                 </div>
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="locality" className="block text-sm font-semibold text-neutral-700 mb-1">
-                      Localitate
+                      Localitate <span className="text-xs text-neutral-400 font-normal">(opțional)</span>
                     </label>
                     <input
                       type="text"
@@ -96,7 +229,7 @@ const ContactPage: React.FC = () => {
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="Oraș sau sat"
                     />
-                    <p className="text-xs text-neutral-500 mt-1">Nu este nevoie de adresa exactă, doar orașul sau satul.</p>
+                    <p className="text-xs text-neutral-400 mt-1">Nu este nevoie de adresa exactă.</p>
                   </div>
                   <div>
                     <label htmlFor="category" className="block text-sm font-semibold text-neutral-700 mb-1">
@@ -115,37 +248,42 @@ const ContactPage: React.FC = () => {
                     </select>
                   </div>
                 </div>
+
                 <div>
                   <label htmlFor="subject" className="block text-sm font-semibold text-neutral-700 mb-1">
-                    Subiect
+                    Subiect <span className="text-error">*</span>
                   </label>
                   <input
                     type="text"
                     id="subject"
+                    required
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                     placeholder="Subiectul mesajului"
                   />
                 </div>
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-neutral-700 mb-1">
-                    Mesaj
+                    Mesaj <span className="text-error">*</span>
                   </label>
                   <textarea
                     id="message"
                     rows={5}
+                    required
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none resize-none bg-white text-neutral-800 transition-shadow"
                     placeholder="Scrie mesajul tău aici..."
-                  ></textarea>
+                  />
                 </div>
-                <Button type="submit" variant="primary" size="lg" fullWidth>
+
+                <Button type="submit" variant="primary" size="lg" fullWidth className="mt-2">
                   Trimite Mesajul
                 </Button>
               </form>
-            </Card>
+            </div>
           </div>
-        </div>
-      </section>
-  </>
+        </section>
+      </div>
+    </>
   );
 };
 
