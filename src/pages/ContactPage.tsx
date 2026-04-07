@@ -3,9 +3,50 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Mail, Phone, MapPin, User, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui';
 
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzrkk2UJX8EnnAdmZJBQsIj733WDz8Jb8t-Fm2jTYIub8H5dzQumLpOoRa4I9nu21lE9A/exec';
+
 const ContactPage: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    locality: '',
+    category: '',
+    subject: '',
+    message: '',
+  });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('loading');
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        locality: '',
+        category: '',
+        subject: '',
+        message: '',
+      });
+    } catch {
+      setSubmitStatus('error');
+    }
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -190,7 +231,16 @@ const ContactPage: React.FC = () => {
                   : 'opacity-0 translate-y-6'
               }`}
             >
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              {submitStatus === 'success' ? (
+                <div className="text-center py-10">
+                  <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-neutral-800 mb-2">Mesaj trimis cu succes!</h3>
+                  <p className="text-neutral-500">Îți mulțumim pentru mesaj. Te vom contacta cât mai curând posibil.</p>
+                </div>
+              ) : (
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-neutral-700 mb-1">
@@ -199,6 +249,9 @@ const ContactPage: React.FC = () => {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="Numele tău"
@@ -211,6 +264,9 @@ const ContactPage: React.FC = () => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="email@exemplu.ro"
@@ -226,6 +282,9 @@ const ContactPage: React.FC = () => {
                     <input
                       type="text"
                       id="locality"
+                      name="locality"
+                      value={formData.locality}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                       placeholder="Oraș sau sat"
                     />
@@ -237,8 +296,10 @@ const ContactPage: React.FC = () => {
                     </label>
                     <select
                       id="category"
+                      name="category"
+                      value={formData.category}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
-                      defaultValue=""
                     >
                       <option value="" disabled>Selectează o opțiune</option>
                       <option value="pacient-diagnosticat">Pacient diagnosticat</option>
@@ -256,6 +317,9 @@ const ContactPage: React.FC = () => {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none bg-white text-neutral-800 transition-shadow"
                     placeholder="Subiectul mesajului"
@@ -268,6 +332,9 @@ const ContactPage: React.FC = () => {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={5}
                     required
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-accent-400 focus:border-transparent outline-none resize-none bg-white text-neutral-800 transition-shadow"
@@ -275,10 +342,15 @@ const ContactPage: React.FC = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="primary" size="lg" fullWidth className="mt-2">
-                  Trimite Mesajul
+                {submitStatus === 'error' && (
+                  <p className="text-error text-sm">A apărut o eroare. Te rugăm să încerci din nou.</p>
+                )}
+
+                <Button type="submit" variant="primary" size="lg" fullWidth className="mt-2" disabled={submitStatus === 'loading'}>
+                  {submitStatus === 'loading' ? 'Se trimite...' : 'Trimite Mesajul'}
                 </Button>
               </form>
+              )}
             </div>
           </div>
         </section>
