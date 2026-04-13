@@ -2,9 +2,11 @@ import React from 'react';
 import SEO from './SEO';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import { Star } from 'lucide-react';
+import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 
 const Hero: React.FC = () => {
+  const isVisible = useAnimateOnScroll();
+
   return (
     <>
       <SEO
@@ -12,84 +14,127 @@ const Hero: React.FC = () => {
         description="Asociația HAERO militează pentru drepturile pacienților cu angioedem ereditar (HAE) din România — acces egal la tratament, informare și suport de calitate."
         path="/"
       />
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Gradient mesh background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-neutral-50 to-accent-50/30" />
 
-        {/* Organic blobs */}
-        <div className="absolute top-[15%] right-[10%] w-[500px] h-[500px] blob-primary opacity-50 animate-float" />
-        <div className="absolute bottom-[20%] left-[5%] w-[350px] h-[350px] blob-accent opacity-40 animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-[60%] right-[30%] w-[200px] h-[200px] blob-secondary opacity-30 animate-float" style={{ animationDelay: '4s' }} />
-
-        {/* Dot pattern overlay */}
-        <div className="absolute inset-0 pattern-dots opacity-40" />
-
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Logo */}
-          <div className="flex justify-center mb-8 animate-fade-up">
-            <div className="relative">
-              <Logo size={140} />
-              <div className="absolute -inset-4 bg-primary-200/20 rounded-full blur-2xl -z-10" />
-            </div>
-          </div>
-
-          {/* Trust badge */}
-          <div className="animate-fade-up delay-100 opacity-0 mb-6">
-            <span className="trust-badge">
-              <Star size={14} fill="currentColor" />
-              Asociație pentru pacienți
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-neutral-800 mb-5 tracking-tight animate-fade-up delay-200 opacity-0 text-balance">
-            Asociația{' '}
-            <span className="relative inline-block">
-              HAERO
-              <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none">
-                <path d="M2 6c40-4 80-4 120-2s56 2 76 0" stroke="#e4b544" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
-              </svg>
-            </span>
-          </h1>
-
-          <p className="text-xl sm:text-2xl text-neutral-600 mb-4 font-semibold animate-fade-up delay-300 opacity-0">
-            Asociația pentru Angioedem Ereditar
-          </p>
-
-          <p className="text-lg text-neutral-500 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up delay-400 opacity-0">
-            O comunitate a cărei voce să devină vocea comună a tuturor pacienților
-            cu această boală rară. Fiecare pacient cu angioedem ereditar are nevoie
-            să se simtă înțeles, acceptat și motivat.
-          </p>
-
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up delay-500 opacity-0">
-            <Link
-              to="/despre"
-              className="bg-primary-400 text-neutral-800 px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-500 transition-all duration-300 shadow-raised hover:shadow-glow-primary hover:-translate-y-0.5 tracking-wide"
-            >
-              Descoperă Misiunea Noastră
-            </Link>
-            <Link
-              to="/comunitate"
-              className="bg-white/80 backdrop-blur-sm text-neutral-700 border-2 border-neutral-300 px-8 py-4 rounded-full text-lg font-semibold hover:border-primary-300 hover:text-primary-600 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Alătură-te Comunității
-            </Link>
-          </div>
-
+      {/* ── Hero ── */}
+      <section
+        className="min-h-screen flex flex-col justify-center items-center pt-16 text-center"
+        style={{
+          background: 'linear-gradient(180deg, #fef9ec 0%, #fdfcfa 60%, #fdfcfa 100%)',
+        }}
+      >
+        <div className="animate-fade-up">
+          <Logo size={72} />
         </div>
 
-        {/* Bottom wave transition */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path
-              d="M0 80L60 70C120 60 240 40 360 30C480 20 600 20 720 25C840 30 960 40 1080 45C1200 50 1320 50 1380 50L1440 50V80H0Z"
-              fill="#fdfcfa"
-            />
-          </svg>
+        <h1 className="font-playfair text-4xl sm:text-5xl lg:text-[4rem] font-bold leading-[1.15] tracking-tight text-neutral-800 max-w-[680px] px-6 mt-8 mb-8 animate-fade-up delay-100 opacity-0">
+          O voce comună pentru pacienții cu Angioedem Ereditar din România
+        </h1>
+
+        <div className="w-12 h-px bg-primary-200 mb-8 animate-fade-up delay-200 opacity-0" />
+
+        <p className="text-base leading-[1.8] text-neutral-500 max-w-[420px] px-6 mb-10 animate-fade-up delay-300 opacity-0">
+          Am pornit de la o convingere simplă: nimeni nu ar trebui să se confrunte singur cu o boală rară.
+        </p>
+
+        <div className="flex gap-3 animate-fade-up delay-400 opacity-0">
+          <Link
+            to="/despre"
+            className="px-7 py-3 bg-primary-400 text-neutral-800 font-bold text-sm rounded-md hover:bg-primary-500 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Descoperă Misiunea
+          </Link>
+          <Link
+            to="/comunitate"
+            className="px-7 py-3 text-neutral-600 font-semibold text-sm rounded-md hover:text-neutral-800 transition-colors duration-200"
+          >
+            <span className="border-b border-neutral-300 pb-px">Alătură-te</span>
+          </Link>
         </div>
       </section>
+
+      {/* ── Info band ── */}
+      <section
+        id="info-band"
+        data-animate
+        className={`border-t border-neutral-200 transition-all duration-700 ${
+          isVisible('info-band')
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-6'
+        }`}
+      >
+        <div className="max-w-[880px] mx-auto px-6 sm:px-10 lg:px-16 py-16">
+          <div className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-6">
+            Despre Angioedemul Ereditar
+          </div>
+          <div className="grid sm:grid-cols-2 gap-8 sm:gap-12">
+            <p className="text-[0.95rem] leading-[1.85] text-neutral-600">
+              Angioedemul Ereditar (AEE) este o afecțiune genetică foarte rară și potențial fatală, care apare la aproximativ{' '}
+              <strong className="text-neutral-800 font-bold">1 din 50.000 de persoane</strong>. Crizele pot fi severe, cu risc vital.
+            </p>
+            <p className="text-[0.95rem] leading-[1.85] text-neutral-600">
+              Diagnostic întârziat cu o medie de{' '}
+              <strong className="text-neutral-800 font-bold">13 ani</strong>, lipsa accesului rapid la tratament, și izolarea pacienților — acestea sunt problemele pe care HAERO le adresează.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pillars ── */}
+      <section className="border-t border-neutral-200 bg-neutral-100">
+        <div className="grid md:grid-cols-3">
+          {[
+            {
+              id: 'pillar-suport',
+              label: 'Suport',
+              labelColor: 'text-primary-400',
+              title: 'Ascultăm fiecare voce',
+              text: 'Un cadru organizat în care pacienții pot să-și exprime ideile, experiențele, fricile și bucuriile.',
+              delay: 0,
+            },
+            {
+              id: 'pillar-informare',
+              label: 'Informare',
+              labelColor: 'text-accent-400',
+              title: 'Reducem întârzierea diagnosticului',
+              text: 'Informăm atât pacienții cât și medicii, facem cunoscută această boală rară.',
+              delay: 100,
+            },
+            {
+              id: 'pillar-comunitate',
+              label: 'Comunitate',
+              labelColor: 'text-secondary-400',
+              title: 'Construim împreună',
+              text: 'O comunitate în care încrederea primează, lucrând împreună pentru creșterea calității vieții.',
+              delay: 200,
+            },
+          ].map((pillar, index) => (
+            <div
+              key={pillar.id}
+              id={pillar.id}
+              data-animate
+              className={`py-12 px-6 sm:px-8 lg:px-10 ${
+                index < 2 ? 'md:border-r border-b md:border-b-0 border-neutral-200' : ''
+              } transition-all duration-700 ${
+                isVisible(pillar.id)
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-6'
+              }`}
+              style={{ transitionDelay: `${pillar.delay}ms` }}
+            >
+              <div className={`text-[0.65rem] font-bold uppercase tracking-[0.2em] ${pillar.labelColor} mb-4`}>
+                {pillar.label}
+              </div>
+              <h3 className="font-playfair text-xl font-bold text-neutral-800 mb-3">
+                {pillar.title}
+              </h3>
+              <p className="text-[0.9rem] leading-[1.8] text-neutral-600">
+                {pillar.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </>
   );
 };

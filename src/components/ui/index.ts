@@ -5,3 +5,8 @@ export { default as Badge } from './Badge';
 export { default as Callout } from './Callout';
 export { default as PageHero } from './PageHero';
 export { default as IconBox } from './IconBox';
+export { default as ArticleHero } from './ArticleHero';
+export { default as ArticleSection } from './ArticleSection';
+export { default as Pullquote } from './Pullquote';
+export { default as ArticleNav } from './ArticleNav';
+export { default as ArticleSource } from './ArticleSource';

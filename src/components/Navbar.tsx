@@ -33,7 +33,6 @@ const Navbar: React.FC = () => {
 
   const mainLinks = [
     { to: '/despre', label: 'Despre Noi' },
-    { to: '/misiune', label: 'Misiunea Noastră' },
     { to: '/comunitate', label: 'Comunitate' },
     { to: '/contact', label: 'Contact' },
   ];

@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import AboutUs from './pages/AboutUs';
-import OurMission from './pages/OurMission';
 import Community from './pages/Community';
 import ContactPage from './pages/ContactPage';
 import WhatIsHAE from './pages/WhatIsHAE';
@@ -46,7 +45,7 @@ function App() {
               <Route path="/femei-si-sarcina" element={<WomenPregnancy />} />
               <Route path="/calatorii" element={<Travel />} />
               <Route path="/despre-haei" element={<AboutHAEi />} />
-              <Route path="/misiune" element={<OurMission />} />
+              <Route path="/misiune" element={<Navigate to="/despre" replace />} />
               <Route path="/comunitate" element={<Community />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/politica-confidentialitate" element={<PrivacyPolicy />} />

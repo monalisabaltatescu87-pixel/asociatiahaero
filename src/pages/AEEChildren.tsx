@@ -1,35 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Users, Clock, HeartPulse } from 'lucide-react';
-import { PageHero, SectionHeader, Callout } from '../components/ui';
 import SEO from '../components/SEO';
-
-const testingItems = [
-  {
-    icon: Users,
-    title: 'Cine trebuie testat?',
-    description:
-      'Toți membrii familiei apropiate: părinți, frați și copii ai persoanei diagnosticate cu AEE.',
-    iconBg: 'bg-secondary-50',
-    iconColor: 'text-secondary-500',
-  },
-  {
-    icon: Clock,
-    title: 'Când se poate testa?',
-    description:
-      'Testarea este posibilă din primul an de viață, dar se recomandă așteptarea până la cel puțin 1 an din cauza nivelurilor variabile de C1 antigenic și C4.',
-    iconBg: 'bg-accent-50',
-    iconColor: 'text-accent-500',
-  },
-  {
-    icon: HeartPulse,
-    title: 'De ce contează testarea precoce?',
-    description:
-      'Permite crearea unui plan de tratament individualizat în avans, în colaborare cu medicul copilului.',
-    iconBg: 'bg-secondary-50',
-    iconColor: 'text-secondary-500',
-  },
-];
+import { ArticleHero, ArticleSection, Pullquote, ArticleNav, ArticleSource } from '../components/ui';
 
 const AEEChildren: React.FC = () => {
   return (
@@ -39,288 +10,142 @@ const AEEChildren: React.FC = () => {
         description="Informații despre angioedemul ereditar la copii: testare, debutul simptomelor, opțiuni de tratament pediatric."
         path="/aee-si-copiii"
       />
-
-      <div>
-        {/* Hero */}
-        <PageHero
-          variant="reader"
+      <div className="bg-white">
+        <ArticleHero
           backLink="/ce-este-aee"
-          backLabel="Despre AEE"
           title="AEE și copiii"
-          description="Defectul genetic care cauzează AEE este ereditar. Copiii unui părinte cu AEE au 50% șanse să moștenească afecțiunea."
+          description="Copiii unui părinte cu AEE au 50% șanse să moștenească afecțiunea. Testarea timpurie și un plan de tratament individualizat sunt esențiale."
         />
 
-        {/* Key Statistic Callout */}
-        <section className="py-8 bg-white">
-          <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
-            <Callout variant="info">
-              <p className="text-lg font-medium leading-relaxed">
-                Copiii unui părinte cu AEE au <strong>50% șanse</strong> să moștenească
-                afecțiunea. Testarea timpurie și un plan de tratament individualizat
-                sunt esențiale.
-              </p>
-            </Callout>
-          </div>
-        </section>
+        <div className="max-w-[860px] mx-auto px-5 sm:px-6 pb-20">
 
-        {/* Testing Section */}
-        <section className="py-8 bg-white">
-          <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              reader={true}
-              title="Testarea este esențială"
-            />
-
-            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+          {/* Testare */}
+          <ArticleSection label="Testare">
+            <h2 className="font-playfair text-[28px] font-bold text-neutral-800 mb-5 leading-snug">Testarea este esențială</h2>
+            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-5">
               Odată ce o persoană este diagnosticată, experții recomandă ca toți
               membrii familiei apropiate (<strong className="text-neutral-800 font-bold">părinți, frați și copii</strong>) să fie testați
               pentru AEE.
             </p>
-            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
-              Testarea pentru AEE este posibilă în primul an de viață, cu toate
-              acestea, unii medici recomandă să așteptați până când copilul are
-              cel puțin un (1) an înainte de testare. Aceasta se datorează
-              nivelurilor foarte variabile de C1 antigenic și C4 în primul an de
-              viață.
+            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-5">
+              Testarea este posibilă în primul an de viață, cu toate acestea, unii medici
+              recomandă să așteptați până când copilul are cel puțin un (1) an, datorită
+              nivelurilor foarte variabile de C1 antigenic și C4.
             </p>
-            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-10">
-              Testarea precoce permite părinților sau tutorilor legali să
-              colaboreze în avans cu medicul copilului pentru a crea un plan de
-              tratament individualizat.
+            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-8">
+              Testarea precoce permite părinților sau tutorilor legali să colaboreze în avans
+              cu medicul copilului pentru a crea un plan de tratament individualizat.
             </p>
 
-            {/* Testing Info Items — stacked rows */}
-            <div className="space-y-4">
-              {testingItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.title}
-                    className="bg-neutral-50 rounded-2xl p-6 flex items-start gap-5 hover:bg-neutral-100 transition-colors"
-                  >
-                    <div
-                      className={`flex-shrink-0 w-11 h-11 rounded-xl ${item.iconBg} flex items-center justify-center`}
-                    >
-                      <Icon className={`w-5 h-5 ${item.iconColor}`} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-neutral-800 mb-1 text-[17px]">
-                        {item.title}
-                      </h3>
-                      <p className="text-[17px] leading-[1.85] text-neutral-600">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+            {[
+              { q: 'Cine trebuie testat?', a: 'Toți membrii familiei apropiate: părinți, frați și copii ai persoanei diagnosticate cu AEE.' },
+              { q: 'Când se poate testa?', a: 'Din primul an de viață, dar se recomandă așteptarea până la cel puțin 1 an din cauza nivelurilor variabile.' },
+              { q: 'De ce contează testarea precoce?', a: 'Permite crearea unui plan de tratament individualizat în avans, în colaborare cu medicul copilului.' },
+            ].map((item) => (
+              <div key={item.q} className="py-5 border-b border-neutral-200">
+                <h3 className="font-bold text-neutral-800 text-lg mb-1">{item.q}</h3>
+                <p className="text-base leading-[1.75] text-neutral-600">{item.a}</p>
+              </div>
+            ))}
+          </ArticleSection>
 
-        {/* Symptom Onset */}
-        <section className="py-8 bg-white">
-          <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              reader={true}
-              title="Debutul simptomelor"
-            />
-
+          {/* Debut */}
+          <ArticleSection label="Debut">
+            <h2 className="font-playfair text-[28px] font-bold text-neutral-800 mb-5 leading-snug">Debutul simptomelor</h2>
             <p className="text-[17px] leading-[1.85] text-neutral-600 mb-8">
               Vârsta de debut variază considerabil. Majoritatea persoanelor cu AEE
               au experimentat simptome sau primul atac înainte de vârsta de 18 ani.
-              Pare să existe o frecvență crescută a atacurilor în timpul pubertății
-              sau adolescenței.
             </p>
 
-            {/* Stat Cards — side by side in neutral-50 container */}
-            <div className="bg-neutral-50 rounded-2xl p-6 mb-8">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="text-center">
-                  <p className="text-4xl font-extrabold text-primary-500 mb-2">50%</p>
-                  <p className="text-[17px] leading-[1.85] text-neutral-600">
-                    dintre persoanele cu AEE raportează primele simptome
-                    până la <strong className="text-neutral-800 font-bold">vârsta de 10 ani</strong>
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl font-extrabold text-primary-500 mb-2">&lt;18 ani</p>
-                  <p className="text-[17px] leading-[1.85] text-neutral-600">
-                    Majoritatea pacienților au experimentat <strong className="text-neutral-800 font-bold">primul atac</strong> înainte
-                    de vârsta adultă
-                  </p>
-                </div>
+            <div className="grid sm:grid-cols-2 gap-12 py-6 border-t border-neutral-200">
+              <div>
+                <span className="font-playfair text-5xl font-black text-primary-400 leading-none block mb-2">50%</span>
+                <p className="text-base leading-[1.75] text-neutral-600">
+                  raportează primele simptome până la <strong className="text-neutral-800 font-bold">vârsta de 10 ani</strong>
+                </p>
+              </div>
+              <div>
+                <span className="font-playfair text-5xl font-black text-primary-400 leading-none block mb-2">&lt;18</span>
+                <p className="text-base leading-[1.75] text-neutral-600">
+                  Majoritatea au experimentat <strong className="text-neutral-800 font-bold">primul atac</strong> înainte de vârsta adultă
+                </p>
               </div>
             </div>
 
-            <Callout variant="warning" title="Important">
-              <p className="leading-relaxed font-medium">
-                Pare să existe o frecvență crescută a
-                atacurilor în timpul <strong>pubertății sau adolescenței</strong>,
-                ceea ce subliniază importanța unui diagnostic și plan de tratament
-                stabilite cât mai devreme posibil.
+            <Pullquote tag="Important">
+              <p>
+                Pare să existe o frecvență crescută a atacurilor în timpul <strong>pubertății sau adolescenței</strong>, ceea ce subliniază importanța unui diagnostic și plan de tratament stabilite cât mai devreme.
               </p>
-            </Callout>
-          </div>
-        </section>
+            </Pullquote>
+          </ArticleSection>
 
-        {/* Treatment Section */}
-        <section className="py-8 bg-white">
-          <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              reader={true}
-              title="Tratamentul AEE la copii"
-              description="Similar cu adulții, toți pacienții pediatrici cu AEE ar trebui să aibă un plan de gestionare a bolii, inclusiv un plan de acțiune terapeutică, împreună cu medicul lor."
-            />
-
-            <div className="space-y-10 mt-8">
-              {/* Acute Treatment */}
-              <div>
-                <h3 className="font-bold text-neutral-800 text-lg mb-3">
-                  Terapii disponibile pentru copii și adolescenți
-                </h3>
-                <p className="text-[17px] leading-[1.85] text-neutral-600 mb-5">
-                  Tratamentul la cerere pentru atacuri acute la pacienții pediatrici
-                  include următoarele opțiuni:
-                </p>
-                <div className="space-y-3">
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Concentrat de C1-inhibitor</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Produse din plasmă sanguină (pdC1-inhibitor) și produse
-                      recombinante (rhC1-inhibitor). Înlocuiește proteina lipsă
-                      sau disfuncțională.
-                    </p>
-                  </div>
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Icatibant</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Antagonist al receptorilor de bradikinină. Blochează acțiunea
-                      bradikininei, mediatorul principal al edemului.
-                    </p>
-                  </div>
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Alternative</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Dacă tratamentele specifice nu sunt disponibile: plasma tratată
-                      cu solvent-detergent (SDP) sau plasma proaspătă congelată (FFP)
-                      pot fi utilizate.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Long-term Prophylaxis */}
-              <div>
-                <h3 className="font-bold text-neutral-800 text-lg mb-3">
-                  Profilaxie pe termen lung (PTL) la copii
-                </h3>
-                <p className="text-[17px] leading-[1.85] text-neutral-600 mb-5">
-                  Opțiunile de profilaxie pe termen lung la copii reflectă în general
-                  opțiunile disponibile pentru adulți.
-                </p>
-                <div className="space-y-3">
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Concentrat de C1-inhibitor</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Prima opțiune pentru profilaxia pe termen lung la copii,
-                      similar cu recomandările pentru adulți.
-                    </p>
-                  </div>
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Antifibrinolitice (acid tranexamic)</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Dacă concentratul de C1-inhibitor nu este disponibil,
-                      antifibrinoliticele pot fi utilizate ca alternativă.
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5">
-                  <Callout variant="warning">
-                    <p className="leading-relaxed font-medium">
-                      <strong>De reținut:</strong> PTL cu antifibrinolitice este
-                      preferată în locul androgenilor la copii, datorită unui
-                      <strong> profil de siguranță mai bun</strong>.
-                    </p>
-                  </Callout>
-                </div>
-              </div>
-
-              {/* Short-term Prophylaxis */}
-              <div>
-                <h3 className="font-bold text-neutral-800 text-lg mb-3">
-                  Profilaxie pe termen scurt la copii
-                </h3>
-                <p className="text-[17px] leading-[1.85] text-neutral-600 mb-5">
-                  Profilaxia pe termen scurt se administrează înainte de proceduri
-                  chirurgicale sau stomatologice pentru a preveni atacurile.
-                </p>
-                <div className="space-y-3">
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Concentrat de C1-inhibitor</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Opțiunea preferată pentru profilaxia pe termen scurt la
-                      pacienții pediatrici.
-                    </p>
-                  </div>
-                  <div className="bg-white border border-neutral-200 rounded-2xl p-5">
-                    <h4 className="font-bold text-neutral-800 mb-1">Androgeni atenuați</h4>
-                    <p className="text-[15px] leading-[1.85] text-neutral-600">
-                      Alternativă pentru profilaxia pe termen scurt, atunci când
-                      concentratul de C1-inhibitor nu este disponibil.
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5">
-                  <Callout variant="warning" title="Important">
-                    <p className="leading-relaxed font-medium">
-                      Tratamentul la cerere trebuie să fie
-                      întotdeauna <strong>disponibil pe parcursul procedurii</strong>,
-                      indiferent de profilaxia administrată.
-                    </p>
-                  </Callout>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Navigation */}
-        <section className="py-8 bg-white border-t border-neutral-100">
-          <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row justify-between gap-4">
-              <Link
-                to="/cum-tratam-aee"
-                className="text-primary-500 font-semibold hover:text-primary-600 transition-colors"
-              >
-                ← Tratamente disponibile
-              </Link>
-              <Link
-                to="/femei-si-sarcina"
-                className="text-primary-500 font-semibold hover:text-primary-600 transition-colors sm:text-right"
-              >
-                Femei și sarcina →
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Source Attribution */}
-        <section className="py-8 bg-white">
-          <div className="max-w-[660px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-neutral-500 text-sm">
-              Informații bazate pe date de la{' '}
-              <a
-                href="https://haei.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-500 hover:text-primary-600 underline"
-              >
-                HAE International (HAEi)
-              </a>.
+          {/* Tratament */}
+          <ArticleSection label="Tratament">
+            <h2 className="font-playfair text-[28px] font-bold text-neutral-800 mb-3 leading-snug">Tratamentul AEE la copii</h2>
+            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-10">
+              Similar cu adulții, toți pacienții pediatrici ar trebui să aibă un plan de
+              gestionare, inclusiv un plan de acțiune terapeutică.
             </p>
-          </div>
-        </section>
+
+            <h3 className="font-playfair text-xl font-bold text-neutral-800 mb-4">Terapii disponibile pentru atacuri acute</h3>
+            {[
+              { name: 'Concentrat de C1-inhibitor', desc: 'Produse din plasmă (pdC1-inhibitor) și recombinante (rhC1-inhibitor). Înlocuiește proteina lipsă sau disfuncțională.' },
+              { name: 'Icatibant', desc: 'Antagonist al receptorilor de bradikinină. Blochează acțiunea bradikininei.' },
+              { name: 'Alternative', desc: 'Plasma tratată cu solvent-detergent (SDP) sau proaspătă congelată (FFP).' },
+            ].map((item) => (
+              <div key={item.name} className="py-4 border-b border-neutral-200">
+                <h4 className="font-bold text-neutral-800 mb-1">{item.name}</h4>
+                <p className="text-[15px] leading-[1.75] text-neutral-600">{item.desc}</p>
+              </div>
+            ))}
+
+            <h3 className="font-playfair text-xl font-bold text-neutral-800 mt-10 mb-4">Profilaxie pe termen lung (PTL)</h3>
+            {[
+              { name: 'Concentrat de C1-inhibitor', desc: 'Prima opțiune, similar cu recomandările pentru adulți.' },
+              { name: 'Antifibrinolitice (acid tranexamic)', desc: 'Alternativă dacă concentratul nu este disponibil.' },
+            ].map((item) => (
+              <div key={item.name} className="py-4 border-b border-neutral-200">
+                <h4 className="font-bold text-neutral-800 mb-1">{item.name}</h4>
+                <p className="text-[15px] leading-[1.75] text-neutral-600">{item.desc}</p>
+              </div>
+            ))}
+
+            <Pullquote tag="De reținut">
+              <p>
+                PTL cu antifibrinolitice este preferată în locul androgenilor la copii, datorită unui <strong>profil de siguranță mai bun</strong>.
+              </p>
+            </Pullquote>
+
+            <h3 className="font-playfair text-xl font-bold text-neutral-800 mb-4">Profilaxie pe termen scurt</h3>
+            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-4">
+              Se administrează înainte de proceduri chirurgicale sau stomatologice.
+            </p>
+            {[
+              { name: 'Concentrat de C1-inhibitor', desc: 'Opțiunea preferată pentru pacienții pediatrici.' },
+              { name: 'Androgeni atenuați', desc: 'Alternativă când concentratul nu este disponibil.' },
+            ].map((item) => (
+              <div key={item.name} className="py-4 border-b border-neutral-200">
+                <h4 className="font-bold text-neutral-800 mb-1">{item.name}</h4>
+                <p className="text-[15px] leading-[1.75] text-neutral-600">{item.desc}</p>
+              </div>
+            ))}
+
+            <Pullquote tag="Important">
+              <p>
+                Tratamentul la cerere trebuie să fie întotdeauna <strong>disponibil pe parcursul procedurii</strong>, indiferent de profilaxia administrată.
+              </p>
+            </Pullquote>
+          </ArticleSection>
+
+          <ArticleSource sources={[
+            { href: 'https://haei.org', label: 'HAE International (HAEi)' },
+          ]} />
+
+          <ArticleNav
+            prev={{ to: '/cum-tratam-aee', label: 'Tratamente disponibile' }}
+            next={{ to: '/femei-si-sarcina', label: 'Femei și sarcina' }}
+          />
+        </div>
       </div>
     </>
   );

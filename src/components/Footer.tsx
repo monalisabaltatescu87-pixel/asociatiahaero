@@ -1,16 +1,35 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
     <footer className="relative bg-neutral-800 text-white overflow-hidden">
-      {/* Subtle pattern */}
-      <div className="absolute inset-0 pattern-dots opacity-[0.03]" />
-
-      {/* Top accent line */}
-      <div className="h-1 bg-gradient-to-r from-primary-400 via-accent-400 to-secondary-400" />
+      {/* CTA band — homepage only */}
+      {isHome && (
+        <div className="relative border-b border-white/[0.06]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="max-w-[500px] text-center md:text-left">
+              <h2 className="font-playfair text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
+                Fiecare pacient contează
+              </h2>
+              <p className="text-[0.95rem] leading-[1.7] text-white/50">
+                Alătură-te comunității de pacienți, aparținători și medici care schimbă lucrurile în România.
+              </p>
+            </div>
+            <Link
+              to="/comunitate"
+              className="px-7 py-3 bg-primary-400 text-neutral-800 font-bold text-sm rounded-md hover:bg-primary-500 transition-all duration-200 hover:-translate-y-0.5 flex-shrink-0"
+            >
+              Alătură-te Comunității
+            </Link>
+          </div>
+        </div>
+      )}
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
@@ -41,7 +60,6 @@ const Footer: React.FC = () => {
             <ul className="space-y-2.5">
               {[
                 { to: '/despre', label: 'Despre Noi' },
-                { to: '/misiune', label: 'Misiunea Noastră' },
                 { to: '/comunitate', label: 'Comunitate' },
                 { to: '/contact', label: 'Contact' },
               ].map((link) => (
