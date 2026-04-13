@@ -172,26 +172,6 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Highlight Banner ── */}
-        <section
-          id="highlight"
-          data-animate
-          className={`bg-gradient-to-br from-primary-50 to-neutral-50 py-14 transition-all duration-700 ${
-            isVisible('highlight')
-              ? 'opacity-100 scale-100'
-              : 'opacity-0 scale-[0.97]'
-          }`}
-        >
-          <div className="max-w-[560px] mx-auto px-4 sm:px-6 text-center">
-            <p className="font-playfair text-2xl leading-[1.5] text-neutral-700 italic">
-              „Fiecare pacient contează, fiecare criză prevenită este o victorie."
-            </p>
-            <span className="block mt-5 text-[13px] font-bold uppercase tracking-[3px] text-primary-500">
-              — Asociația HAERO
-            </span>
-          </div>
-        </section>
-
         {/* ── Navigation CTA ── */}
         <section
           id="cta-nav"

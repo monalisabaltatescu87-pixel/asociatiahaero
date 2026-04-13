@@ -199,7 +199,7 @@ const OurMission: React.FC = () => {
             </p>
 
             <p className="font-playfair text-xl leading-[1.5] text-primary-600 font-semibold mt-5">
-              HAERO este vocea care spune: fiecare pacient contează, fiecare criză prevenită este o victorie.
+              HAERO este vocea pacienților cu angioedem ereditar din România.
             </p>
           </div>
         </section>
