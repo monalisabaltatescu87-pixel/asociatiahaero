@@ -29,7 +29,7 @@ function HomePage() {
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter basename="/asociatiahaero">
+      <BrowserRouter>
         <div className="min-h-screen bg-neutral-50">
           <ScrollToTop />
           <Navbar />
