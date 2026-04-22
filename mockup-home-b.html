@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAERO — Homepage B: Manifesto Scroll</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-400: #e4b544;
+    --primary-500: #c9952e;
+    --primary-200: #f5d88a;
+    --accent-400: #5a9da4;
+    --secondary-400: #9668a2;
+    --neutral-50: #fdfcfa;
+    --neutral-100: #f7f5f0;
+    --neutral-200: #eae6dd;
+    --neutral-300: #d4cfc4;
+    --neutral-500: #857e72;
+    --neutral-600: #6e6558;
+    --neutral-700: #4a4338;
+    --neutral-800: #2d2822;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--neutral-50);
+    color: var(--neutral-800);
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(253,252,250,0.95);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid var(--neutral-200);
+    height: 64px;
+    display: flex; align-items: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+  }
+  nav .brand { font-size: 1.125rem; font-weight: 800; letter-spacing: -0.02em; }
+  nav .brand small {
+    display: block; font-size: 0.65rem; font-weight: 400;
+    color: var(--neutral-500); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  nav ul {
+    list-style: none; display: flex; gap: 2rem;
+    margin-left: auto; font-size: 0.85rem; font-weight: 600;
+  }
+  nav ul a { text-decoration: none; color: var(--neutral-600); transition: color 0.2s; }
+  nav ul a:hover { color: var(--neutral-800); }
+
+  /* ── Hero: Manifesto ── */
+  .manifesto-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px clamp(1.5rem, 8vw, 8rem) 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .manifesto-hero .overline {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--neutral-400);
+    margin-bottom: 2rem;
+  }
+
+  .manifesto-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+    margin-bottom: 2rem;
+  }
+
+  .manifesto-hero h1 .highlight {
+    position: relative;
+    white-space: nowrap;
+  }
+  .manifesto-hero h1 .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -4px; right: -4px;
+    height: 0.3em;
+    background: var(--primary-400);
+    opacity: 0.25;
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .manifesto-hero .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--neutral-400);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: gentle-bob 2s ease-in-out infinite;
+  }
+  .manifesto-hero .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px; height: 32px;
+    background: var(--neutral-300);
+    margin: 0.5rem auto 0;
+  }
+  @keyframes gentle-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+
+  /* ── Statement sections ── */
+  .statement {
+    padding: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 8vw, 8rem);
+    border-top: 1px solid var(--neutral-200);
+  }
+
+  .statement-inner {
+    max-width: 720px;
+  }
+
+  .statement.right .statement-inner {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .statement .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--neutral-200);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .statement h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .statement p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--neutral-600);
+    max-width: 520px;
+  }
+  .statement.right p {
+    margin-left: auto;
+  }
+
+  /* ── Pull quote ── */
+  .pull-quote {
+    padding: clamp(4rem, 10vh, 7rem) clamp(1.5rem, 8vw, 8rem);
+    background: var(--neutral-800);
+    color: white;
+    text-align: center;
+  }
+  .pull-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .pull-quote cite {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-400);
+  }
+
+  /* ── CTA section ── */
+  .final-cta {
+    padding: clamp(4rem, 10vh, 7rem) clamp(1.5rem, 8vw, 8rem);
+    text-align: center;
+    border-top: 1px solid var(--neutral-200);
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .final-cta p {
+    font-size: 1rem;
+    color: var(--neutral-600);
+    line-height: 1.7;
+    max-width: 460px;
+    margin: 0 auto 2rem;
+  }
+  .final-cta .ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block; padding: 0.875rem 2rem;
+    background: var(--primary-400); color: var(--neutral-800);
+    font-weight: 700; font-size: 0.9rem; border-radius: 6px;
+    text-decoration: none; transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--primary-500); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-block; padding: 0.875rem 2rem;
+    border: 1.5px solid var(--neutral-300); color: var(--neutral-700);
+    font-weight: 600; font-size: 0.9rem; border-radius: 6px;
+    text-decoration: none; transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--neutral-500); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--neutral-200);
+    padding: 2rem clamp(1.5rem, 4vw, 3rem);
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; color: var(--neutral-400);
+  }
+  footer a { color: var(--neutral-500); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .statement.right .statement-inner { text-align: left; margin-left: 0; }
+    .statement.right p { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">HAERO <small>Asociatia pentru Angioedem Ereditar</small></div>
+  <ul>
+    <li><a href="#">Despre Noi</a></li>
+    <li><a href="#">Ce este AEE?</a></li>
+    <li><a href="#">Comunitate</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Manifesto Hero -->
+<section class="manifesto-hero">
+  <div class="overline">Asociatia HAERO &middot; Romania</div>
+  <h1>
+    Nimeni nu ar trebui<br>
+    sa se confrunte <span class="highlight">singur</span><br>
+    cu o boala rara.
+  </h1>
+  <div class="scroll-hint">Descopera</div>
+</section>
+
+<!-- Statement 1 -->
+<section class="statement">
+  <div class="statement-inner">
+    <div class="num">01</div>
+    <h2>Suport</h2>
+    <p>Reprezentam un cadru organizat in care pacientii pot sa-si exprime ideile, experientele, fricile si bucuriile. Povestea ta merita sa fie ascultata.</p>
+  </div>
+</section>
+
+<!-- Statement 2 -->
+<section class="statement right">
+  <div class="statement-inner">
+    <div class="num">02</div>
+    <h2>Informare</h2>
+    <p>Ne propunem sa informam atat pacientii cat si medicii, sa facem cunoscuta aceasta boala rara, intrucat riscul unui diagnostic gresit sau tardiv poate fi fatal.</p>
+  </div>
+</section>
+
+<!-- Statement 3 -->
+<section class="statement">
+  <div class="statement-inner">
+    <div class="num">03</div>
+    <h2>Comunitate</h2>
+    <p>Crestem o comunitate in care increderea primeaza, lucrand impreuna pentru cresterea calitatii vietii pacientilor cu angioedem ereditar.</p>
+  </div>
+</section>
+
+<!-- Pull quote -->
+<section class="pull-quote">
+  <blockquote>&ldquo;O comunitate a carei voce sa devina vocea comuna a tuturor pacientilor cu aceasta boala rara.&rdquo;</blockquote>
+  <cite>Viziunea HAERO</cite>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2>Fiecare voce conteaza</h2>
+  <p>Alatura-te comunitatii de pacienti, apartinatori si medici care schimba lucrurile in Romania.</p>
+  <div class="ctas">
+    <a href="#" class="btn-primary">Descopera Misiunea</a>
+    <a href="#" class="btn-outline">Alatura-te Comunitatii</a>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 Asociatia HAERO</span>
+  <span><a href="#">Confidentialitate</a> &middot; <a href="#">Termeni</a></span>
+</footer>
+
+</body>
+</html>

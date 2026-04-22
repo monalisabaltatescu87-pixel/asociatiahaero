@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option B — Anchored Sidebar + Typographic Breaks</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-50: #fef9ec;
+    --primary-100: #fceec5;
+    --primary-200: #f8dfa0;
+    --primary-300: #f0cb6a;
+    --primary-400: #e4b544;
+    --primary-500: #c9952e;
+    --primary-600: #9a7023;
+    --secondary-50: #f5f0f6;
+    --secondary-200: #cbaed3;
+    --secondary-400: #9668a2;
+    --accent-50: #eef6f6;
+    --accent-100: #c9e4e6;
+    --accent-200: #9dcdd1;
+    --accent-400: #5a9da4;
+    --accent-600: #345c60;
+    --neutral-50: #fdfcfa;
+    --neutral-100: #f7f5f0;
+    --neutral-200: #ede9e0;
+    --neutral-300: #ddd6c9;
+    --neutral-400: #b8ae9e;
+    --neutral-500: #958b7b;
+    --neutral-600: #6e6558;
+    --neutral-700: #4a4338;
+    --neutral-800: #2d2822;
+    --error: #c44d45;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--neutral-50);
+    color: var(--neutral-700);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout: sidebar TOC + main content ── */
+  .page-wrap {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top: 100px;
+    gap: 0 64px;
+  }
+
+  @media (max-width: 860px) {
+    .page-wrap {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 40px;
+    }
+    .sidebar { display: none; }
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    padding-top: 16px;
+  }
+
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--neutral-400);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .toc-item {
+    display: block;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--neutral-500);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 16px;
+    transition: all 0.2s;
+  }
+
+  .toc-item:hover,
+  .toc-item.active {
+    color: var(--neutral-800);
+    border-left-color: var(--primary-400);
+  }
+
+  /* ── Main content ── */
+  .content {
+    padding-bottom: 80px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: 860px) {
+    .content { padding-right: 0; }
+  }
+
+  /* ── Hero ── */
+  .content-hero {
+    margin-bottom: 56px;
+  }
+
+  .content-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--neutral-800);
+    line-height: 1.12;
+    margin-bottom: 24px;
+  }
+
+  .content-hero .lede {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--neutral-500);
+    max-width: 540px;
+  }
+
+  /* ── Big horizontal rule with stat ── */
+  .stat-divider {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 40px 0 32px;
+    border-top: 3px solid var(--neutral-800);
+  }
+
+  .stat-divider .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--primary-400);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .stat-divider .desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--neutral-600);
+    max-width: 400px;
+  }
+
+  /* ── Content sections ── */
+  .text-section {
+    padding: 40px 0;
+  }
+
+  .text-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--neutral-800);
+    margin-bottom: 20px;
+    line-height: 1.25;
+  }
+
+  .text-section p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--neutral-600);
+    margin-bottom: 18px;
+  }
+
+  .text-section strong {
+    color: var(--neutral-800);
+    font-weight: 700;
+  }
+
+  /* ── Important block: side-stripe, no card ── */
+  .aside-block {
+    margin: 32px 0;
+    padding: 24px 0 24px 28px;
+    border-left: 4px solid var(--accent-400);
+    position: relative;
+  }
+
+  .aside-tag {
+    position: absolute;
+    top: -10px;
+    left: 28px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-400);
+    background: var(--neutral-50);
+    padding: 0 8px 0 0;
+  }
+
+  .aside-block p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--neutral-600);
+    margin-bottom: 12px;
+  }
+
+  .aside-block p:last-child { margin-bottom: 0; }
+
+  .aside-block strong {
+    color: var(--neutral-800);
+    font-weight: 700;
+  }
+
+  /* ── Types: horizontal table-like layout ── */
+  .types-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+  }
+
+  .types-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neutral-400);
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--neutral-300);
+  }
+
+  .types-table td {
+    padding: 20px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+
+  .types-table .type-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--neutral-800);
+    white-space: nowrap;
+  }
+
+  .types-table .type-freq {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-500);
+  }
+
+  .types-table .type-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--neutral-600);
+  }
+
+  /* ── Symptoms: compact with danger accent ── */
+  .symptom-row {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--neutral-200);
+    align-items: flex-start;
+  }
+
+  .symptom-row:first-child { border-top: 1px solid var(--neutral-200); }
+
+  .symptom-tag {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neutral-300);
+    flex-shrink: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .symptom-tag.danger { color: var(--error); }
+
+  .symptom-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--neutral-800);
+    margin-bottom: 8px;
+  }
+
+  .symptom-content p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--neutral-600);
+    margin-bottom: 6px;
+  }
+
+  .symptom-content .note {
+    font-size: 14px;
+    color: var(--neutral-400);
+  }
+
+  /* ── Warning signs: pills in a flow ── */
+  .signs-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 32px;
+  }
+
+  .sign-pill {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neutral-600);
+    border: 1px solid var(--neutral-200);
+    background: var(--neutral-100);
+  }
+
+  /* ── Nav links ── */
+  .related-nav {
+    padding: 56px 0 40px;
+    border-top: 3px solid var(--neutral-800);
+  }
+
+  .related-nav h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--neutral-800);
+    margin-bottom: 24px;
+  }
+
+  .related-list {
+    list-style: none;
+    column-count: 2;
+    column-gap: 32px;
+  }
+
+  @media (max-width: 600px) {
+    .related-list { column-count: 1; }
+  }
+
+  .related-list li {
+    break-inside: avoid;
+  }
+
+  .related-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--neutral-700);
+    text-decoration: none;
+    border-bottom: 1px solid var(--neutral-100);
+    transition: color 0.15s;
+  }
+
+  .related-list a:hover { color: var(--primary-500); }
+
+  .related-list .arrow {
+    font-size: 16px;
+    color: var(--neutral-300);
+    transition: transform 0.15s;
+  }
+
+  .related-list a:hover .arrow {
+    transform: translateX(3px);
+    color: var(--primary-400);
+  }
+
+  .source {
+    padding: 24px 0;
+    font-size: 13px;
+    color: var(--neutral-400);
+  }
+
+  .source a {
+    color: var(--neutral-500);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- OPTION B: SIDEBAR TOC + DATA-DRIVEN BREAKS
+     Inspired by: Stripe docs, gov.uk, medical reference sites
+     Philosophy: Wayfinding through a sticky sidebar. Content broken
+     by bold stat-dividers that give visual rhythm. Table for types
+     instead of cards. Vertical text tags for symptoms. No rounded
+     corners anywhere. -->
+
+<div class="page-wrap">
+
+  <nav class="sidebar">
+    <span class="sidebar-label">Pe această pagină</span>
+    <div class="toc-list">
+      <a href="#definitie" class="toc-item active">Ce este AEE</a>
+      <a href="#tipuri" class="toc-item">Tipurile de AEE</a>
+      <a href="#simptome" class="toc-item">Simptomele</a>
+      <a href="#avertizare" class="toc-item">Semne de avertizare</a>
+      <a href="#mai-multe" class="toc-item">Află mai multe</a>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <div class="content-hero">
+      <h1>Ghid despre<br>Angioedemul Ereditar</h1>
+      <p class="lede">
+        O afecțiune genetică foarte rară și potențial fatală, care apare la aproximativ 1 din 10.000 până la 1 din 50.000 de persoane.
+      </p>
+    </div>
+
+    <!-- Stat divider -->
+    <div class="stat-divider">
+      <div class="big">1:50k</div>
+      <div class="desc">persoane sunt afectate. AEE provoacă simptome de umflare în mâini, picioare, față și gât.</div>
+    </div>
+
+    <!-- Ce este AEE -->
+    <div class="text-section" id="definitie">
+      <h2>Ce este AEE</h2>
+      <p>
+        Persoanele cu AEE suferă adesea de dureri abdominale insuportabile, greață și vărsături cauzate de umflarea peretelui intestinal. <strong>Umflarea căilor respiratorii sau a gâtului este deosebit de periculoasă</strong>, deoarece poate cauza moartea prin sufocare.
+      </p>
+      <p>
+        Majoritatea persoanelor cu AEE au un defect în gena care controlează o proteină importantă numită <strong>C1-inhibitor</strong>, care se găsește în plasmă. Din cauza acestui defect genetic, C1-inhibitorul nu își îndeplinește funcția de a controla interacțiunile biologice complexe din plasmă.
+      </p>
+      <p>
+        Necontrolate, aceste interacțiuni produc o substanță numită <strong>bradikinină</strong>, care provoacă umflarea prin permiterea fluidelor plasmatice să pătrundă în țesuturile moi.
+      </p>
+
+      <div class="aside-block">
+        <span class="aside-tag">Important</span>
+        <p>
+          Umflarea legată de AEE <strong>nu este aceeași</strong> cu umflarea cauzată de alergii. Antihistaminicele, corticosteroizii și epinefrina sunt <strong>ineficiente</strong>.
+        </p>
+        <p>
+          Fără tratament, atacurile pot dura între <strong>două și cinci zile</strong>. Până la <strong>25% din cazuri</strong> rezultă dintr-o mutație spontană. Copiii au <strong>50% șanse</strong> să moștenească AEE dacă un părinte are afecțiunea.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tipuri -->
+    <div class="text-section" id="tipuri">
+      <h2>Tipurile de AEE</h2>
+      <p>Clasificate în funcție de nivelul și funcția C1-inhibitorului.</p>
+
+      <table class="types-table">
+        <thead>
+          <tr>
+            <th>Tip</th>
+            <th>Frecvență</th>
+            <th>Descriere</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="type-name">Tip I</td>
+            <td class="type-freq">85%</td>
+            <td class="type-desc">Cea mai frecventă formă, caracterizată prin niveluri cantitative scăzute de C1-inhibitor.</td>
+          </tr>
+          <tr>
+            <td class="type-name">Tip II</td>
+            <td class="type-freq">15%</td>
+            <td class="type-desc">Niveluri normale sau crescute de C1-inhibitor, dar proteina nu funcționează corect.</td>
+          </tr>
+          <tr>
+            <td class="type-name">C1-inh. normal</td>
+            <td class="type-freq">Rar</td>
+            <td class="type-desc">Simptome consistente cu Tip I și II, dar rezultatele de laborator sunt normale. Mutații genetice recente confirmate.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Simptome -->
+    <div class="text-section" id="simptome">
+      <h2>Simptomele AEE</h2>
+
+      <div class="symptom-row">
+        <div class="symptom-tag">Piele</div>
+        <div class="symptom-content">
+          <h3>Umflături cutanate</h3>
+          <p>Umflături dureroase ale mâinilor, picioarelor, feței și regiunii genitale. Zonele umflate sunt dure, fără mâncărime și fără roșeață.</p>
+          <p class="note">~25% experimentează erupție cutanată roșie înainte sau în timpul unui atac.</p>
+        </div>
+      </div>
+
+      <div class="symptom-row">
+        <div class="symptom-tag">Abdomen</div>
+        <div class="symptom-content">
+          <h3>Simptome abdominale</h3>
+          <p>Dureri abdominale insuportabile, greață, vărsături și diaree cauzate de umflarea peretelui intestinal.</p>
+          <p class="note">Pot fi confundate cu alte patologii — risc de intervenții chirurgicale inutile.</p>
+        </div>
+      </div>
+
+      <div class="symptom-row">
+        <div class="symptom-tag danger">Pericol</div>
+        <div class="symptom-content">
+          <h3>Edem laringian</h3>
+          <p>Umflăturile la nivelul gâtului sau căilor respiratorii pot cauza <strong>deces prin sufocare</strong>.</p>
+          <p class="note">Mortalitate ~30% la persoane netratate. 50% experimentează cel puțin o umflare a gâtului.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semne de avertizare -->
+    <div class="text-section" id="avertizare">
+      <h2>Semne de avertizare</h2>
+      <p>Simptome prodromale care pot apărea înainte de un episod:</p>
+
+      <div class="signs-flow">
+        <span class="sign-pill">Furnicături sau senzație de strângere</span>
+        <span class="sign-pill">Oboseală extremă</span>
+        <span class="sign-pill">Schimbări bruște de dispoziție</span>
+        <span class="sign-pill">Greață sau iritabilitate</span>
+      </div>
+
+      <p>Aproximativ <strong>25% dintre pacienți</strong> experimentează o erupție cutanată roșie care apare înainte sau în timpul unui episod de AEE.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="related-nav" id="mai-multe">
+      <h2>Află mai multe</h2>
+      <ul class="related-list">
+        <li><a href="#">Factori declanșatori <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">Principalele cauze <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">Tratamente <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">Diagnosticarea <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">AEE și copiii <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">Femei și sarcină <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">Călătorii <span class="arrow">&rarr;</span></a></li>
+        <li><a href="#">Despre HAEi <span class="arrow">&rarr;</span></a></li>
+      </ul>
+    </div>
+
+    <div class="source">
+      Informații bazate pe date de la <a href="#">HAE International (HAEi)</a>, <a href="#">NORD</a> și <a href="#">Cleveland Clinic</a>.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
