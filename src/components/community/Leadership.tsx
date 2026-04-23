@@ -20,7 +20,7 @@ const members: Member[] = [
     name: 'Ana Maria Stan',
     role: 'Vicepreședinte',
     labelColor: 'text-accent-400',
-    photo: '/ana-maria-stan.jpg',
+    photo: '/ana-maria-stan.jpeg',
     story: [
       'Primele atacuri de Angioedem Ereditar au apărut încă din copilărie. A fost o perioadă plină de teamă și nesiguranță — nu știam când va veni următorul atac și simțeam că nu pot controla boala așa cum mi-aș fi dorit.',
       'Odată cu apariția tratamentelor moderne, viața mea s-a schimbat radical. Am început să privesc fiecare zi cu mai multă încredere și am înțeles că pot face față provocărilor, indiferent cât de mari par.',
@@ -33,7 +33,7 @@ const members: Member[] = [
     name: 'Monalisa Bălțătescu',
     role: 'Președinte',
     labelColor: 'text-primary-400',
-    photo: '/monalisa-baltatescu.jpg',
+    photo: '/monalisa-baltatescu.jpeg',
     story: [
       'După multe diagnostice greșite — gastrită, pancreatită — momentul în care am aflat diagnosticul corect a fost ca o adevărată gură de aer proaspăt. În sfârșit am putut să tratez corect atacurile de Angioedem Ereditar (AEE), iar teama constantă de un atac imprevizibil a început să se diminueze.',
       'La început, nu mi-a fost ușor să vorbesc deschis despre boala mea — nici cu colegii de școală, nici cu cei de muncă, și uneori nici măcar cu membrii familiei. Totuși, am descoperit o comunitate de pacienți empatică și deschisă, care m-a ajutat să privesc AEE cu mai multă încredere și curaj.',
