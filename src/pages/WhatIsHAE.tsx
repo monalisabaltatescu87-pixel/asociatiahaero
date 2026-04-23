@@ -101,6 +101,74 @@ const WhatIsHAE: React.FC = () => {
             </div>
           </ArticleSection>
 
+          {/* Galerie foto */}
+          <ArticleSection label="Galerie foto">
+            <h2 className="font-playfair text-[28px] font-bold text-neutral-800 mb-3 leading-snug">Atacuri de angioedem — imagini clinice</h2>
+            <p className="text-[17px] leading-[1.85] text-neutral-600 mb-6">
+              Umflarea în AEE poate afecta mâinile, fața, buzele, pleoapele sau căile respiratorii. Imaginile de mai jos, provenite de la <a href="https://commons.wikimedia.org/wiki/Category:Angioedema" target="_blank" rel="noopener noreferrer" className="text-primary-500 underline underline-offset-2 hover:text-primary-600">Wikimedia Commons</a> și publicate sub licențe libere, arată cum se manifestă aceste episoade.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {[
+                {
+                  filename: 'Swollen_hand_during_a_hereditary_angioedema_attack..jpg',
+                  alt: 'Mână umflată în timpul unui atac de angioedem ereditar',
+                  caption: 'Umflarea mâinii în timpul unui atac de AEE. Zona este dură, fermă și dureroasă, fără mâncărime sau roșeață.',
+                  sourceLabel: 'Wikimedia Commons',
+                  sourceHref: 'https://commons.wikimedia.org/wiki/File:Swollen_hand_during_a_hereditary_angioedema_attack..jpg',
+                },
+                {
+                  filename: 'AngioedemaFra.JPG',
+                  alt: 'Umflarea buzelor cauzată de angioedem',
+                  caption: 'Edem vizibil al buzelor. Umflarea feței și a buzelor este una dintre localizările frecvente ale atacurilor.',
+                  sourceLabel: 'Wikimedia Commons',
+                  sourceHref: 'https://commons.wikimedia.org/wiki/File:AngioedemaFra.JPG',
+                },
+                {
+                  filename: 'Angioedema2010.JPG',
+                  alt: 'Copil cu pleoape umflate în timpul unui episod de angioedem',
+                  caption: 'Edem periorbital la un copil — pleoapele pot fi umflate până la punctul în care ochii nu pot fi deschiși.',
+                  sourceLabel: 'Wikimedia Commons',
+                  sourceHref: 'https://commons.wikimedia.org/wiki/File:Angioedema2010.JPG',
+                },
+                {
+                  filename: 'Angioedema2013.JPG',
+                  alt: 'Umflare facială asimetrică în timpul unui atac de angioedem',
+                  caption: 'Umflare facială asimetrică. Tumefacțiile pot apărea pe o singură parte a feței și progresează în câteva ore.',
+                  sourceLabel: 'Wikimedia Commons',
+                  sourceHref: 'https://commons.wikimedia.org/wiki/File:Angioedema2013.JPG',
+                },
+              ].map((photo) => (
+                <figure key={photo.filename} className="bg-neutral-50 border border-neutral-100 overflow-hidden">
+                  <img
+                    src={`https://commons.wikimedia.org/wiki/Special:FilePath/${photo.filename}?width=800`}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="w-full h-64 object-cover bg-neutral-100"
+                  />
+                  <figcaption className="p-4">
+                    <p className="text-sm leading-relaxed text-neutral-600 mb-2">{photo.caption}</p>
+                    <p className="text-[11px] tracking-wider uppercase text-neutral-400">
+                      Sursă:{' '}
+                      <a
+                        href={photo.sourceHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-neutral-500 underline underline-offset-2 hover:text-primary-500"
+                      >
+                        {photo.sourceLabel}
+                      </a>
+                    </p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <p className="text-[13px] text-neutral-400 mt-6 italic">
+              Notă: Imaginile sunt utilizate în scop educațional, cu atribuire către Wikimedia Commons. Aspectul și severitatea atacurilor variază semnificativ de la o persoană la alta.
+            </p>
+          </ArticleSection>
+
           {/* Semne de avertizare */}
           <ArticleSection label="Avertizare">
             <h2 className="font-playfair text-[28px] font-bold text-neutral-800 mb-5 leading-snug">Semne de avertizare</h2>
