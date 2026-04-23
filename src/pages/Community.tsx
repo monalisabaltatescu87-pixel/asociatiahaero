@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
 import SocialLinks from '../components/community/SocialLinks';
+import Leadership from '../components/community/Leadership';
 import MembershipForm from '../components/community/MembershipForm';
 
 const Community: React.FC = () => {
@@ -35,6 +36,7 @@ const Community: React.FC = () => {
           </p>
         </section>
 
+        <Leadership isVisible={isVisible} />
         <SocialLinks isVisible={isVisible} />
         <MembershipForm isVisible={isVisible} />
       </div>
