@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hae day :-) — Rollup 85×220cm</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-50: #fef9ec;
+    --primary-100: #fceec5;
+    --primary-200: #f8dfa0;
+    --primary-300: #f0cb6a;
+    --primary-400: #e4b544;
+    --primary-500: #c9952e;
+    --primary-600: #9a7023;
+    --primary-700: #6b4e1a;
+    --secondary-50: #f5f0f6;
+    --secondary-100: #e4d5e8;
+    --secondary-200: #cbaed3;
+    --secondary-300: #af87ba;
+    --secondary-400: #9668a2;
+    --secondary-500: #7a5186;
+    --secondary-600: #5c3d65;
+    --secondary-700: #3e2944;
+    --accent-50: #eef6f6;
+    --accent-100: #c9e4e6;
+    --accent-200: #9dcdd1;
+    --accent-300: #72b3b9;
+    --accent-400: #5a9da4;
+    --accent-500: #467b81;
+    --accent-600: #345c60;
+    --neutral-50: #fdfcfa;
+    --neutral-100: #f7f5f0;
+    --neutral-200: #ede9e0;
+    --neutral-300: #ddd6c9;
+    --neutral-400: #b8ae9e;
+    --neutral-500: #958b7b;
+    --neutral-600: #6e6558;
+    --neutral-700: #4a4338;
+    --neutral-800: #2d2822;
+    --neutral-900: #1a1714;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #e0ddd8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .page-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--neutral-500);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .page-label span {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 4px;
+    color: var(--neutral-400);
+    text-transform: none;
+  }
+
+  /* ============================================
+     ROLLUP — 85cm × 220cm
+     Scaled to screen: 1cm = 3px → 255px × 660px
+     ============================================ */
+  .rollup {
+    width: 255px;
+    height: 660px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(170deg, var(--primary-50) 0%, var(--neutral-50) 30%, #ffffff 55%, var(--secondary-50) 100%);
+    box-shadow: 0 12px 60px rgba(45,40,34,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 18px;
+  }
+
+  /* --- Decorative blobs --- */
+  .rollup .blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .rollup .blob-1 {
+    width: 320px;
+    height: 320px;
+    top: -80px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(122,81,134,0.06) 0%, transparent 70%);
+  }
+
+  .rollup .blob-2 {
+    width: 260px;
+    height: 260px;
+    bottom: 120px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(228,181,68,0.10) 0%, transparent 70%);
+  }
+
+  .rollup .blob-3 {
+    width: 200px;
+    height: 200px;
+    top: 35%;
+    right: -60px;
+    background: radial-gradient(circle, rgba(150,104,162,0.05) 0%, transparent 70%);
+  }
+
+  .rollup .blob-4 {
+    width: 180px;
+    height: 180px;
+    top: 60%;
+    left: -70px;
+    background: radial-gradient(circle, rgba(228,181,68,0.07) 0%, transparent 70%);
+  }
+
+  /* --- Subtle dot pattern overlay --- */
+  .rollup .dot-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(122,81,134,0.025) 1px, transparent 1px);
+    background-size: 18px 18px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* --- Thin decorative side accents --- */
+  .rollup .side-accent-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--secondary-400) 0%, var(--primary-300) 50%, transparent 100%);
+    z-index: 2;
+  }
+
+  .rollup .side-accent-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-300) 0%, var(--secondary-400) 50%, transparent 100%);
+    z-index: 2;
+  }
+
+  /* --- Top logos --- */
+  .rollup .logos {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 28px 20px 16px;
+    width: 100%;
+  }
+
+  .rollup .logos img {
+    height: 46px;
+    width: auto;
+  }
+
+  /* --- Top separator --- */
+  .rollup .top-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-400), transparent);
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+
+  /* --- Event name --- */
+  .rollup .event-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--secondary-500);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 6px;
+  }
+
+  /* --- Date line --- */
+  .rollup .event-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--neutral-600);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+  }
+
+  /* ====== Big tagline ====== */
+  .rollup .tagline {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 24px;
+  }
+
+  .rollup .tagline-row {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .rollup .tagline-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--secondary-500);
+    line-height: 1.1;
+  }
+
+  .rollup .tagline-dot {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary-400);
+    line-height: 1.1;
+  }
+
+  /* --- Decorative divider --- */
+  .rollup .mid-divider {
+    width: 40px;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--primary-400), var(--primary-300));
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+
+  /* --- Subtitle / description --- */
+  .rollup .subtitle {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--neutral-600);
+    max-width: 200px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    padding: 0 10px;
+  }
+
+  /* ====== Highlights ====== */
+  .rollup .highlights {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 0 22px;
+    margin-bottom: 24px;
+  }
+
+  .rollup .highlight-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .rollup .highlight-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .rollup .hi-1 { background: var(--secondary-50); border: 1px solid var(--secondary-200); color: var(--secondary-400); }
+  .rollup .hi-2 { background: var(--primary-50); border: 1px solid var(--primary-200); color: var(--primary-500); }
+  .rollup .hi-3 { background: var(--accent-50); border: 1px solid var(--accent-100); color: var(--accent-400); }
+
+  .rollup .highlight-text h4 {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--neutral-800);
+    margin-bottom: 1px;
+  }
+
+  .rollup .highlight-text p {
+    font-size: 10px;
+    line-height: 1.45;
+    color: var(--neutral-500);
+  }
+
+  /* ====== Bottom CTA block ====== */
+  .rollup .bottom-cta {
+    margin-top: auto;
+    width: calc(100% + 36px);
+    margin-left: -18px;
+    margin-right: -18px;
+    padding: 16px 30px;
+    background: var(--secondary-600);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .rollup .bottom-cta .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-100);
+    margin-bottom: 4px;
+  }
+
+  .rollup .bottom-cta .cta-text {
+    font-size: 9px;
+    color: var(--secondary-200);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .rollup .bottom-cta .cta-link {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--primary-300);
+    letter-spacing: 0.5px;
+  }
+
+  /* ====== Bottom contact strip ====== */
+  .rollup .contact-strip {
+    width: calc(100% + 36px);
+    margin-left: -18px;
+    margin-right: -18px;
+    padding: 10px 30px;
+    background: var(--secondary-700);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .rollup .contact-strip .contact-item {
+    text-align: center;
+  }
+
+  .rollup .contact-strip .contact-item strong {
+    display: block;
+    font-size: 7px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary-300);
+    margin-bottom: 1px;
+  }
+
+  .rollup .contact-strip .contact-item span {
+    font-size: 8px;
+    color: var(--primary-200);
+  }
+
+  /* ============================================
+     Print styles — actual size 850mm × 2200mm
+     ============================================ */
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+      margin: 0;
+    }
+
+    .page-label { display: none; }
+
+    .rollup {
+      width: 850mm;
+      height: 2200mm;
+      padding: 60mm 50mm;
+      box-shadow: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    .rollup .logos {
+      padding: 90mm 60mm 50mm;
+      gap: 60mm;
+    }
+
+    .rollup .logos img {
+      height: 150mm;
+    }
+
+    .rollup .top-divider {
+      width: 200mm;
+      height: 6mm;
+      margin-bottom: 55mm;
+    }
+
+    .rollup .event-name {
+      font-size: 72mm;
+      margin-bottom: 18mm;
+    }
+
+    .rollup .event-date {
+      font-size: 36mm;
+      margin-bottom: 80mm;
+    }
+
+    .rollup .tagline-word,
+    .rollup .tagline-dot {
+      font-size: 110mm;
+    }
+
+    .rollup .tagline {
+      gap: 8mm;
+      margin-bottom: 80mm;
+    }
+
+    .rollup .mid-divider {
+      width: 130mm;
+      height: 8mm;
+      margin-bottom: 60mm;
+    }
+
+    .rollup .subtitle {
+      font-size: 36mm;
+      max-width: 650mm;
+      margin-bottom: 80mm;
+      padding: 0 30mm;
+    }
+
+    .rollup .highlights {
+      gap: 40mm;
+      padding: 0 70mm;
+      margin-bottom: 80mm;
+    }
+
+    .rollup .highlight-icon {
+      width: 90mm;
+      height: 90mm;
+      min-width: 90mm;
+      border-radius: 24mm;
+      font-size: 40mm;
+    }
+
+    .rollup .highlight-text h4 {
+      font-size: 36mm;
+    }
+
+    .rollup .highlight-text p {
+      font-size: 30mm;
+    }
+
+    .rollup .highlight-item {
+      gap: 30mm;
+    }
+
+    .rollup .bottom-cta {
+      width: calc(100% + 100mm);
+      margin-left: -50mm;
+      margin-right: -50mm;
+      margin-bottom: 0;
+      padding: 50mm 70mm;
+    }
+
+    .rollup .bottom-cta .cta-title {
+      font-size: 42mm;
+      margin-bottom: 14mm;
+    }
+
+    .rollup .bottom-cta .cta-text {
+      font-size: 28mm;
+      margin-bottom: 18mm;
+    }
+
+    .rollup .bottom-cta .cta-link {
+      font-size: 28mm;
+    }
+
+    .rollup .contact-strip {
+      width: calc(100% + 100mm);
+      margin-left: -50mm;
+      margin-right: -50mm;
+      padding: 30mm 70mm;
+      gap: 60mm;
+    }
+
+    .rollup .contact-strip .contact-item strong {
+      font-size: 22mm;
+      letter-spacing: 6mm;
+    }
+
+    .rollup .contact-strip .contact-item span {
+      font-size: 26mm;
+    }
+
+    .rollup .side-accent-left,
+    .rollup .side-accent-right {
+      width: 10mm;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+  }
+
+  @page {
+    size: 850mm 2200mm;
+    margin: 0;
+    marks: crop cross;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-label">
+  hae day :-) — Rollup
+  <span>85 cm &times; 220 cm &mdash; Format imprimare</span>
+</div>
+
+<!-- ═══════════════ ROLLUP ═══════════════ -->
+<div class="rollup">
+
+  <!-- Decorative blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <div class="dot-pattern"></div>
+
+  <!-- Side accents -->
+  <div class="side-accent-left"></div>
+  <div class="side-accent-right"></div>
+
+  <!-- Logos -->
+  <div class="logos">
+    <img src="public/Logo-haero.png" alt="HAERO Logo">
+    <img src="local/logo-haeday.png" alt="HAE Day Logo">
+  </div>
+
+  <!-- Top divider -->
+  <div class="top-divider"></div>
+
+  <!-- Event name -->
+  <div class="event-name">hae day :-)</div>
+  <div class="event-date">16 Mai &middot; T&acirc;rgu-Mure&scedil;, Rom&acirc;nia</div>
+
+  <!-- Big tagline -->
+  <div class="tagline">
+    <div class="tagline-row"><span class="tagline-word">Rar</span><span class="tagline-dot">.</span></div>
+    <div class="tagline-row"><span class="tagline-word">Real</span><span class="tagline-dot">.</span></div>
+    <div class="tagline-row"><span class="tagline-word">Recunoscut</span><span class="tagline-dot">.</span></div>
+  </div>
+
+  <!-- Mid divider -->
+  <div class="mid-divider"></div>
+
+  <!-- Subtitle -->
+  <div class="subtitle">Ziua Internațională a Angioedemului Ereditar — un eveniment dedicat conștientizării, educației și comunității.</div>
+
+  <!-- Highlights -->
+  <div class="highlights">
+    <div class="highlight-item">
+      <div class="highlight-icon hi-1">&#9829;</div>
+      <div class="highlight-text">
+        <h4>Comunitate</h4>
+        <p>Întâlnirea cu alți pacienți și familii — nimeni nu e singur.</p>
+      </div>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-icon hi-2">&#9673;</div>
+      <div class="highlight-text">
+        <h4>Educație</h4>
+        <p>Prezentări medicale actualizate și sesiuni interactive.</p>
+      </div>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-icon hi-3">&#10070;</div>
+      <div class="highlight-text">
+        <h4>Conștientizare</h4>
+        <p>Fiecare voce contribuie la recunoașterea bolii.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact strip -->
+  <div class="contact-strip">
+    <div class="contact-item">
+      <strong>Email</strong>
+      <span>asociatia.haero@gmail.com</span>
+    </div>
+    <div class="contact-item">
+      <strong>Web</strong>
+      <span>www.asociatiahaero.ro</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

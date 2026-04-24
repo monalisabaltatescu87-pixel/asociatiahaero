@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Despre Noi — Variant A: Open Letter</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-400: #e4b544;
+    --primary-200: #f5d88a;
+    --primary-50: #fef9ec;
+    --accent-400: #5a9da4;
+    --secondary-400: #9668a2;
+    --neutral-50: #fdfcfa;
+    --neutral-100: #f7f5f0;
+    --neutral-200: #eae6dd;
+    --neutral-300: #d4cfc4;
+    --neutral-400: #a39d91;
+    --neutral-500: #857e72;
+    --neutral-600: #6e6558;
+    --neutral-700: #4a4338;
+    --neutral-800: #2d2822;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; background: var(--neutral-50); color: var(--neutral-800); }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(253,252,250,0.95); border-bottom: 1px solid var(--neutral-200);
+    height: 64px; display: flex; align-items: center; padding: 0 clamp(1rem, 4vw, 3rem);
+  }
+  nav .brand { font-size: 1.125rem; font-weight: 800; }
+  nav .brand small { display: block; font-size: 0.65rem; font-weight: 400; color: var(--neutral-500); letter-spacing: 0.08em; text-transform: uppercase; }
+  nav ul { list-style: none; display: flex; gap: 2rem; margin-left: auto; font-size: 0.85rem; font-weight: 600; }
+  nav ul a { text-decoration: none; color: var(--neutral-600); }
+
+  /* ── Page header ── */
+  .page-header {
+    padding: calc(64px + 4rem) clamp(1.5rem, 6vw, 6rem) 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .page-header .eyebrow {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.25em; color: var(--neutral-400); margin-bottom: 1.5rem;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 1.25rem;
+  }
+  .page-header .rule { width: 48px; height: 1px; background: var(--primary-200); margin: 0 auto; }
+
+  /* ── Letter section ── */
+  .letter {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 3rem clamp(1.5rem, 4vw, 2rem) 4rem;
+  }
+  .letter p {
+    font-size: 1.05rem; line-height: 1.9; color: var(--neutral-600); margin-bottom: 1.25rem;
+  }
+  .letter p strong { color: var(--neutral-800); }
+  .letter p.salutation {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--neutral-700);
+    margin-bottom: 2rem;
+  }
+
+  /* ── Pillars — border-separated columns ── */
+  .pillars {
+    border-top: 1px solid var(--neutral-200);
+    background: var(--neutral-100);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+  }
+  .pillar {
+    padding: 3rem clamp(1.5rem, 3vw, 2.5rem);
+    border-right: 1px solid var(--neutral-200);
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar .label {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.2em; margin-bottom: 1rem;
+  }
+  .pillar:nth-child(1) .label { color: var(--primary-400); }
+  .pillar:nth-child(2) .label { color: var(--accent-400); }
+  .pillar:nth-child(3) .label { color: var(--secondary-400); }
+  .pillar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;
+  }
+  .pillar p { font-size: 0.9rem; line-height: 1.8; color: var(--neutral-600); }
+
+  /* ── CTA row ── */
+  .cta-row {
+    border-top: 1px solid var(--neutral-200);
+    padding: 3rem clamp(1.5rem, 4vw, 3rem);
+    display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;
+  }
+  .cta-row a {
+    display: inline-block; padding: 0.6rem 1.25rem;
+    font-size: 0.85rem; font-weight: 600; color: var(--neutral-600);
+    border: 1px solid var(--neutral-200); border-radius: 5px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .cta-row a:hover { border-color: var(--neutral-400); color: var(--neutral-800); }
+
+  footer {
+    background: var(--neutral-800); padding: 2rem clamp(1.5rem, 4vw, 3rem);
+    display: flex; justify-content: space-between; font-size: 0.8rem; color: rgba(255,255,255,0.35);
+  }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .pillars { grid-template-columns: 1fr; }
+    .pillar { border-right: none; border-bottom: 1px solid var(--neutral-200); }
+    .pillar:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">HAERO <small>Asociatia pentru Angioedem Ereditar</small></div>
+  <ul>
+    <li><a href="#">Despre Noi</a></li>
+    <li><a href="#">Ce este AEE?</a></li>
+    <li><a href="#">Comunitate</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Page header -->
+<header class="page-header">
+  <div class="eyebrow">Despre HAERO</div>
+  <h1>Despre Noi</h1>
+  <div class="rule"></div>
+</header>
+
+<!-- Letter-style prose -->
+<section class="letter">
+  <p class="salutation">Draga comunitate,</p>
+
+  <p>
+    HAERO este o asociatie non-guvernamentala infiintata la Targu-Mures din dorinta de a crea
+    <strong>o comunitate a pacientilor cu Angioedem Ereditar din Romania</strong>,
+    o comunitate a carei voce sa devina vocea comuna a tuturor pacientilor cu aceasta boala rara.
+  </p>
+
+  <p>
+    Am pornit de la o convingere simpla: nimeni nu ar trebui sa se confrunte singur cu o boala rara.
+  </p>
+</section>
+
+<!-- Pillars -->
+<section class="pillars">
+  <div class="pillar">
+    <div class="label">Suport</div>
+    <h3>Ascultam fiecare voce</h3>
+    <p>Reprezentam un cadru organizat in care pacientii pot sa-si exprime ideile, experientele, fricile si bucuriile. Povestea ta merita sa fie ascultata.</p>
+  </div>
+  <div class="pillar">
+    <div class="label">Informare</div>
+    <h3>Reducem intarzierea diagnosticului</h3>
+    <p>Ne propunem sa informam atat pacientii cat si medicii, sa facem cunoscuta aceasta boala rara, intrucat riscul unui diagnostic gresit sau tardiv poate fi fatal.</p>
+  </div>
+  <div class="pillar">
+    <div class="label">Comunitate</div>
+    <h3>Construim impreuna</h3>
+    <p>Crestem o comunitate in care increderea primeaza, lucrand impreuna pentru cresterea calitatii vietii pacientilor cu angioedem ereditar.</p>
+  </div>
+</section>
+
+<!-- CTA row -->
+<div class="cta-row">
+  <a href="#">Misiunea noastra</a>
+  <a href="#">Ce este AEE</a>
+  <a href="#">Comunitate</a>
+</div>
+
+<footer>
+  <span>&copy; 2026 Asociatia HAERO</span>
+  <span><a href="#">Confidentialitate</a> &middot; <a href="#">Termeni</a></span>
+</footer>
+
+</body>
+</html>
