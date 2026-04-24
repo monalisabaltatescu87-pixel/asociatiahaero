@@ -52,9 +52,6 @@ const Leadership: React.FC<LeadershipProps> = ({ isVisible }) => (
     }`}
   >
     <div className="max-w-[960px] mx-auto px-6 sm:px-10 lg:px-16 py-16">
-      <div className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-6">
-        Echipa de conducere
-      </div>
       <h2 className="font-playfair text-3xl sm:text-[2.25rem] font-bold text-neutral-800 tracking-tight mb-4 max-w-[560px]">
         Poveștile noastre
       </h2>
