@@ -3,6 +3,7 @@ import SEO from './SEO';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll';
+import { BookOpen } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const isVisible = useAnimateOnScroll();
@@ -48,6 +49,41 @@ const Hero: React.FC = () => {
             className="px-7 py-3 text-neutral-600 font-semibold text-sm rounded-md hover:text-neutral-800 transition-colors duration-200"
           >
             <span className="border-b border-neutral-300 pb-px">Alătură-te</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* ── Jurnalul Ioanei invite ── */}
+      <section
+        id="ioana-invite"
+        data-animate
+        className={`border-t border-neutral-200 bg-gradient-to-b from-primary-50/60 to-neutral-50 transition-all duration-700 ${
+          isVisible('ioana-invite')
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-6'
+        }`}
+      >
+        <div className="max-w-[860px] mx-auto px-6 sm:px-10 lg:px-16 py-14 sm:py-16 text-center">
+          <div className="inline-flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[3px] text-secondary-500 mb-5">
+            <BookOpen size={14} strokeWidth={2.5} />
+            Povestea Ioanei
+          </div>
+          <p
+            className="text-[22px] sm:text-[26px] lg:text-[28px] leading-[1.35] text-neutral-700 max-w-[640px] mx-auto mb-3"
+            style={{ fontFamily: 'Caveat, cursive' }}
+          >
+            Împărtășește cu oricine vrei să înțeleagă mai bine AEE — și{' '}
+            <span className="text-secondary-600 font-semibold">cu tine, dacă te regăsești</span>.
+          </p>
+          <p className="text-[14px] leading-[1.7] text-neutral-500 max-w-[520px] mx-auto mb-7">
+            O viață cu angioedem ereditar, citită pagină cu pagină — de la 10 la 65 de ani.
+          </p>
+          <Link
+            to="/jurnalul-ioanei"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-secondary-600 text-white font-bold text-sm rounded-md hover:bg-secondary-700 transition-all duration-200 hover:-translate-y-0.5 shadow-lifted"
+          >
+            Citește Jurnalul Ioanei
+            <span aria-hidden>→</span>
           </Link>
         </div>
       </section>

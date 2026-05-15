@@ -20,9 +20,12 @@ import AboutHAEi from './pages/AboutHAEi';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import AssociationBylaws from './pages/AssociationBylaws';
+import HaeDay from './pages/HaeDay';
 
 function HomePage() {
-  return <Hero />;
+  const today = new Date();
+  const isHaeDay = today.getMonth() === 4 && today.getDate() === 16;
+  return isHaeDay ? <HaeDay /> : <Hero />;
 }
 
 function App() {
@@ -51,6 +54,7 @@ function App() {
               <Route path="/politica-confidentialitate" element={<PrivacyPolicy />} />
               <Route path="/termeni-si-conditii" element={<TermsAndConditions />} />
               <Route path="/statutul-asociatiei" element={<AssociationBylaws />} />
+              <Route path="/jurnalul-ioanei" element={<HaeDay />} />
             </Routes>
           </main>
           <Footer />
