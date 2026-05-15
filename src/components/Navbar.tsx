@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
-import { ChevronDown, X, Menu } from 'lucide-react';
+import { ChevronDown, X, Menu, Download } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const resourcesRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,8 +20,12 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setDropdownOpen(false);
+      }
+      if (resourcesRef.current && !resourcesRef.current.contains(target)) {
+        setResourcesOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -29,12 +35,26 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     setIsOpen(false);
     setDropdownOpen(false);
+    setResourcesOpen(false);
   }, [location]);
 
   const mainLinks = [
     { to: '/despre', label: 'Despre Noi' },
     { to: '/comunitate', label: 'Comunitate' },
     { to: '/contact', label: 'Contact' },
+  ];
+
+  const resources = [
+    {
+      href: '/Ghid%20AEE.pdf',
+      label: 'Ghidul AEE',
+      desc: 'Informații generale despre boală',
+    },
+    {
+      href: '/Femeia%20%C8%99i%20HAE%20ghid.pdf',
+      label: 'Ghidul femeii cu AEE',
+      desc: 'Sarcină, tratament, advocacy',
+    },
   ];
 
   const aeeSubLinks = [
@@ -137,6 +157,47 @@ const Navbar: React.FC = () => {
               )}
             </div>
 
+            {/* Resurse Dropdown */}
+            <div className="relative" ref={resourcesRef}>
+              <button
+                onClick={() => setResourcesOpen(!resourcesOpen)}
+                className={`${linkBase} ${linkInactive} flex items-center gap-1`}
+              >
+                Resurse
+                <ChevronDown
+                  size={14}
+                  strokeWidth={2.5}
+                  className={`transition-transform duration-200 ${
+                    resourcesOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {resourcesOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-white rounded-2xl shadow-floating border border-neutral-200 py-2 z-50 animate-scale-in origin-top">
+                  <div className="px-4 py-2 mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-[2px] text-primary-500">
+                      Materiale de descărcat
+                    </span>
+                  </div>
+                  {resources.map((r) => (
+                    <a
+                      key={r.href}
+                      href={r.href}
+                      download
+                      className="flex items-start gap-3 px-4 py-2.5 mx-2 rounded-lg text-neutral-600 hover:bg-neutral-100 hover:text-neutral-800 transition-all duration-150"
+                    >
+                      <Download size={16} strokeWidth={2} className="mt-0.5 flex-shrink-0 text-primary-500" />
+                      <span className="flex-1">
+                        <span className="block text-sm font-semibold">{r.label}</span>
+                        <span className="block text-xs text-neutral-500 mt-0.5">{r.desc}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {mainLinks.slice(1).map((link) => (
               <Link
                 key={link.to}
@@ -196,6 +257,28 @@ const Navbar: React.FC = () => {
                 >
                   {link.label}
                 </Link>
+              ))}
+            </div>
+
+            {/* Mobile Resurse section */}
+            <div className="ml-4 mt-2 mb-2 border-l-2 border-primary-300 pl-2">
+              <p className="py-2 px-3 text-neutral-700 font-bold text-sm uppercase tracking-wider">
+                Resurse
+              </p>
+              {resources.map((r) => (
+                <a
+                  key={r.href}
+                  href={r.href}
+                  download
+                  className="flex items-start gap-2 py-2 px-3 text-sm rounded-lg text-neutral-500 hover:bg-neutral-100 hover:text-neutral-700 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Download size={14} strokeWidth={2} className="mt-1 flex-shrink-0 text-primary-500" />
+                  <span>
+                    <span className="block font-semibold">{r.label}</span>
+                    <span className="block text-xs text-neutral-400">{r.desc}</span>
+                  </span>
+                </a>
               ))}
             </div>
 
