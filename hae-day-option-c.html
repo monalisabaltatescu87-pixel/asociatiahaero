@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAE Day — Option C: Warm & Organic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary-50: #fef9ec;
+      --primary-100: #fceec5;
+      --primary-200: #f8dfa0;
+      --primary-300: #f0cb6a;
+      --primary-400: #e4b544;
+      --primary-500: #c9952e;
+      --primary-600: #9a7023;
+      --secondary-50: #f5f0f6;
+      --secondary-100: #e4d5e8;
+      --secondary-200: #cbaed3;
+      --secondary-300: #af87ba;
+      --secondary-400: #9668a2;
+      --secondary-500: #7a5186;
+      --secondary-600: #5c3d65;
+      --secondary-700: #3e2944;
+      --accent-50: #eef6f6;
+      --accent-200: #9dcdd1;
+      --accent-400: #5a9da4;
+      --accent-500: #467b81;
+      --neutral-50: #fdfcfa;
+      --neutral-100: #f7f5f0;
+      --neutral-200: #ede9e0;
+      --neutral-300: #ddd6c9;
+      --neutral-500: #958b7b;
+      --neutral-600: #6e6558;
+      --neutral-700: #4a4338;
+      --neutral-800: #2d2822;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--primary-50);
+      color: var(--neutral-800);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--primary-100); color: var(--neutral-800); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      background: linear-gradient(175deg, var(--primary-50) 0%, var(--primary-100) 55%, var(--primary-50) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Organic blobs */
+    .hero .blob-1 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,81,134,0.06) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero .blob-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(228,181,68,0.08) 0%, transparent 70%);
+      bottom: -80px;
+      left: -80px;
+      pointer-events: none;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    .hero .blob-3 {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(150,104,162,0.05) 0%, transparent 70%);
+      top: 30%;
+      left: 10%;
+      pointer-events: none;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--secondary-500);
+      background: var(--secondary-50);
+      border: 1px solid var(--secondary-200);
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease-out 0.2s forwards;
+    }
+
+    .hero-event {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease-out 0.35s forwards;
+    }
+
+    .hero-date {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--neutral-500);
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease-out 0.45s forwards;
+    }
+
+    .hero-tagline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.6s forwards;
+    }
+
+    .tagline-word {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 800;
+      color: var(--secondary-500);
+      position: relative;
+      line-height: 1;
+    }
+
+    .tagline-word::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--primary-400);
+      transform: scaleX(0);
+      transition: transform 0.4s ease-out;
+    }
+
+    .tagline-word:hover::after {
+      transform: scaleX(1);
+    }
+
+    .tagline-dot {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 800;
+      color: var(--primary-400);
+      line-height: 1;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--neutral-600);
+      max-width: 480px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.6s ease-out 0.8s forwards;
+    }
+
+    .hero-org {
+      margin-top: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--secondary-400);
+      opacity: 0;
+      animation: fadeUp 0.5s ease-out 1s forwards;
+    }
+
+    .hero-org .dot {
+      width: 5px;
+      height: 5px;
+      background: var(--primary-400);
+      border-radius: 50%;
+    }
+
+    /* ─── THEME SECTION ─── */
+    .theme-section {
+      padding: 80px 24px;
+      background: white;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin-bottom: 12px;
+    }
+
+    /* Diamond ornament */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .ornament .line { width: 40px; height: 1px; background: var(--primary-300); }
+    .ornament .diamond { width: 8px; height: 8px; background: var(--primary-400); transform: rotate(45deg); flex-shrink: 0; }
+
+    .theme-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .theme-card {
+      background: var(--neutral-50);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .theme-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .theme-card:hover {
+      background: var(--neutral-100);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(45,40,34,0.08);
+    }
+
+    .theme-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 24px;
+    }
+
+    .theme-card:nth-child(1) .theme-icon {
+      background: var(--secondary-50);
+      border: 2px solid var(--secondary-200);
+      color: var(--secondary-400);
+    }
+
+    .theme-card:nth-child(2) .theme-icon {
+      background: var(--primary-50);
+      border: 2px solid var(--primary-200);
+      color: var(--primary-500);
+    }
+
+    .theme-card:nth-child(3) .theme-icon {
+      background: var(--secondary-50);
+      border: 2px solid var(--secondary-200);
+      color: var(--secondary-400);
+    }
+
+    .theme-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--secondary-500);
+      margin-bottom: 12px;
+    }
+
+    .theme-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--neutral-600);
+    }
+
+    /* ─── AGENDA ─── */
+    .agenda-section {
+      padding: 80px 24px;
+      background: var(--primary-50);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agenda-section .bg-blob {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(150,104,162,0.04) 0%, transparent 70%);
+      top: 20%;
+      right: -80px;
+      pointer-events: none;
+    }
+
+    .agenda-timeline {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .agenda-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary-300), var(--secondary-200), var(--primary-300));
+    }
+
+    .agenda-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      position: relative;
+      opacity: 0;
+      transition: all 0.5s ease-out;
+    }
+
+    .agenda-item.visible {
+      opacity: 1;
+    }
+
+    .agenda-item:nth-child(odd) {
+      flex-direction: row;
+      padding-right: calc(50% + 28px);
+      text-align: right;
+      transform: translateX(-20px);
+    }
+
+    .agenda-item:nth-child(even) {
+      flex-direction: row-reverse;
+      padding-left: calc(50% + 28px);
+      text-align: left;
+      transform: translateX(20px);
+    }
+
+    .agenda-item.visible:nth-child(odd),
+    .agenda-item.visible:nth-child(even) {
+      transform: translateX(0);
+    }
+
+    /* Center dot */
+    .agenda-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary-400);
+      border: 3px solid var(--primary-100);
+      box-shadow: 0 0 0 2px var(--primary-300);
+      z-index: 1;
+    }
+
+    .agenda-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 22px;
+      border: 1px solid var(--neutral-200);
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .agenda-card:hover {
+      border-color: var(--secondary-200);
+      box-shadow: 0 4px 16px rgba(45,40,34,0.06);
+    }
+
+    .agenda-card .time {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--secondary-400);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .agenda-card .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-800);
+      margin-bottom: 4px;
+    }
+
+    .agenda-card .desc {
+      font-size: 13px;
+      color: var(--neutral-500);
+    }
+
+    /* ─── SPEAKERS ─── */
+    .speakers-section {
+      padding: 80px 24px;
+      background: white;
+    }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .speaker-card {
+      text-align: center;
+      padding: 28px 16px;
+      background: var(--neutral-50);
+      border-radius: 20px;
+      transition: all 0.4s;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .speaker-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .speaker-card:hover {
+      background: var(--neutral-100);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(45,40,34,0.06);
+    }
+
+    .speaker-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary-50), var(--secondary-100));
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary-300);
+      transition: transform 0.3s;
+    }
+
+    .speaker-card:hover .speaker-avatar {
+      transform: scale(1.06);
+    }
+
+    .speaker-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--neutral-800);
+      margin-bottom: 4px;
+    }
+
+    .speaker-role {
+      font-size: 12px;
+      color: var(--neutral-500);
+    }
+
+    /* ─── SPONSORS ─── */
+    .sponsors-section {
+      padding: 56px 24px;
+      background: var(--neutral-50);
+    }
+
+    .sponsors-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .sponsors-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--neutral-700);
+      margin-bottom: 10px;
+    }
+
+    .sponsors-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--primary-300);
+      border-radius: 4px;
+      margin: 0 auto;
+    }
+
+    .sponsors-grid {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .sponsor-logo {
+      width: 120px;
+      height: 56px;
+      border-radius: 14px;
+      background: white;
+      border: 1px solid var(--neutral-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--neutral-400);
+      transition: all 0.3s;
+    }
+
+    .sponsor-logo:hover {
+      border-color: var(--primary-300);
+      box-shadow: 0 4px 16px rgba(228,181,68,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ─── */
+    .brochure-footer {
+      padding: 32px 24px;
+      text-align: center;
+      background: var(--neutral-800);
+      color: var(--neutral-500);
+      font-size: 13px;
+    }
+
+    .brochure-footer a {
+      color: var(--primary-400);
+      text-decoration: none;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .theme-cards { grid-template-columns: 1fr; max-width: 400px; }
+      .speakers-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Collapse timeline to single column */
+      .agenda-timeline::before { left: 20px; }
+      .agenda-item::before { left: 20px; }
+      .agenda-item:nth-child(odd),
+      .agenda-item:nth-child(even) {
+        flex-direction: row;
+        padding-right: 0;
+        padding-left: 52px;
+        text-align: left;
+      }
+      .agenda-item:nth-child(odd) { transform: translateY(16px); }
+      .agenda-item:nth-child(even) { transform: translateY(16px); }
+      .agenda-item.visible:nth-child(odd),
+      .agenda-item.visible:nth-child(even) { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
+
+    <div class="hero-badge">16 Mai 2025 &middot; București</div>
+
+    <h1 class="hero-event">HAE Day 2025</h1>
+    <p class="hero-date">Ziua Internațională a Angioedemului Ereditar</p>
+
+    <div class="hero-tagline">
+      <span class="tagline-word">Rar</span>
+      <span class="tagline-dot">.</span>
+      <span class="tagline-word">Real</span>
+      <span class="tagline-dot">.</span>
+      <span class="tagline-word">Recunoscut</span>
+      <span class="tagline-dot">.</span>
+    </div>
+
+    <p class="hero-desc">Un eveniment dedicat conștientizării, educației și comunității — pentru ca nicio persoană afectată de AEE să nu se simtă singură.</p>
+
+    <div class="hero-org">
+      <span>Organizat de</span>
+      <span class="dot"></span>
+      <span>Asociația HAERO</span>
+    </div>
+  </section>
+
+  <!-- THEME -->
+  <section class="theme-section">
+    <div class="section-header">
+      <h2>Tema Evenimentului</h2>
+      <div class="ornament">
+        <span class="line"></span>
+        <span class="diamond"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="theme-cards">
+      <div class="theme-card" data-anim>
+        <div class="theme-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Rar</h3>
+        <p>Este o boală rară. Înseamnă să știm că există, să înțelegem ce este și cum se manifestă, să recunoaștem simptomele și nevoile specifice. Informarea este primul pas.</p>
+      </div>
+      <div class="theme-card" data-anim>
+        <div class="theme-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Real</h3>
+        <p>Dincolo de diagnostic sunt oameni reali, cu provocări reale: copii, mame, tați, familii. Viața de zi cu zi este afectată, iar impactul este concret, nu doar medical, ci și emoțional și social.</p>
+      </div>
+      <div class="theme-card" data-anim>
+        <div class="theme-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Recunoscut</h3>
+        <p>Conștientizarea face diferența. Vorbim deschis, educăm, împărtășim experiențe. Informăm nu doar publicul larg, ci și medici, prieteni și colegi, pentru ca boala să fie mai bine înțeleasă și recunoscută.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="agenda-section">
+    <div class="bg-blob"></div>
+    <div class="section-header">
+      <h2>Agenda</h2>
+      <div class="ornament">
+        <span class="line"></span>
+        <span class="diamond"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="agenda-timeline">
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">09:00 – 09:30</div>
+          <div class="title">Înregistrare & Cafea de bun venit</div>
+          <div class="desc">Primirea participanților și networking</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">09:30 – 10:00</div>
+          <div class="title">Deschiderea oficială</div>
+          <div class="desc">Cuvânt de bun venit din partea organizatorilor</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">10:00 – 11:00</div>
+          <div class="title">Sesiunea 1: Perspectiva Medicală</div>
+          <div class="desc">Noutăți în diagnosticul și tratamentul AEE</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">11:00 – 11:30</div>
+          <div class="title">Pauză de cafea</div>
+          <div class="desc">Networking și refreshments</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">11:30 – 12:30</div>
+          <div class="title">Sesiunea 2: Povești Reale</div>
+          <div class="desc">Experiențe ale pacienților și familiilor lor</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">12:30 – 13:30</div>
+          <div class="title">Prânz</div>
+          <div class="desc">Masă oferită de organizatori</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">13:30 – 14:30</div>
+          <div class="title">Sesiunea 3: Panel de Discuții</div>
+          <div class="desc">Medici, pacienți și reprezentanți instituționali</div>
+        </div>
+      </div>
+      <div class="agenda-item" data-anim>
+        <div class="agenda-card">
+          <div class="time">14:30 – 15:00</div>
+          <div class="title">Închidere & Concluzii</div>
+          <div class="desc">Rezumat și pașii următori pentru comunitate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section class="speakers-section">
+    <div class="section-header">
+      <h2>Speakerii Noștri</h2>
+      <div class="ornament">
+        <span class="line"></span>
+        <span class="diamond"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="speakers-grid">
+      <div class="speaker-card" data-anim>
+        <div class="speaker-avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="speaker-name">Dr. Nume Prenume</div>
+        <div class="speaker-role">Alergologie & Imunologie</div>
+      </div>
+      <div class="speaker-card" data-anim>
+        <div class="speaker-avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="speaker-name">Dr. Nume Prenume</div>
+        <div class="speaker-role">Medicină Internă</div>
+      </div>
+      <div class="speaker-card" data-anim>
+        <div class="speaker-avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="speaker-name">Nume Prenume</div>
+        <div class="speaker-role">Pacient & Advocate</div>
+      </div>
+      <div class="speaker-card" data-anim>
+        <div class="speaker-avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="speaker-name">Nume Prenume</div>
+        <div class="speaker-role">Reprezentant HAEi</div>
+      </div>
+      <div class="speaker-card" data-anim>
+        <div class="speaker-avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="speaker-name">Nume Prenume</div>
+        <div class="speaker-role">Psiholog Clinician</div>
+      </div>
+      <div class="speaker-card" data-anim>
+        <div class="speaker-avatar">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="speaker-name">Nume Prenume</div>
+        <div class="speaker-role">Director HAERO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="sponsors-section">
+    <div class="sponsors-header">
+      <h3>Parteneri & Sponsori</h3>
+      <div class="sponsors-divider"></div>
+    </div>
+    <div class="sponsors-grid">
+      <div class="sponsor-logo">Logo 1</div>
+      <div class="sponsor-logo">Logo 2</div>
+      <div class="sponsor-logo">Logo 3</div>
+      <div class="sponsor-logo">Logo 4</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="brochure-footer">
+    <p>&copy; 2025 Asociația HAERO &middot; <a href="#">asociatia.haero@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

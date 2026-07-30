@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Despre Noi — Variant B: Editorial Two-Column</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-400: #e4b544;
+    --primary-200: #f5d88a;
+    --primary-50: #fef9ec;
+    --accent-400: #5a9da4;
+    --secondary-400: #9668a2;
+    --neutral-50: #fdfcfa;
+    --neutral-100: #f7f5f0;
+    --neutral-200: #eae6dd;
+    --neutral-300: #d4cfc4;
+    --neutral-400: #a39d91;
+    --neutral-500: #857e72;
+    --neutral-600: #6e6558;
+    --neutral-700: #4a4338;
+    --neutral-800: #2d2822;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; background: var(--neutral-50); color: var(--neutral-800); }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(253,252,250,0.95); border-bottom: 1px solid var(--neutral-200);
+    height: 64px; display: flex; align-items: center; padding: 0 clamp(1rem, 4vw, 3rem);
+  }
+  nav .brand { font-size: 1.125rem; font-weight: 800; }
+  nav .brand small { display: block; font-size: 0.65rem; font-weight: 400; color: var(--neutral-500); letter-spacing: 0.08em; text-transform: uppercase; }
+  nav ul { list-style: none; display: flex; gap: 2rem; margin-left: auto; font-size: 0.85rem; font-weight: 600; }
+  nav ul a { text-decoration: none; color: var(--neutral-600); }
+
+  /* ── Hero: editorial two-column ── */
+  .about-hero {
+    padding-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+  }
+
+  .about-hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(3rem, 6vw, 6rem);
+    border-right: 1px solid var(--neutral-200);
+  }
+  .about-hero-left .eyebrow {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.25em; color: var(--neutral-400); margin-bottom: 1.5rem;
+  }
+  .about-hero-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+  }
+  .about-hero-left .rule { width: 48px; height: 1px; background: var(--primary-200); }
+
+  .about-hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(3rem, 6vw, 5rem);
+  }
+  .about-hero-right p {
+    font-size: 1.05rem; line-height: 1.9; color: var(--neutral-600); margin-bottom: 1.25rem;
+  }
+  .about-hero-right p strong { color: var(--neutral-800); }
+
+  /* ── Numbered pillars ── */
+  .numbered-section {
+    border-top: 1px solid var(--neutral-200);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 4rem clamp(1.5rem, 4vw, 3rem);
+  }
+  .numbered-section .section-eyebrow {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--neutral-400); margin-bottom: 2.5rem;
+  }
+
+  .numbered-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .numbered-item:last-child { border-bottom: none; }
+  .numbered-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--neutral-200);
+  }
+  .numbered-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .numbered-item .label-color {
+    display: inline-block;
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; margin-bottom: 0.5rem;
+  }
+  .numbered-item:nth-child(1) .label-color { color: var(--primary-400); }
+  .numbered-item:nth-child(2) .label-color { color: var(--accent-400); }
+  .numbered-item:nth-child(3) .label-color { color: var(--secondary-400); }
+  .numbered-item p {
+    font-size: 0.95rem; line-height: 1.85; color: var(--neutral-600);
+  }
+
+  /* ── CTA row ── */
+  .cta-row {
+    border-top: 1px solid var(--neutral-200);
+    padding: 3rem clamp(1.5rem, 4vw, 3rem);
+    display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;
+  }
+  .cta-row a {
+    display: inline-block; padding: 0.6rem 1.25rem;
+    font-size: 0.85rem; font-weight: 600; color: var(--neutral-600);
+    border: 1px solid var(--neutral-200); border-radius: 5px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .cta-row a:hover { border-color: var(--neutral-400); color: var(--neutral-800); }
+
+  footer {
+    background: var(--neutral-800); padding: 2rem clamp(1.5rem, 4vw, 3rem);
+    display: flex; justify-content: space-between; font-size: 0.8rem; color: rgba(255,255,255,0.35);
+  }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .about-hero { grid-template-columns: 1fr; min-height: auto; }
+    .about-hero-left { border-right: none; border-bottom: 1px solid var(--neutral-200); padding-bottom: 2.5rem; }
+    .numbered-item { grid-template-columns: 40px 1fr; gap: 1rem; }
+    .numbered-item .num { font-size: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">HAERO <small>Asociatia pentru Angioedem Ereditar</small></div>
+  <ul>
+    <li><a href="#">Despre Noi</a></li>
+    <li><a href="#">Ce este AEE?</a></li>
+    <li><a href="#">Comunitate</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero: two-column split -->
+<section class="about-hero">
+  <div class="about-hero-left">
+    <div class="eyebrow">Despre HAERO</div>
+    <h1>Despre Noi</h1>
+    <div class="rule"></div>
+  </div>
+  <div class="about-hero-right">
+    <p>
+      HAERO este o asociatie non-guvernamentala infiintata la Targu-Mures din dorinta de a crea
+      <strong>o comunitate a pacientilor cu Angioedem Ereditar din Romania</strong>,
+      o comunitate a carei voce sa devina vocea comuna a tuturor pacientilor cu aceasta boala rara.
+    </p>
+    <p>
+      Am pornit de la o convingere simpla: nimeni nu ar trebui sa se confrunte singur cu o boala rara.
+    </p>
+  </div>
+</section>
+
+<!-- Numbered pillars -->
+<section class="numbered-section">
+  <div class="section-eyebrow">Ce ne defineste</div>
+
+  <div class="numbered-item">
+    <div class="num">01</div>
+    <div>
+      <div class="label-color">Suport</div>
+      <h3>Ascultam fiecare voce</h3>
+      <p>Reprezentam un cadru organizat in care pacientii pot sa-si exprime ideile, experientele, fricile si bucuriile. Povestea ta merita sa fie ascultata.</p>
+    </div>
+  </div>
+
+  <div class="numbered-item">
+    <div class="num">02</div>
+    <div>
+      <div class="label-color">Informare</div>
+      <h3>Reducem intarzierea diagnosticului</h3>
+      <p>Ne propunem sa informam atat pacientii cat si medicii, sa facem cunoscuta aceasta boala rara, intrucat riscul unui diagnostic gresit sau tardiv poate fi fatal.</p>
+    </div>
+  </div>
+
+  <div class="numbered-item">
+    <div class="num">03</div>
+    <div>
+      <div class="label-color">Comunitate</div>
+      <h3>Construim impreuna</h3>
+      <p>Crestem o comunitate in care increderea primeaza, lucrand impreuna pentru cresterea calitatii vietii pacientilor cu angioedem ereditar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA row -->
+<div class="cta-row">
+  <a href="#">Misiunea noastra</a>
+  <a href="#">Ce este AEE</a>
+  <a href="#">Comunitate</a>
+</div>
+
+<footer>
+  <span>&copy; 2026 Asociatia HAERO</span>
+  <span><a href="#">Confidentialitate</a> &middot; <a href="#">Termeni</a></span>
+</footer>
+
+</body>
+</html>

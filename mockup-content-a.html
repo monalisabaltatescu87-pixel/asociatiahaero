@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ce este AEE — Content A: Magazine Article</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-400: #e4b544;
+    --primary-500: #c9952e;
+    --primary-100: #fceec5;
+    --primary-200: #f5d88a;
+    --accent-400: #5a9da4;
+    --accent-50: #eef6f6;
+    --secondary-400: #9668a2;
+    --secondary-50: #f5f0f6;
+    --neutral-50: #fdfcfa;
+    --neutral-100: #f7f5f0;
+    --neutral-200: #eae6dd;
+    --neutral-300: #d4cfc4;
+    --neutral-400: #a39d91;
+    --neutral-500: #857e72;
+    --neutral-600: #6e6558;
+    --neutral-700: #4a4338;
+    --neutral-800: #2d2822;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--neutral-50);
+    color: var(--neutral-800);
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(253,252,250,0.95);
+    border-bottom: 1px solid var(--neutral-200);
+    height: 64px;
+    display: flex; align-items: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+  }
+  nav .brand { font-size: 1.125rem; font-weight: 800; }
+  nav .brand small {
+    display: block; font-size: 0.65rem; font-weight: 400;
+    color: var(--neutral-500); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  nav ul {
+    list-style: none; display: flex; gap: 2rem;
+    margin-left: auto; font-size: 0.85rem; font-weight: 600;
+  }
+  nav ul a { text-decoration: none; color: var(--neutral-600); }
+
+  /* ── Article Header ── */
+  .article-header {
+    padding-top: calc(64px + 4rem);
+    padding-bottom: 3rem;
+    max-width: 740px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+
+  .article-header .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--neutral-500);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+  .article-header .back:hover { color: var(--neutral-800); }
+
+  .article-header .category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-400);
+    margin-bottom: 1rem;
+  }
+
+  .article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+  }
+
+  .article-header .lead {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--neutral-600);
+  }
+
+  /* ── Article body ── */
+  .article-body {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--neutral-600);
+    margin-bottom: 1.5rem;
+  }
+  .article-body p strong {
+    color: var(--neutral-800);
+    font-weight: 700;
+  }
+
+  /* Drop cap */
+  .article-body .drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.6rem;
+    margin-top: 0.15rem;
+    color: var(--neutral-800);
+  }
+
+  /* Section heading */
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--neutral-200);
+  }
+
+  .article-body h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Pull quote — breaks out of column */
+  .pull-quote {
+    margin: 3rem -3rem;
+    padding: 2.5rem 3rem;
+    border-left: 3px solid var(--primary-400);
+    background: var(--neutral-100);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--neutral-700);
+    margin-bottom: 0;
+  }
+
+  /* Callout box */
+  .callout {
+    margin: 2rem 0;
+    padding: 1.5rem 1.75rem;
+    border-left: 3px solid var(--accent-400);
+    background: var(--accent-50);
+    border-radius: 0 8px 8px 0;
+  }
+  .callout .callout-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-400);
+    margin-bottom: 0.5rem;
+  }
+  .callout p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--neutral-700);
+    margin-bottom: 0.75rem;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* Type cards — inline with text flow */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .type-card {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .type-card:last-child { border-bottom: none; }
+  .type-card .type-num {
+    width: 56px; height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    border-radius: 8px;
+  }
+  .type-card:nth-child(1) .type-num { background: var(--primary-100); color: var(--primary-500); }
+  .type-card:nth-child(2) .type-num { background: var(--secondary-50); color: var(--secondary-400); }
+  .type-card:nth-child(3) .type-num { background: var(--accent-50); color: var(--accent-400); }
+  .type-card .type-content h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.15rem;
+  }
+  .type-card .type-content .pct {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-500);
+    margin-bottom: 0.5rem;
+  }
+  .type-card .type-content p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+
+  /* Symptom list — editorial */
+  .symptom-list {
+    margin: 2rem 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .symptom-item {
+    break-inside: avoid;
+    padding: 0.6rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--neutral-700);
+    line-height: 1.6;
+  }
+  .symptom-item .dot {
+    flex-shrink: 0;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--primary-400);
+    margin-top: 0.45rem;
+  }
+
+  /* Navigation footer */
+  .article-nav {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    border-top: 1px solid var(--neutral-200);
+  }
+  .article-nav .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--neutral-400);
+    margin-bottom: 1rem;
+  }
+  .article-nav .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .article-nav .links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--neutral-600);
+    border: 1px solid var(--neutral-200);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .article-nav .links a:hover {
+    border-color: var(--neutral-400);
+    color: var(--neutral-800);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--neutral-800);
+    padding: 2rem clamp(1.5rem, 4vw, 3rem);
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; color: rgba(255,255,255,0.35);
+  }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .pull-quote { margin: 2rem -0.5rem; padding: 1.5rem; }
+    .symptom-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">HAERO <small>Asociatia pentru Angioedem Ereditar</small></div>
+  <ul>
+    <li><a href="#">Despre Noi</a></li>
+    <li><a href="#">Ce este AEE?</a></li>
+    <li><a href="#">Comunitate</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Article Header -->
+<header class="article-header">
+  <a href="#" class="back">&larr; Inapoi</a>
+  <div class="category">Ghid Medical</div>
+  <h1>Ghid despre Angioedemul Ereditar</h1>
+  <p class="lead">
+    Angioedemul Ereditar (AEE) este o afectiune genetica foarte rara si potential fatala, care apare la aproximativ 1 din 10.000 pana la 1 din 50.000 de persoane.
+  </p>
+</header>
+
+<!-- Article Body -->
+<article class="article-body">
+
+  <p class="drop-cap">Persoanele cu AEE sufera adesea de dureri abdominale insuportabile, greata si varsaturi cauzate de umflarea peretelui intestinal. Umflarea cailor respiratorii sau a gatului este deosebit de periculoasa, deoarece poate cauza moartea prin sufocare.</p>
+
+  <p>Majoritatea persoanelor cu AEE au un defect in gena care controleaza o proteina importanta numita <strong>C1-inhibitor</strong>, care se gaseste in plasma — partea lichida a sangelui. Din cauza acestui defect genetic, C1-inhibitorul la persoanele cu AEE nu isi indeplineste functia de a controla interactiunile biologice complexe din plasma.</p>
+
+  <p>Necontrolate, aceste interactiuni produc o substanta numita <strong>bradikinina</strong>, care provoaca umflarea prin permiterea fluidelor plasmatice sa patrunda in tesuturile moi ale diverselor parti ale corpului.</p>
+
+  <!-- Pull quote breaking out -->
+  <div class="pull-quote">
+    <p>Umflarea legata de AEE nu este aceeasi cu umflarea cauzata de alergii. Antihistaminicele, corticosteroizii si epinefrina sunt ineficiente in tratarea AEE.</p>
+  </div>
+
+  <!-- Callout -->
+  <div class="callout">
+    <div class="callout-title">Important de stiut</div>
+    <p>Fara tratament, atacurile pot dura intre <strong>doua si cinci zile</strong>. Frecventa si severitatea pot varia dramatic intre persoane.</p>
+    <p>Absenta unui istoric familial nu exclude diagnosticul. Pana la <strong>25% din cazuri</strong> rezulta dintr-o mutatie spontana. Copiii au <strong>50% sanse</strong> sa mosteneasca AEE daca un parinte are afectiunea.</p>
+  </div>
+
+  <h2>Tipurile de AEE</h2>
+
+  <p>Exista mai multe forme de Angioedem Ereditar, clasificate in functie de nivelul si functia C1-inhibitorului.</p>
+
+  <div class="type-grid">
+    <div class="type-card">
+      <div class="type-num">I</div>
+      <div class="type-content">
+        <h4>AEE Tip I</h4>
+        <div class="pct">85% din persoanele cu AEE</div>
+        <p>Cea mai frecventa forma, caracterizata prin niveluri cantitative scazute de C1-inhibitor.</p>
+      </div>
+    </div>
+    <div class="type-card">
+      <div class="type-num">II</div>
+      <div class="type-content">
+        <h4>AEE Tip II</h4>
+        <div class="pct">15% din persoanele cu AEE</div>
+        <p>Niveluri normale sau crescute de C1-inhibitor, dar cu functionalitate redusa. Proteina este produsa dar nu functioneaza corect.</p>
+      </div>
+    </div>
+    <div class="type-card">
+      <div class="type-num">N</div>
+      <div class="type-content">
+        <h4>AEE cu C1-inhibitor normal</h4>
+        <div class="pct">Forma rara</div>
+        <p>Atat nivelul cat si functia C1-inhibitorului sunt normale. Diagnosticul este dificil si necesita teste genetice specializate.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Simptomele AEE</h2>
+
+  <p>AEE provoaca simptome de angioedem (umflare) in diverse parti ale corpului:</p>
+
+  <div class="symptom-list">
+    <div class="symptom-item"><span class="dot"></span> Maini si picioare</div>
+    <div class="symptom-item"><span class="dot"></span> Fata (buze, pleoape)</div>
+    <div class="symptom-item"><span class="dot"></span> Gat si cai respiratorii</div>
+    <div class="symptom-item"><span class="dot"></span> Peretele intestinal</div>
+    <div class="symptom-item"><span class="dot"></span> Organe genitale</div>
+    <div class="symptom-item"><span class="dot"></span> Peretele vezicii urinare</div>
+  </div>
+
+  <h2>Semnele de alarma</h2>
+
+  <p>Daca observi oricare dintre urmatoarele semne, consulta un medic specialist:</p>
+
+  <div class="callout">
+    <div class="callout-title">Cand sa ceri ajutor imediat</div>
+    <p><strong>Umflarea gatului sau a cailor respiratorii</strong> — poate pune viata in pericol si necesita tratament de urgenta.</p>
+    <p><strong>Dureri abdominale severe recurente</strong> — pot fi confundate cu alte afectiuni si intarzie diagnosticul corect.</p>
+    <p><strong>Episoade repetate de umflare fara cauza alergica identificata</strong> — un indiciu important pentru AEE.</p>
+  </div>
+
+</article>
+
+<!-- Article navigation -->
+<nav class="article-nav">
+  <div class="eyebrow">Citeste in continuare</div>
+  <div class="links">
+    <a href="#">Tipurile si cauzele AEE</a>
+    <a href="#">Factori declansatori</a>
+    <a href="#">Diagnosticarea AEE</a>
+    <a href="#">Tratamente disponibile</a>
+    <a href="#">AEE si copiii</a>
+    <a href="#">Femei si sarcina</a>
+    <a href="#">Calatorii cu AEE</a>
+  </div>
+</nav>
+
+<footer>
+  <span>&copy; 2026 Asociatia HAERO</span>
+  <span><a href="#">Confidentialitate</a> &middot; <a href="#">Termeni</a></span>
+</footer>
+
+</body>
+</html>
